@@ -1,0 +1,13 @@
+2018-07-08 12:43:36,028 WARN b.e.f.a.Calculator [main] Points (3.0, 3.0); (6.0, 6.0); (9.0, 9.0) doesn't form a triangle 
+2018-07-08 18:41:32,644 WARN b.e.f.r.Reader [main] Incorrect expression in line 3 
+2018-07-08 18:41:32,650 WARN b.e.f.r.Reader [main] Line 4 is empty 
+2018-07-08 18:43:50,954 WARN b.e.f.r.Reader [main] Incorrect expression in line 3 
+2018-07-08 18:43:50,959 WARN b.e.f.r.Reader [main] Line 4 is empty 
+2018-07-09 01:01:12,938 WARN b.e.f.r.Reader [main] Incorrect expression in line 3 
+2018-07-09 01:01:12,947 WARN b.e.f.r.Reader [main] Line 4 is empty 
+2018-07-09 01:02:46,029 WARN b.e.f.r.Reader [main] Incorrect expression in line 3 
+2018-07-09 01:02:46,035 WARN b.e.f.r.Reader [main] Line 4 is empty 
+2018-07-09 01:02:46,086 WARN b.e.f.r.Reader [main] Incorrect expression in line 3 
+2018-07-09 01:02:46,144 WARN b.e.f.r.Reader [main] Line 4 is empty 
+2018-07-09 02:22:16,230 WARN b.e.f.r.Reader [main] Incorrect expression in line 3 
+2018-07-09 02:22:16,236 WARN b.e.f.r.Reader [main] Line 4 is empty 

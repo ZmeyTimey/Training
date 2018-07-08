@@ -3,12 +3,12 @@ package by.epam.figures.controller;
 import by.epam.figures.action.Calculator;
 import by.epam.figures.creator.FigureCreator;
 import by.epam.figures.entity.Triangle;
-import by.epam.figures.exception.FileIsAbsentException;
+import by.epam.figures.exception.FileReadingException;
 import by.epam.figures.exception.PointsFormLineException;
 import by.epam.figures.parser.LineParser;
-import by.epam.figures.reader.PathSearcher;
 import by.epam.figures.reader.Reader;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,15 +19,15 @@ import java.util.List;
 public class Controller {
     public static void main(String[] args) {
 
-        Reader reader = new Reader(PathSearcher.getDirectory() + "\\Data.txt");
+        Reader reader = new Reader("/Data.txt");
         List<Triangle> trianglesList = new ArrayList<>();
         LineParser parser = new LineParser();
         Calculator calculator = new Calculator();
 
         try {
             reader.readFile();
-        } catch (FileIsAbsentException e) {
-            System.out.println(e.getMessage());
+        } catch (FileReadingException ex) {
+            System.out.println(ex.getMessage());
         }
 
             List<String> lineList = reader.getLines();

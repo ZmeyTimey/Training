@@ -1,13 +1,16 @@
 package by.epam.figures.reader;
 
-import by.epam.figures.exception.EmptyLineException;
-import by.epam.figures.exception.FileIsAbsentException;
-import by.epam.figures.exception.IncorrectLineException;
-import by.epam.figures.exception.LineReadingException;
+import by.epam.figures.exception.*;
 import by.epam.figures.validator.ReadingValidator;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -20,9 +23,11 @@ import java.util.List;
  */
 public class Reader {
 
-    private List<String> lines = new ArrayList<>();
+    private static final Logger LOGGER = LogManager.getLogger(Reader.class);
+
     private int lineCounter;
     private String filePath;
+    private List<String> lines = new ArrayList<>();
 
     public Reader(String path) {
         filePath = path;
@@ -33,19 +38,28 @@ public class Reader {
     }
 
 
-    public void readFile() throws FileIsAbsentException {
+    public void readFile() throws FileReadingException {
 
         lineCounter = 0;
+        URI filePathURI;
+
+        try {
+            URL resource = Reader.class.getResource(filePath);
+            filePathURI = resource.toURI();
+
+        } catch(URISyntaxException ex) {
+            throw new IncorrectFilePathException("Incorrect path to file!");
+        }
 
         try {
 
-            Files.lines(Paths.get(filePath),
+            Files.lines(Paths.get(filePathURI),
                     StandardCharsets.UTF_8).forEach(line -> {
                 try {
                     addLine(line);
 
                 } catch (LineReadingException ex) {
-                    System.out.println(ex.getMessage());
+                    LOGGER.log(Level.WARN, ex.getMessage());
                 }
             });
 

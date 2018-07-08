@@ -6,7 +6,7 @@ import java.io.IOException;
  * Created by Тимей on 04.07.2018.
  *
  */
-public class FileIsAbsentException extends Exception {
+public class FileIsAbsentException extends FileReadingException {
     public FileIsAbsentException() {
     }
 
