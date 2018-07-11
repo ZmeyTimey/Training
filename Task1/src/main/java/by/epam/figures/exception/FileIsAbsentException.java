@@ -1,10 +1,7 @@
 package by.epam.figures.exception;
 
-import java.io.IOException;
-
 /**
- * Created by Тимей on 04.07.2018.
- *
+ * {@link EmptyLineException} is thrown when a file is not found by {@link by.epam.figures.reader.Reader}.
  */
 public class FileIsAbsentException extends FileReadingException {
     public FileIsAbsentException() {

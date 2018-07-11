@@ -1,34 +1,45 @@
-package validator;
+package by.epam.figures.validator;
 
-import by.epam.figures.creator.FigureCreator;
 import by.epam.figures.entity.Point2D;
-import by.epam.figures.validator.TriangleValidator;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.*;
-
 /**
- * Created by Тимей on 06.07.2018.
- *
+ * {@link TriangleValidatorTest} is a test for class {@link TriangleValidator}.
  */
 public class TriangleValidatorTest {
 
-    Point2D pointA1 = FigureCreator.createPoint(2.0, 3.0);
-    Point2D pointB1 = FigureCreator.createPoint(4.0, 1.0);
-    Point2D pointC1 = FigureCreator.createPoint(-1.0, -2.0);
+    private static final Logger LOGGER = LogManager.getLogger(TriangleValidatorTest.class);
 
-    Point2D pointA2 = FigureCreator.createPoint(1.0, 1.0);
-    Point2D pointB2 = FigureCreator.createPoint(3.0, 3.0);
-    Point2D pointC2 = FigureCreator.createPoint(9.0, 9.0);
+    @DataProvider(name = "test1")
+    public static Object[][] typesOfTriangles() {
+        return new Object[][]
+                {{new Point2D(2.0, 3.0),
+                new Point2D(4.0, 1.0),
+                new Point2D(-1.0, -2.0)},
 
-    @Test
-    public void PointsFormATriangle() {
-        Assert.assertEquals(true, TriangleValidator.pointsFormATriangle(pointA1, pointB1, pointC1));
+                {new Point2D(1.0, 1.0),
+                new Point2D(3.0, 3.0),
+                new Point2D(9.0, 9.0)}};
     }
 
-    @Test
-    public void PointsFormALine() {
-        Assert.assertEquals(false, TriangleValidator.pointsFormATriangle(pointA2, pointB2, pointC2));
-    }
+        @Test (dataProvider = "test1")
+        public void PointsFormATriangle (Point2D pointA, Point2D pointB, Point2D pointC) {
+
+            LOGGER.log(Level.DEBUG, "Is line correct test is started with incoming data:\n"
+                    + pointA + "\n" + pointB + "\n" + pointC);
+
+            try {
+                Assert.assertTrue(TriangleValidator.pointsFormATriangle(pointA, pointB, pointC));
+                LOGGER.log(Level.DEBUG, "Points form a triangle");
+            } catch(AssertionError error) {
+                LOGGER.log(Level.DEBUG, "Points form a line");
+            }
+
+            LOGGER.log(Level.DEBUG, "The test is complete");
+        }
 }

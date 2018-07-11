@@ -3,8 +3,7 @@ package by.epam.figures.validator;
 import by.epam.figures.entity.Point2D;
 
 /**
- * Created by Тимей on 29.06.2018.
- *
+ * {@link TriangleValidator} checks are three points form a triangle or they are on one line.
  */
 public class TriangleValidator {
 

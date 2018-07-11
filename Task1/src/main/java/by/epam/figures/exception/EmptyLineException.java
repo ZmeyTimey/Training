@@ -1,8 +1,7 @@
 package by.epam.figures.exception;
 
 /**
- * Created by Тимей on 05.07.2018.
- *
+ * {@link EmptyLineException} is thrown when a line which is being read is empty.
  */
 public class EmptyLineException extends LineReadingException {
     public EmptyLineException() {

@@ -1,5 +1,8 @@
 package by.epam.figures.exception;
 
+/**
+ * {@link FileReadingException} includes exceptions which emerge during reading from file.
+ */
 public class FileReadingException extends Exception {
     public FileReadingException() {
     }

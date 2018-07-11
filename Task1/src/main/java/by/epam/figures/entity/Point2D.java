@@ -1,8 +1,7 @@
 package by.epam.figures.entity;
 
 /**
- * Created by Тимей on 29.06.2018.
- *
+ * An {@link Point2D} object contains the coordinates x and y related to a single point.
  */
 public class Point2D {
 
@@ -32,7 +31,7 @@ public class Point2D {
 
     @Override
     public String toString() {
-        return getClass().getName() + ": x = " + coordinateX + " y = " + coordinateY;
+        return "Point: x = " + coordinateX + " y = " + coordinateY;
     }
 
     @Override

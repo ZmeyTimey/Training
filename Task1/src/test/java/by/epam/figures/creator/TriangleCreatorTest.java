@@ -12,12 +12,11 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 /**
- * Created by Тимей on 06.07.2018.
- *
+ * {@link TriangleCreatorTest} is a test for {@link PointCreator} and {@link TriangleCreator} classes.
  */
-public class FigureCreatorTest {
+public class TriangleCreatorTest {
 
-    private static final Logger LOGGER = LogManager.getLogger(ReaderTest.class);
+    private static final Logger LOGGER = LogManager.getLogger(TriangleCreatorTest.class);
 
     @DataProvider(name = "test1")
     public static Object[][] coordinates() {
@@ -32,28 +31,39 @@ public class FigureCreatorTest {
                         {new Point2D(1.0, 1.0), new Point2D(3.0, 3.0), new Point2D(9.0, 9.0)}};
     }
 
+    @Test (dataProvider = "test1")
+    public void testCreatePoint(double x, double y) {
+
+        LOGGER.log(Level.DEBUG, "Point creating test is started with incoming data:\n"
+                + "coordinate X = " + x + ", coordinate Y = " + y);
+
+        Point2D point = PointCreator.createPoint(x, y);
+
+        Assert.assertEquals(x, point.getX());
+        Assert.assertEquals(y, point.getY());
+
+        LOGGER.log(Level.DEBUG, "The test is complete");
+    }
+
     @Test (dataProvider = "test2")
     public void testCreateTriangle(Point2D pointA, Point2D pointB, Point2D pointC) {
 
+        LOGGER.log(Level.DEBUG, "Triangle creating test is started with incoming data:\n"
+                + "A = " + pointA + "; B = " + pointB + "; C = " + pointC);
+
         try {
-            Triangle triangle = FigureCreator.createTriangle(pointA, pointB, pointC);
+            Triangle triangle = TriangleCreator.createTriangle(pointA, pointB, pointC);
 
             Assert.assertEquals(pointA, triangle.getPointA());
             Assert.assertEquals(pointB, triangle.getPointB());
             Assert.assertEquals(pointC, triangle.getPointC());
 
+            LOGGER.log(Level.DEBUG, "Triangle is successfully created");
+
         } catch (PointsFormLineException ex) {
-            LOGGER.log(Level.WARN, ex.getMessage());
+            LOGGER.log(Level.ERROR, ex.getMessage());
         }
-    }
 
-    @Test (dataProvider = "test1")
-    public void testCreatePoint(double x, double y) {
-
-        Point2D point = FigureCreator.createPoint(x, y);
-
-        Assert.assertEquals(x, point.getX());
-        Assert.assertEquals(y, point.getY());
-
+        LOGGER.log(Level.DEBUG, "The test is complete");
     }
 }

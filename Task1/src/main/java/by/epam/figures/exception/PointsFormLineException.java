@@ -1,8 +1,8 @@
 package by.epam.figures.exception;
 
 /**
- * Created by Тимей on 04.07.2018.
- *
+ * {@link PointsFormLineException} is thrown when three points which are received to
+ * {@link by.epam.figures.creator.TriangleCreator} are on one line.
  */
 public class PointsFormLineException extends Exception {
     public PointsFormLineException() {

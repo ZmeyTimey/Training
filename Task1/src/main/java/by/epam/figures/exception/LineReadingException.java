@@ -1,8 +1,7 @@
 package by.epam.figures.exception;
 
 /**
- * Created by Тимей on 05.07.2018.
- *
+ * {@link LineReadingException} includes exceptions which emerge during reading a line.
  */
 public class LineReadingException extends Exception {
     public LineReadingException() {

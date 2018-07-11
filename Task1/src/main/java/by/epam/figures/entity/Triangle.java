@@ -2,8 +2,7 @@ package by.epam.figures.entity;
 
 
 /**
- * Created by Тимей on 29.06.2018.
- *
+ * An {@link Triangle} object three {@link Point2D} objects which form a triangle.
  */
 public class Triangle {
 
@@ -43,7 +42,7 @@ public class Triangle {
 
     @Override
     public String toString() {
-        return getClass().getName() + ": ("
+        return "Triangle: ("
                 + pointA.getX() + ", " + pointA.getY() + ") ("
                 + pointB.getX() + ", " + pointB.getY() + ") ("
                 + pointC.getX() + ", " + pointC.getY() + ")";

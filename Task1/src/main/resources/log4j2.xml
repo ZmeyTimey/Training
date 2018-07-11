@@ -2,29 +2,30 @@
 <Configuration>
 
     <Appenders>
-        <File name="file" fileName="log.txt">
+        <Console name="Console">
+            <PatternLayout>
+                <Pattern>%d %p %c{2} [%t] %l %m%n"</Pattern>
+            </PatternLayout>
+        </Console>
+
+        <File name="File" fileName="logs/appTest.log">
             <PatternLayout>
                 <Pattern>%d %p %c{1.} [%t] %m %ex%n</Pattern>
             </PatternLayout>
         </File>
 
-        <File name="file2" fileName="log2.txt">
-            <MarkerFilter marker="fileOnly" onMatch="DENY" onMismatch="ACCEPT"/>
+        <File name="File2" fileName="logs/appTest2.log">
             <PatternLayout>
-                <Pattern>%date{dd.MM.yyyy HH:mm:ss,SSS} %5p %logger
-                    %m%n" /></Pattern>
+                <Pattern>%d %p %c{2} [%t] %l %m%n"</Pattern>
             </PatternLayout>
         </File>
     </Appenders>
 
     <Loggers>
-        <Logger name="logger" level="debug" additivity="true">
-            <AppenderRef ref="file2"/>
-        </Logger>
-
-        <!-- Root Logger -->
-        <Root level="all">
-            <AppenderRef ref="file"/>
+        <Root level="trace">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="File"/>
+            <AppenderRef ref="File2" level="info"/>
         </Root>
     </Loggers>
 

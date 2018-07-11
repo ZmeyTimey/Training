@@ -6,9 +6,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Created by Тимей on 05.07.2018.
- *
+ * {@link ReadingValidator} has methods which checks a line is empty and id it's valid.
  */
+
 public class ReadingValidator {
 
     public static boolean lineIsCorrect(String line) {
