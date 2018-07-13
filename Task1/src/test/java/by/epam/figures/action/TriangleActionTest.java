@@ -3,25 +3,26 @@ package by.epam.figures.action;
 import by.epam.figures.entity.Point2D;
 import by.epam.figures.entity.Triangle;
 import by.epam.figures.exception.OutOfDoubleRangeException;
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import static jdk.nashorn.internal.objects.Global.Infinity;
-
 /**
- * {@link TriangleActionTest} is a test for class {@link TriangleAction}.
+ * {@link TriangleActionTest} is a test for {@link TriangleAction} class.
  */
 public class TriangleActionTest {
-
+    /**
+     * A coefficient that uses in rounding of numbers.
+     */
     private static final int ROUND_COEFFICIENT = 4;
-    private static final Logger LOGGER = LogManager.getLogger(TriangleActionTest.class);
-
+    /**
+     * An object of testing class.
+     */
     private TriangleAction action = new TriangleAction();
 
+    /**
+     * @return triangles and their perimeters.
+     */
     @DataProvider(name = "test1")
     public static Object[][] perimeters() {
         return new Object[][]
@@ -32,14 +33,30 @@ public class TriangleActionTest {
                 {35.2315, new Triangle(
                         new Point2D(6.0, 3.0),
                         new Point2D(6.0, 9.0),
-                        new Point2D(-8.0, 3.0))},
-                {Infinity, new Triangle(
-                        new Point2D(-1.6e-323, 2.1e+201),
-                        new Point2D(1.6, 6.1),
-                        new Point2D(5.6, 0.1))}};
+                        new Point2D(-8.0, 3.0))}};
     }
 
+    /**
+     * @return triangles with points that have out of double type range
+     * coordinates.
+     */
     @DataProvider(name = "test2")
+    public static Object[][] perimetersOutOfDouble() {
+        return new Object[][]
+                {{new Triangle(
+                        new Point2D(-1.6e-323, 2.1e+201),
+                        new Point2D(1.6, 6.1),
+                        new Point2D(5.6, 0.1))},
+                {new Triangle(
+                        new Point2D(1.8, 2.0e-180),
+                        new Point2D(1.6, 6.0e+180),
+                        new Point2D(-5.6e+180, 0.1))}};
+    }
+
+    /**
+     * @return triangles and their square values.
+     */
+    @DataProvider(name = "test3")
     public static Object[][] squares() {
         return new Object[][]
                 {{8.0, new Triangle(
@@ -49,129 +66,237 @@ public class TriangleActionTest {
                 {42.0, new Triangle(
                         new Point2D(6.0, 3.0),
                         new Point2D(6.0, 9.0),
-                        new Point2D(-8.0, 3.0))},
-                {Infinity, new Triangle(
-                        new Point2D(-1.6e-323, 2.1e+201),
-                        new Point2D(1.6, 6.1),
-                        new Point2D(5.6, 0.1))}};
+                        new Point2D(-8.0, 3.0))}};
     }
 
-    @DataProvider(name = "test3")
-    public static Object[][] typesOfTriangles() {
+    /**
+     * @return triangles with points that have out of double type range
+     * coordinates.
+     */
+    @DataProvider(name = "test4")
+    public static Object[][] squaresOutOfDouble() {
+        return new Object[][]
+                {{new Triangle(
+                        new Point2D(-1.6e-323, 2.1e+201),
+                        new Point2D(1.6, 6.1),
+                        new Point2D(5.6, 0.1))},
+                {new Triangle(
+                        new Point2D(1.8, 2.0e-180),
+                        new Point2D(1.6, 6.0e+180),
+                        new Point2D(-5.6e+180, 0.1))}};
+    }
+
+    /**
+     * @return four triangles of different types and a boolean value
+     * indicating whether each of them is right.
+     */
+    @DataProvider(name = "test5")
+    public static Object[][] typesOfTrianglesRight() {
         return new Object[][]
                 {{new Triangle(
                         new Point2D(2.0, 3.0),
                         new Point2D(4.0, 1.0),
-                        new Point2D(-1.0, -2.0))},
+                        new Point2D(-1.0, -2.0)), false},
                 {new Triangle(
                         new Point2D(6.0, 3.0),
                         new Point2D(6.0, 9.0),
-                        new Point2D(-8.0, 3.0))},
+                        new Point2D(-8.0, 3.0)), true},
                 {new Triangle(
                         new Point2D(4.0, 5.0),
                         new Point2D(7.0, 1.0),
-                        new Point2D(3.0, -6.0))},
+                        new Point2D(3.0, -6.0)), false},
                 {new Triangle(
                         new Point2D(2.0, 0.0),
                         new Point2D(4.0, 0.0),
-                        new Point2D(3.0, Math.sqrt(3)))}};
+                        new Point2D(3.0, Math.sqrt(3))), false}};
     }
 
+    /**
+     * @return four triangles of different types and a boolean value
+     * indicating whether each of them is oxygon.
+     */
+    @DataProvider(name = "test6")
+    public static Object[][] typesOfTrianglesOxygon() {
+        return new Object[][]
+                {{new Triangle(
+                        new Point2D(2.0, 3.0),
+                        new Point2D(4.0, 1.0),
+                        new Point2D(-1.0, -2.0)), true},
+                {new Triangle(
+                        new Point2D(6.0, 3.0),
+                        new Point2D(6.0, 9.0),
+                        new Point2D(-8.0, 3.0)), false},
+                {new Triangle(
+                        new Point2D(4.0, 5.0),
+                        new Point2D(7.0, 1.0),
+                        new Point2D(3.0, -6.0)), false},
+                {new Triangle(
+                        new Point2D(2.0, 0.0),
+                        new Point2D(4.0, 0.0),
+                        new Point2D(3.0, Math.sqrt(3))), true}};
+    }
+    /**
+     * @return four triangles of different types and a boolean value
+     * indicating whether each of them is obtuse.
+     */
+    @DataProvider(name = "test7")
+    public static Object[][] typesOfTrianglesObtuse() {
+        return new Object[][]
+                {{new Triangle(
+                        new Point2D(2.0, 3.0),
+                        new Point2D(4.0, 1.0),
+                        new Point2D(-1.0, -2.0)), false},
+                {new Triangle(
+                        new Point2D(6.0, 3.0),
+                        new Point2D(6.0, 9.0),
+                        new Point2D(-8.0, 3.0)), false},
+                {new Triangle(
+                        new Point2D(4.0, 5.0),
+                        new Point2D(7.0, 1.0),
+                        new Point2D(3.0, -6.0)), true},
+                {new Triangle(
+                        new Point2D(2.0, 0.0),
+                        new Point2D(4.0, 0.0),
+                        new Point2D(3.0, Math.sqrt(3))), false}};
+    }
+    /**
+     * @return four triangles of different types and a boolean value
+     * indicating whether each of them is regular.
+     */
+    @DataProvider(name = "test8")
+    public static Object[][] typesOfTrianglesRegular() {
+        return new Object[][]
+                {{new Triangle(
+                        new Point2D(2.0, 3.0),
+                        new Point2D(4.0, 1.0),
+                        new Point2D(-1.0, -2.0)), false},
+                {new Triangle(
+                        new Point2D(6.0, 3.0),
+                        new Point2D(6.0, 9.0),
+                        new Point2D(-8.0, 3.0)), false},
+                {new Triangle(
+                        new Point2D(4.0, 5.0),
+                        new Point2D(7.0, 1.0),
+                        new Point2D(3.0, -6.0)), false},
+                {new Triangle(
+                        new Point2D(2.0, 0.0),
+                        new Point2D(4.0, 0.0),
+                        new Point2D(3.0, Math.sqrt(3))), true}};
+    }
+
+    /**
+     * @param perimeter is an incoming value of triangle's perimeter.
+     * @param triangle is a {@link Triangle} object.
+     * @throws OutOfDoubleRangeException is thrown when any double value
+     * is out of double type range.
+     */
     @Test (dataProvider = "test1")
-    public void testCalcPerimeter(double perimeter, Triangle triangle) {
+    public final void testCalcPerimeter(final double perimeter,
+                                  final Triangle triangle)
+            throws OutOfDoubleRangeException {
 
-        LOGGER.log(Level.DEBUG, "Perimeter calculating test is started with incoming data:\n"
-                + triangle + "\nPerimeter = " + perimeter);
-
-        try {
-            Assert.assertEquals(perimeter, action.calcPerimeter(triangle), ROUND_COEFFICIENT);
-        } catch (OutOfDoubleRangeException ex) {
-            LOGGER.log(Level.ERROR, ex.getMessage());
-        }
-
-        LOGGER.log(Level.DEBUG, "The test is complete");
+        Assert.assertEquals(perimeter, action.calcPerimeter(triangle),
+        ROUND_COEFFICIENT);
     }
 
-    @Test (dataProvider = "test2")
-    public void testCalcSquare(double square, Triangle triangle) {
+    /**
+     * @param triangle is a tested {@link Triangle} object.
+     * @throws OutOfDoubleRangeException is thrown when any double value
+     *      * is out of double type range.
+     */
+    @Test (dataProvider = "test2", expectedExceptions
+            = OutOfDoubleRangeException.class)
+    public final void testCalcPerimeterOutOfDouble(final Triangle triangle)
+            throws OutOfDoubleRangeException {
 
-        LOGGER.log(Level.DEBUG, "Square calculating test is started with incoming data:\n"
-                + triangle + "\nSquare = " + square);
-
-        try {
-            Assert.assertEquals(square, action.calcSquare(triangle), ROUND_COEFFICIENT);
-        } catch(OutOfDoubleRangeException ex) {
-            LOGGER.log(Level.ERROR, ex.getMessage());
-        }
-
-        LOGGER.log(Level.DEBUG, "The test is complete");
+        action.calcPerimeter(triangle);
     }
 
+    /**
+     * @param square is an incoming value of triangle's square.
+     * @param triangle is a tested {@link Triangle} object.
+     * @throws OutOfDoubleRangeException is thrown when any double value
+     * is out of double type range.
+     */
     @Test (dataProvider = "test3")
-    public void testTriangleIsRight(Triangle triangle) {
+    public final void testCalcSquare(final double square,
+                                     final Triangle triangle)
+            throws OutOfDoubleRangeException {
 
-        LOGGER.log(Level.DEBUG, "Is triangle right checking test is started with incoming data:\n" + triangle);
-
-        try {
-            Assert.assertTrue(action.triangleIsRight(triangle, ROUND_COEFFICIENT));
-            LOGGER.log(Level.DEBUG, triangle + " is right");
-        } catch(OutOfDoubleRangeException ex) {
-            LOGGER.log(Level.ERROR, ex.getMessage());
-        } catch (AssertionError error) {
-            LOGGER.log(Level.DEBUG, triangle + " is not right");
-        }
-
-        LOGGER.log(Level.DEBUG, "The test is complete");
+        Assert.assertEquals(square, action.calcSquare(triangle),
+                ROUND_COEFFICIENT);
     }
 
-    @Test (dataProvider = "test3")
-    public void testTriangleIsOxygon(Triangle triangle) {
+    /**
+     * @param triangle is a tested {@link Triangle} object.
+     * @throws OutOfDoubleRangeException is thrown when any double value
+     * is out of double type range.
+     */
+    @Test (dataProvider = "test4", expectedExceptions
+            = OutOfDoubleRangeException.class)
+    public final void testCalcSquareOutOfDouble(final Triangle triangle)
+            throws OutOfDoubleRangeException {
 
-        LOGGER.log(Level.DEBUG, "Is triangle oxygon checking test is started with incoming data:\n" + triangle);
-
-        try {
-            Assert.assertTrue(action.triangleIsOxygon(triangle, ROUND_COEFFICIENT));
-            LOGGER.log(Level.DEBUG, triangle + " is oxygon");
-        } catch(OutOfDoubleRangeException ex) {
-            LOGGER.log(Level.ERROR, ex.getMessage());
-        } catch(AssertionError error) {
-            LOGGER.log(Level.DEBUG, triangle + " is not oxygon");
-        }
-
-        LOGGER.log(Level.DEBUG, "The test is complete");
+        action.calcSquare(triangle);
     }
 
-    @Test (dataProvider = "test3")
-    public void testTriangleIsObtuse(Triangle triangle) {
+    /**
+     * @param triangle is a tested {@link Triangle} object.
+     * @param isRight informs is a tested triangle right.
+     * @throws OutOfDoubleRangeException is thrown when any double value
+     * is out of double type range.
+     */
+    @Test (dataProvider = "test5")
+    public final void testTriangleIsRight(final Triangle triangle,
+                                          final boolean isRight)
+            throws OutOfDoubleRangeException {
 
-        LOGGER.log(Level.DEBUG, "Is triangle obtuse checking test is started with incoming data:\n" + triangle);
-
-        try {
-            Assert.assertTrue(action.triangleIsObtuse(triangle, ROUND_COEFFICIENT));
-            LOGGER.log(Level.DEBUG, triangle + " is obtuse");
-        } catch(OutOfDoubleRangeException ex) {
-            LOGGER.log(Level.ERROR, ex.getMessage());
-        } catch(AssertionError error) {
-            LOGGER.log(Level.DEBUG, triangle + " is not obtuse");
-        }
-
-        LOGGER.log(Level.DEBUG, "The test is complete");
+        Assert.assertEquals(action.triangleIsRight(triangle,
+                ROUND_COEFFICIENT), isRight);
     }
 
-    @Test (dataProvider = "test3")
-    public void testTriangleIsRegular(Triangle triangle) {
+    /**
+     * @param triangle is a tested {@link Triangle} object.
+     * @param isOxygon informs is a tested triangle an oxygon.
+     * @throws OutOfDoubleRangeException is thrown when any double value
+     * is out of double type range.
+     */
+    @Test (dataProvider = "test6")
+    public final void testTriangleIsOxygon(final Triangle triangle,
+                                           final boolean isOxygon)
+            throws OutOfDoubleRangeException {
 
-        LOGGER.log(Level.DEBUG, "Is triangle regular checking test is started with incoming data:\n" + triangle);
+        Assert.assertEquals(action.triangleIsOxygon(triangle,
+                ROUND_COEFFICIENT), isOxygon);
+    }
 
-        try {
-            Assert.assertTrue(action.triangleIsRegular(triangle, ROUND_COEFFICIENT));
-            LOGGER.log(Level.DEBUG, triangle + " is regular");
-        } catch(OutOfDoubleRangeException ex) {
-            LOGGER.log(Level.ERROR, ex.getMessage());
-        } catch(AssertionError error) {
-            LOGGER.log(Level.DEBUG, triangle + " is not regular");
-        }
+    /**
+     * @param triangle is a tested {@link Triangle} object.
+     * @param isObtuse informs is a tested triangle obtuse.
+     * @throws OutOfDoubleRangeException is thrown when any double value
+     * is out of double type range.
+     */
+    @Test (dataProvider = "test7")
+    public final void testTriangleIsObtuse(final Triangle triangle,
+                                           final boolean isObtuse)
+            throws OutOfDoubleRangeException {
 
-        LOGGER.log(Level.DEBUG, "The test is complete");
+        Assert.assertEquals(action.triangleIsObtuse(triangle,
+                ROUND_COEFFICIENT), isObtuse);
+    }
+
+    /**
+     * @param triangle is a tested {@link Triangle} object.
+     * @param isRegular informs is a tested triangle obtuse.
+     * @throws OutOfDoubleRangeException is thrown when any double value
+     * is out of double type range.
+     */
+    @Test (dataProvider = "test8")
+    public final void testTriangleIsRegular(final Triangle triangle,
+                                            final boolean isRegular)
+            throws OutOfDoubleRangeException {
+
+        Assert.assertEquals(action.triangleIsRegular(triangle,
+                ROUND_COEFFICIENT), isRegular);
     }
 }

@@ -5,11 +5,10 @@
     <classes>
         <class name="by.epam.figures.entity.Point2DTest"/>
         <class name="by.epam.figures.entity.TriangleTest"/>
-        <class name="by.epam.figures.validator.ReadingValidatorTest"/>
         <class name="by.epam.figures.reader.ReaderTest"/>
-        <class name="by.epam.figures.validator.TriangleValidatorTest"/>
-        <class name="by.epam.figures.creator.TriangleCreatorTest"/>
+        <class name="by.epam.figures.creator.PointCreatorTest"/>
         <class name="by.epam.figures.parser.LineParserTest"/>
+        <class name="by.epam.figures.creator.TriangleCreatorTest"/>
         <class name="by.epam.figures.action.TriangleActionTest"/>
     </classes>
   </test>

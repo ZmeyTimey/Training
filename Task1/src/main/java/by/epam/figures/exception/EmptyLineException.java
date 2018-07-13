@@ -1,21 +1,37 @@
 package by.epam.figures.exception;
 
 /**
- * {@link EmptyLineException} is thrown when a line which is being read is empty.
+ * {@link EmptyLineException} is thrown when a line which is being read
+ * is empty.
  */
 public class EmptyLineException extends LineReadingException {
+    /**
+     * Constructor for {@link EmptyLineException}.
+     */
     public EmptyLineException() {
     }
 
-    public EmptyLineException(String message) {
+    /**
+     * Constructor for {@link EmptyLineException}.
+     * @param message of exception.
+     */
+    public EmptyLineException(final String message) {
         super(message);
     }
 
-    public EmptyLineException(String message, Throwable cause) {
+    /**
+     * Constructor for {@link EmptyLineException}.
+     * @param message of exception.
+     * @param cause of exception.
+     */
+    public EmptyLineException(final String message, final Throwable cause) {
         super(message, cause);
     }
-
-    public EmptyLineException(Throwable cause) {
+    /**
+     * Constructor for {@link EmptyLineException}.
+     * @param cause of exception.
+     */
+    public EmptyLineException(final Throwable cause) {
         super(cause);
     }
 }

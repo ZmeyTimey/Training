@@ -2,46 +2,82 @@ package by.epam.figures.entity;
 
 
 /**
- * An {@link Triangle} object three {@link Point2D} objects which form a triangle.
+ * An {@link Triangle} object contains three
+ * {@link Point2D} objects which form a triangle.
  */
 public class Triangle {
-
+    /**
+     * Coefficient is used in hash code generating.
+     */
+    private static final int HASH_CODE_COEFFICIENT_1 = 12;
+    /**
+     * Coefficient is used in hash code generating.
+     */
+    private static final int HASH_CODE_COEFFICIENT_2 = 37;
+    /**
+     * Point A of a triangle.
+     */
     private Point2D pointA;
+    /**
+     * Point B of a triangle.
+     */
     private Point2D pointB;
+    /**
+     * Point C of a triangle.
+     */
     private Point2D pointC;
 
-    public Triangle(Point2D p1, Point2D p2, Point2D p3) {
+    /**
+     * @param p1 is transmitted first point for creating a triangle.
+     * @param p2 is transmitted second point for creating a triangle.
+     * @param p3 is transmitted third point for creating a triangle.
+     */
+    public Triangle(final Point2D p1, final Point2D p2, final Point2D p3) {
         pointA = p1;
         pointB = p2;
         pointC = p3;
     }
 
-    public Point2D getPointA() {
+    /**
+     * @return point A of a triangle.
+     */
+    public final Point2D getPointA() {
         return pointA;
     }
-
-    public Point2D getPointB() {
+    /**
+     * @return point B of a triangle.
+     */
+    public final Point2D getPointB() {
         return pointB;
     }
-
-    public Point2D getPointC() {
+    /**
+     * @return point C of a triangle.
+     */
+    public final Point2D getPointC() {
         return pointC;
     }
 
-    public void setPoint1(Point2D point1) {
+    /**
+     * @param point1 is point A of a triangle.
+     */
+    public final void setPointA(final Point2D point1) {
         this.pointA = point1;
     }
-
-    public void setPoint2(Point2D point2) {
+    /**
+     * @param point2 is point B of a triangle.
+     */
+    public final void setPointB(final Point2D point2) {
         this.pointB = point2;
     }
-
-    public void setPoint3(Point2D point3) {
+    /**
+     * @param point3 is point C of a triangle.
+     */
+    public final void setPointC(final Point2D point3) {
         this.pointC = point3;
     }
 
     @Override
-    public String toString() {
+    public final String toString() {
         return "Triangle: ("
                 + pointA.getX() + ", " + pointA.getY() + ") ("
                 + pointB.getX() + ", " + pointB.getY() + ") ("
@@ -49,18 +85,21 @@ public class Triangle {
     }
 
     @Override
-    public int hashCode() {
-        int result = 12;
+    public final int hashCode() {
+        int result = HASH_CODE_COEFFICIENT_1;
 
-        result = 37 * result + (pointA == null ? 0 : pointA.hashCode());
-        result = 37 * result + (pointB == null ? 0 : pointB.hashCode());
-        result = 37 * result + (pointC == null ? 0 : pointC.hashCode());
+        result = HASH_CODE_COEFFICIENT_2 * result
+                + (pointA == null ? 0 : pointA.hashCode());
+        result = HASH_CODE_COEFFICIENT_2 * result
+                + (pointB == null ? 0 : pointB.hashCode());
+        result = HASH_CODE_COEFFICIENT_2 * result
+                + (pointC == null ? 0 : pointC.hashCode());
 
         return result;
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public final boolean equals(final Object obj) {
 
         if (obj == this) {
             return true;
@@ -72,8 +111,11 @@ public class Triangle {
 
         Triangle triangle = (Triangle) obj;
 
-        return (pointA == triangle.pointA || (pointA != null && pointA.equals(triangle.getPointA())))
-                && (pointB == triangle.pointB || (pointB != null && pointB.equals(triangle.getPointB())))
-                && (pointC == triangle.pointC || (pointC != null && pointC.equals(triangle.getPointC())));
+        return (pointA == triangle.pointA
+                || (pointA != null && pointA.equals(triangle.getPointA())))
+                && (pointB == triangle.pointB
+                || (pointB != null && pointB.equals(triangle.getPointB())))
+                && (pointC == triangle.pointC
+                || (pointC != null && pointC.equals(triangle.getPointC())));
     }
 }

@@ -1,21 +1,36 @@
 package by.epam.figures.exception;
 
 /**
- * {@link FileReadingException} includes exceptions which emerge during reading from file.
+ * {@link FileReadingException} includes exceptions which emerge
+ * during reading from file.
  */
 public class FileReadingException extends Exception {
+    /**
+     * Constructor for {@link FileReadingException}.
+     */
     public FileReadingException() {
     }
 
-    public FileReadingException(String message) {
+    /**
+     * Constructor for {@link FileReadingException}.
+     * @param message of exception.
+     */
+    public FileReadingException(final String message) {
         super(message);
     }
-
-    public FileReadingException(String message, Throwable cause) {
+    /**
+     * Constructor for {@link FileReadingException}.
+     * @param message of exception.
+     * @param cause of exception.
+     */
+    public FileReadingException(final String message, final Throwable cause) {
         super(message, cause);
     }
-
-    public FileReadingException(Throwable cause) {
+    /**
+     * Constructor for {@link FileReadingException}.
+     * @param cause of exception.
+     */
+    public FileReadingException(final Throwable cause) {
         super(cause);
     }
 }

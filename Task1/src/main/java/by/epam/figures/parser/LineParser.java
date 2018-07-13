@@ -12,29 +12,58 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * {@link LineParser} converts information from read line into three {@link Point2D} objects.
+ * {@link LineParser} converts information from read line into
+ * three {@link Point2D} objects.
  */
 public class LineParser {
-
+    /**
+     * {@link Logger} class object for making logs.
+     */
     private static final Logger LOGGER = LogManager.getLogger(LineParser.class);
 
+    /**
+     * Point A of an expected triangle.
+     */
     private Point2D pointA;
+    /**
+     * Point B of an expected triangle.
+     */
     private Point2D pointB;
+    /**
+     * Point C of an expected triangle.
+     */
     private Point2D pointC;
 
-    public Point2D getPointA() {
+    /**
+     * @return point A object.
+     */
+    public final Point2D getPointA() {
         return pointA;
     }
 
-    public Point2D getPointB() {
+    /**
+     * @return point B object
+     */
+    public final Point2D getPointB() {
         return pointB;
     }
 
-    public Point2D getPointC() {
+    /**
+     * @return point C object
+     */
+    public final Point2D getPointC() {
         return pointC;
     }
 
-    public void parseData(String line) throws OutOfDoubleRangeException {
+    /**
+     * @param line read from file and had to be parsed
+     * @throws OutOfDoubleRangeException is thrown when a value of point
+     * coordinate is out of double type range.
+     */
+    public final void parseData(final String line)
+            throws OutOfDoubleRangeException {
+
+        LOGGER.log(Level.DEBUG, "Line: " + line + " is being parsed");
 
         int i = 0;
         List<Point2D> pointList = new ArrayList<>();
@@ -54,13 +83,6 @@ public class LineParser {
                 checkCoordinate(x, "X", xString);
                 checkCoordinate(y, "Y", yString);
 
-                try {
-                    DoubleRangeValidator.checkDouble(y);
-                } catch(OutOfDoubleRangeException ex) {
-                    throw new OutOfDoubleRangeException("Point coordinate " + x);
-                }
-
-                DoubleRangeValidator.checkDouble(y);
                 pointList.add(PointCreator.createPoint(x, y));
 
                 i++;
@@ -68,25 +90,42 @@ public class LineParser {
 
             getPointsFromList(pointList);
 
-            LOGGER.log(Level.DEBUG, "Line: " + line + " is successfully parsed. The points are created.");
+            LOGGER.log(Level.DEBUG, "Line: " + line
+                    + " is successfully parsed. The points are created.");
 
-        } catch(OutOfDoubleRangeException ex) {
-            throw new OutOfDoubleRangeException(ex.getMessage() + " is out of double type range.");
+        } catch (OutOfDoubleRangeException ex) {
+            LOGGER.log(Level.DEBUG, ex.getMessage()
+                    + " Point can't be created");
+            throw new OutOfDoubleRangeException();
                 }
     }
 
-    private void getPointsFromList(List<Point2D> pointList) {
+    /**
+     * @param pointList is a list of points created on the basis of parsed data.
+     */
+    private void getPointsFromList(final List<Point2D> pointList) {
 
         pointA = pointList.get(0);
         pointB = pointList.get(1);
         pointC = pointList.get(2);
     }
 
-    private void checkCoordinate(double coordinate, String axis, String value) throws OutOfDoubleRangeException {
-        try {
-            DoubleRangeValidator.checkDouble(coordinate);
-        } catch(OutOfDoubleRangeException ex) {
-            throw new OutOfDoubleRangeException("Point coordinate " + axis + ": " + value);
+    /**
+     *
+     * @param coordinate is a coordinate had to be checked.
+     * @param axis means is it X-coordinate or Y-coordinate.
+     * @param value is a value of coordinate stored in string.
+     * @throws OutOfDoubleRangeException is thrown when a
+     * coordinate value is out of double type range.
+     */
+    private void checkCoordinate(final double coordinate, final String axis,
+                                 final String value)
+            throws OutOfDoubleRangeException {
+
+        if (!DoubleRangeValidator.isValid(coordinate)) {
+            throw new OutOfDoubleRangeException("Point coordinate "
+                    + axis + ": "
+                    + value + " is out of double type range.");
         }
     }
 }

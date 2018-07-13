@@ -5,18 +5,33 @@ package by.epam.figures.exception;
  */
 
 public class InvalidLineException extends LineReadingException {
+    /**
+     * Constructor for {@link InvalidLineException}.
+     */
     public InvalidLineException() {
     }
 
-    public InvalidLineException(String message) {
+    /**
+     * Constructor for {@link InvalidLineException}.
+     * @param message of exception.
+     */
+    public InvalidLineException(final String message) {
         super(message);
     }
 
-    public InvalidLineException(String message, Throwable cause) {
+    /**
+     * Constructor for {@link InvalidLineException}.
+     * @param message of exception.
+     * @param cause of exception.
+     */
+    public InvalidLineException(final String message, final Throwable cause) {
         super(message, cause);
     }
-
-    public InvalidLineException(Throwable cause) {
+    /**
+     * Constructor for {@link InvalidLineException}.
+     * @param cause of exception.
+     */
+    public InvalidLineException(final Throwable cause) {
         super(cause);
     }
 }

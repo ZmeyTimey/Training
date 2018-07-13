@@ -1,17 +1,19 @@
 package by.epam.figures.validator;
 
-import by.epam.figures.exception.LineReadingException;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * {@link ReadingValidator} has methods which checks a line is empty and id it's valid.
+ * {@link ReadingValidator} has methods which checks a line is empty
+ * and is it's valid.
  */
 
 public class ReadingValidator {
-
-    public static boolean lineIsCorrect(String line) {
+    /**
+     * @param line is a line read from file.
+     * @return the conditions indicating that line is valid.
+     */
+    public static boolean lineIsCorrect(final String line) {
 
         Pattern pattern = Pattern.compile("(-?\\d+\\.\\d+,\\s-?\\d+\\.\\d+;?\\s?){3}");
         Matcher matcher = pattern.matcher(line);
@@ -19,7 +21,11 @@ public class ReadingValidator {
         return matcher.matches();
     }
 
-    public static boolean lineIsEmpty(String line) {
+    /**
+     * @param line is a line read from file.
+     * @return the conditions indicating that line is empty.
+     */
+    public static boolean lineIsEmpty(final String line) {
         Pattern pattern = Pattern.compile("\\s*");
         Matcher matcher = pattern.matcher(line);
 

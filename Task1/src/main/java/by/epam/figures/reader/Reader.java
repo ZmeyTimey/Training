@@ -1,6 +1,13 @@
 package by.epam.figures.reader;
 
-import by.epam.figures.exception.*;
+import by.epam.figures.exception.FileReadingException;
+import by.epam.figures.exception.LineReadingException;
+import by.epam.figures.exception.EmptyPathException;
+import by.epam.figures.exception.FileIsAbsentException;
+import by.epam.figures.exception.URIConvertException;
+import by.epam.figures.exception.InvalidFilePathException;
+import by.epam.figures.exception.InvalidLineException;
+import by.epam.figures.exception.EmptyLineException;
 import by.epam.figures.validator.ReadingValidator;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -22,22 +29,44 @@ import java.util.List;
  * {@link Reader} reads lines from file and puts them into ArrayList.
  */
 public class Reader {
-
+    /**
+     * {@link Logger} class object for making logs.
+     */
     private static final Logger LOGGER = LogManager.getLogger(Reader.class);
-
+    /**
+     * A number of line which is being read from file.
+     */
     private int lineCounter;
+    /**
+     * A path to file supposed to be read.
+     */
     private String filePath;
+    /**
+     * A list of valid lines read from file.
+     */
     private List<String> lines = new ArrayList<>();
 
-    public Reader(String path) {
+    /**
+     *
+     * @param path is a path to file supposed to be read.
+     */
+    public Reader(final String path) {
         filePath = path;
     }
 
-    public List<String> getLines() {
+    /**
+     * @return valid lines read from file.
+     */
+    public final List<String> getLines() {
         return lines;
     }
 
-    public void readFile() throws FileReadingException {
+    /**
+     * Reads lines from file and put them into list of lines.
+     * @throws FileReadingException is thrown when it's impossible
+     * to read data from file.
+     */
+    public final void readFile() throws FileReadingException {
 
         LOGGER.log(Level.DEBUG, "File reading method is started. The path to file: " + filePath);
 
@@ -62,26 +91,38 @@ public class Reader {
             LOGGER.log(Level.DEBUG, "File reading is complete");
 
         } catch (IOException ex) {
-            LOGGER.log(Level.FATAL, "Error in the work of file reader stream");
-        } catch(NullPointerException ex) {
-            throw new FileIsAbsentException("File is not found!");
-        } catch(URISyntaxException ex) {
-            throw new URIConvertException("Invalid path to file!!");
-        } catch(InvalidPathException ex) {
-            throw new InvalidFilePathException("Invalid path to file!");
+            LOGGER.log(Level.FATAL, "File path string is empty!");
+            throw new EmptyPathException();
+        } catch (NullPointerException ex) {
+            LOGGER.log(Level.FATAL, "File is not found!");
+            throw new FileIsAbsentException();
+        } catch (URISyntaxException ex) {
+            LOGGER.log(Level.FATAL, "Unable to convert path link into URI");
+            throw new URIConvertException();
+        } catch (InvalidPathException ex) {
+            LOGGER.log(Level.FATAL, "Invalid path to file!");
+            throw new InvalidFilePathException();
     }
     }
 
-    private void addLine(String line) throws LineReadingException {
+    /**
+     * Adds valid line read from file into list.
+     * @param line is a line which had to be read.
+     * @throws LineReadingException is thrown when a line
+     * which is read from file is not valid.
+     */
+    private void addLine(final String line) throws LineReadingException {
 
         lineCounter++;
 
-        if (! ReadingValidator.lineIsEmpty(line)) {
+        if (!ReadingValidator.lineIsEmpty(line)) {
             if (ReadingValidator.lineIsCorrect(line)) {
                 lines.add(line);
-                LOGGER.log(Level.DEBUG, "Line " + lineCounter + " is added to the list");
+                LOGGER.log(Level.DEBUG, "Line "
+                        + lineCounter + " is added to the list");
             } else {
-                throw new InvalidLineException("Incorrect expression in line " + lineCounter);
+                throw new InvalidLineException("Incorrect expression in line "
+                        + lineCounter);
             }
         } else {
             throw new EmptyLineException("Line " + lineCounter + " is empty");

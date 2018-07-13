@@ -1,10 +1,8 @@
 package by.epam.figures.reader;
 
 import by.epam.figures.exception.FileReadingException;
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -12,47 +10,41 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * {@link ReaderTest} is a test for class {@link Reader}.
+ * {@link ReaderTest} is a test for {@link Reader} class.
  */
 public class ReaderTest {
 
-    private static final Logger LOGGER = LogManager.getLogger(ReaderTest.class);
+    private List<String> correctList = new ArrayList<>();
 
-    @DataProvider(name = "test1")
-    public static Object[][] correctLines() {
-        String[] correctData = {"2.0, 3.0; 4.0, 1.0; -1.0, -2.0", "1.0, 2.0; 6.0, 8.0; 3.5, 7.6",
-                "6.0, 3.0; 6.0, 9.0; -8.0, 3.0", "1.0, 1.0; 3.0, 3.0; 9.0, 9.0"};
+    @BeforeMethod
+    public void beforeMethod() {
 
-        List<String> correctList = new ArrayList<>();
-        int i = 0;
+        correctList.clear();
 
-        while (i < correctData.length) {
-            correctList.add(correctData[i]);
-            i++;
-        }
-        return new Object[][]
-                {{correctList, "/Data.txt"},
-                {correctList, "/List.txt"},
-                {correctList, "Data.txt"},
-                {correctList, "111"},
-                {correctList, "   "}};
+        correctList.add("2.0, 3.0; 4.0, 1.0; -1.0, -2.0");
+        correctList.add("1.0, 2.0; 6.0, 8.0; 3.5, 7.6");
+        correctList.add("6.0, 3.0; 6.0, 9.0; -8.0, 3.0");
+        correctList.add("1.0, 1.0; 3.0, 3.0; 9.0, 9.0");
     }
 
-    @Test (dataProvider = "test1")
-    public void testReader(List<String> correctList, String path) {
-        LOGGER.log(Level.DEBUG, "Reader test is started");
+    @DataProvider(name = "test1")
+    public static Object[][] paths() {
 
-        Reader reader = new Reader(path);
+        return new Object[][] {{"/List.txt"}, {"Data.txt"}, {"111"}, {"qwertyuiop"}, {"   "}, {""}};
+    }
 
-        try {
-            reader.readFile();
+    @Test (dataProvider = "test1", expectedExceptions = FileReadingException.class)
+    public void testPath(String path) throws FileReadingException {
 
-            Assert.assertEquals(correctList, reader.getLines());
+        Reader rdr = new Reader(path);
+        rdr.readFile();
+    }
 
-        } catch (FileReadingException ex) {
-            LOGGER.log(Level.FATAL, ex.getMessage());
-        }
+    @Test
+    public void testReader() throws FileReadingException {
+        Reader reader = new Reader("/Data.txt");
+        reader.readFile();
 
-        LOGGER.log(Level.DEBUG, "The test is complete");
+        Assert.assertEquals(correctList, reader.getLines());
     }
 }
