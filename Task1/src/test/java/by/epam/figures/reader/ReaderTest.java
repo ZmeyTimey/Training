@@ -13,11 +13,17 @@ import java.util.List;
  * {@link ReaderTest} is a test for {@link Reader} class.
  */
 public class ReaderTest {
-
+    /**
+     * A list of strings that should be read from file and added into list.
+     */
     private List<String> correctList = new ArrayList<>();
 
+    /**
+     * Creating list off strings in order to compare it with
+     * a list that would be created by {@link Reader}.
+     */
     @BeforeMethod
-    public void beforeMethod() {
+    public final void beforeMethod() {
 
         correctList.clear();
 
@@ -27,21 +33,34 @@ public class ReaderTest {
         correctList.add("1.0, 1.0; 3.0, 3.0; 9.0, 9.0");
     }
 
+    /**
+     * @return invalid paths to file.
+     */
     @DataProvider(name = "test1")
     public static Object[][] paths() {
 
-        return new Object[][] {{"/List.txt"}, {"Data.txt"}, {"111"}, {"qwertyuiop"}, {"   "}, {""}};
+        return new Object[][] {{"/List.txt"}, {"Data.txt"},
+                {"111"}, {"qwertyuiop"}, {"   "}, {""}};
     }
 
-    @Test (dataProvider = "test1", expectedExceptions = FileReadingException.class)
-    public void testPath(String path) throws FileReadingException {
+    /**
+     *
+     * @param path is a path to file.
+     * @throws FileReadingException is thrown when file can't be read.
+     */
+    @Test (dataProvider = "test1", expectedExceptions
+            = FileReadingException.class)
+    public final void testPath(final String path) throws FileReadingException {
 
         Reader rdr = new Reader(path);
         rdr.readFile();
     }
 
+    /**
+     * @throws FileReadingException is thrown when file can't be read.
+     */
     @Test
-    public void testReader() throws FileReadingException {
+    public final void testReader() throws FileReadingException {
         Reader reader = new Reader("/Data.txt");
         reader.readFile();
 

@@ -86,4 +86,16 @@
 "2018-07-13 22:34:13,013 ERROR action.TriangleAction [main] by.epam.figures.action.TriangleAction.calcPerimeter(TriangleAction.java:118) The value of side AB of the Triangle: (1.8, 2.0E-180) (1.6, 6.0E180) (-5.6E180, 0.1) is out of double type range.
 "2018-07-13 22:34:13,140 ERROR action.TriangleAction [main] by.epam.figures.action.TriangleAction.calcSquare(TriangleAction.java:154) The value of side AB of the Triangle: (-1.5E-323, 2.1E201) (1.6, 6.1) (5.6, 0.1) is out of double type range.
 "2018-07-13 22:34:13,142 ERROR action.TriangleAction [main] by.epam.figures.action.TriangleAction.calcSquare(TriangleAction.java:154) The value of side AB of the Triangle: (1.8, 2.0E-180) (1.6, 6.0E180) (-5.6E180, 0.1) is out of double type range.
+"2018-07-13 23:19:01,549 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:97) File is not found!
+"2018-07-13 23:19:01,718 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:97) File is not found!
+"2018-07-13 23:19:01,722 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:97) File is not found!
+"2018-07-13 23:19:01,726 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:97) File is not found!
+"2018-07-13 23:19:01,730 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:103) Invalid path to file!
+"2018-07-13 23:19:01,737 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:94) File path string is empty!
+"2018-07-13 23:19:02,129 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:87) Incorrect expression in line 3
+"2018-07-13 23:19:02,129 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:87) Line 4 is empty
+"2018-07-13 23:19:02,382 ERROR action.TriangleAction [main] by.epam.figures.action.TriangleAction.calcPerimeter(TriangleAction.java:118) The value of side AB of the Triangle: (-1.5E-323, 2.1E201) (1.6, 6.1) (5.6, 0.1) is out of double type range.
+"2018-07-13 23:19:02,384 ERROR action.TriangleAction [main] by.epam.figures.action.TriangleAction.calcPerimeter(TriangleAction.java:118) The value of side AB of the Triangle: (1.8, 2.0E-180) (1.6, 6.0E180) (-5.6E180, 0.1) is out of double type range.
+"2018-07-13 23:19:02,394 ERROR action.TriangleAction [main] by.epam.figures.action.TriangleAction.calcSquare(TriangleAction.java:154) The value of side AB of the Triangle: (-1.5E-323, 2.1E201) (1.6, 6.1) (5.6, 0.1) is out of double type range.
+"2018-07-13 23:19:02,396 ERROR action.TriangleAction [main] by.epam.figures.action.TriangleAction.calcSquare(TriangleAction.java:154) The value of side AB of the Triangle: (1.8, 2.0E-180) (1.6, 6.0E180) (-5.6E180, 0.1) is out of double type range.
 "

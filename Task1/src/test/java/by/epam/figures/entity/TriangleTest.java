@@ -4,8 +4,13 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+/**
+ * {@link TriangleTest} is a test for class {@link Triangle}.
+ */
 public class TriangleTest {
-
+    /**
+     * @return {@link Triangle} objects and their string expressions.
+     */
     @DataProvider(name = "test1")
     public static Object[][] triangleToString() {
         return new Object[][]
@@ -21,6 +26,9 @@ public class TriangleTest {
                         new Point2D(3.5, 7.6e-125))}};
     }
 
+    /**
+     * @return pairs of {@link Triangle} objects which can be equal or not.
+     */
     @DataProvider(name = "test2")
     public static Object[][] trianglesPairs() {
         return new Object[][]
@@ -50,6 +58,9 @@ public class TriangleTest {
                         new Point2D(4.9e+121, 1.0)), false}};
     }
 
+    /**
+     * @return single {@link Point2D} objects.
+     */
     @DataProvider(name = "test3")
     public static Object[][] singleTriangle() {
         return new Object[][]
@@ -63,27 +74,50 @@ public class TriangleTest {
                         new Point2D(-11.0, -22.0))}};
     }
 
+    /**
+     * @param correctString is a string expression of triangle.
+     * @param triangle is tested {@link Triangle} object.
+     */
     @Test (dataProvider = "test1")
-    public void testToString(String correctString, Triangle triangle) {
+    public final void testToString(final String correctString,
+                                   final Triangle triangle) {
 
         Assert.assertEquals(correctString, triangle.toString());
 
     }
 
+    /**
+     * @param triangle1 is a first of comparing triangles.
+     * @param triangle2 is a second of comparing triangles.
+     * @param isEquals informs is the triangles' hash codes equal.
+     */
     @Test (dataProvider = "test2")
-    public void testHashCode(Triangle triangle1, Triangle triangle2, boolean isEquals) {
+    public final void testHashCode(final Triangle triangle1,
+                                   final Triangle triangle2,
+                                   final boolean isEquals) {
 
-            Assert.assertEquals(triangle1.hashCode() == triangle2.hashCode(), isEquals);
+            Assert.assertEquals(triangle1.hashCode()
+                    == triangle2.hashCode(), isEquals);
     }
 
+    /**
+     * @param triangle is a tested {@link Triangle} object.
+     */
     @Test (dataProvider = "test3")
-    public void testSelfEquals(Triangle triangle) {
+    public final void testSelfEquals(final Triangle triangle) {
 
         Assert.assertEquals(triangle, triangle);
     }
 
+    /**
+     * @param triangle1 is a first of comparing triangles.
+     * @param triangle2 is a second of comparing triangles.
+     * @param isEquals informs is the triangles' hash codes equal.
+     */
     @Test (dataProvider = "test2")
-    public void testEquals(Triangle triangle1, Triangle triangle2, boolean isEquals) {
+    public final void testEquals(final Triangle triangle1,
+                                 final Triangle triangle2,
+                                 final boolean isEquals) {
 
         Assert.assertEquals(triangle1.equals(triangle2), isEquals);
     }

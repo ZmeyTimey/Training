@@ -11,38 +11,80 @@ import org.testng.annotations.Test;
  * {@link TriangleCreatorTest} is a test for {@link TriangleCreator} class.
  */
 public class TriangleCreatorTest {
-
+    /**
+     * @return sets of three points which form a triangle.
+     */
     @DataProvider(name = "test1")
     public static Object[][] points() {
         return new Object[][]
-                {{new Point2D(2.0, 3.0), new Point2D(4.0, 1.0), new Point2D(-1.0, -2.0)},
-                {new Point2D(2.0, 3.0), new Point2D(698.0, 15500.0), new Point2D(-89219.0, 3000.0)},
-                {new Point2D(0.0, 0.0), new Point2D(0.0, -333.0), new Point2D(999.0, -333.0)}};
+                {{new Point2D(2.0, 3.0),
+                        new Point2D(4.0, 1.0),
+                        new Point2D(-1.0, -2.0)},
+                {new Point2D(2.0, 3.0),
+                        new Point2D(698.0, 15500.0),
+                        new Point2D(-89219.0, 3000.0)},
+                {new Point2D(0.0, 0.0),
+                        new Point2D(0.0, -333.0),
+                        new Point2D(999.0, -333.0)}};
     }
 
+    /**
+     * @return sets of three points located on one line.
+     */
     @DataProvider(name = "test2")
     public static Object[][] testOneLinePoints() {
         return new Object[][]
-                {{new Point2D(2.0, 3.0), new Point2D(2.0, 3.0), new Point2D(2.0, 3.0)},
-                        {new Point2D(1.0, 1.0), new Point2D(3.0, 3.0), new Point2D(9.0, 9.0)},
-                        {new Point2D(-10.0, 3.0), new Point2D(0.0, 3.0), new Point2D(10.0, 3.0)},
-                        {new Point2D(-3.0, -21.6), new Point2D(-3.0, 1.0), new Point2D(-3.0, 22.5)}};
+                {{new Point2D(2.0, 3.0),
+                        new Point2D(2.0, 3.0),
+                        new Point2D(2.0, 3.0)},
+                {new Point2D(1.0, 1.0),
+                        new Point2D(3.0, 3.0),
+                        new Point2D(9.0, 9.0)},
+                {new Point2D(-10.0, 3.0),
+                        new Point2D(0.0, 3.0),
+                        new Point2D(10.0, 3.0)},
+                {new Point2D(-3.0, -21.6),
+                        new Point2D(-3.0, 1.0),
+                        new Point2D(-3.0, 22.5)}};
     }
 
+    /**
+     * @param pointA is a point A of a triangle supposed to be created.
+     * @param pointB is a point B of a triangle supposed to be created.
+     * @param pointC is a point C of a triangle supposed to be created.
+     * @throws PointsFormLineException throws when all three points are located
+     * on one line.
+     */
     @Test (dataProvider = "test1")
-    public void testCreateTriangle(Point2D pointA, Point2D pointB, Point2D pointC) throws PointsFormLineException {
+    public final void testCreateTriangle(final Point2D pointA,
+                                         final Point2D pointB,
+                                         final Point2D pointC)
+            throws PointsFormLineException {
 
-        Triangle triangle = TriangleCreator.createTriangle(pointA, pointB, pointC);
+        Triangle triangle = TriangleCreator.createTriangle(
+                pointA, pointB, pointC);
 
         Assert.assertEquals(pointA, triangle.getPointA());
         Assert.assertEquals(pointB, triangle.getPointB());
         Assert.assertEquals(pointC, triangle.getPointC());
     }
 
-    @Test (dataProvider = "test2", expectedExceptions = PointsFormLineException.class)
-    public void testPointsFormLine(Point2D pointA, Point2D pointB, Point2D pointC) throws PointsFormLineException {
+    /**
+     * @param pointA is a point A of a triangle supposed to be created.
+     * @param pointB is a point B of a triangle supposed to be created.
+     * @param pointC is a point C of a triangle supposed to be created.
+     * @throws PointsFormLineException throws when all three points are located
+     * on one line.
+     */
+    @Test (dataProvider = "test2", expectedExceptions
+            = PointsFormLineException.class)
+    public final void testPointsFormLine(final Point2D pointA,
+                                         final Point2D pointB,
+                                         final Point2D pointC)
+            throws PointsFormLineException {
 
-        Triangle triangle = TriangleCreator.createTriangle(pointA, pointB, pointC);
+        Triangle triangle = TriangleCreator.createTriangle(
+                pointA, pointB, pointC);
 
         Assert.assertEquals(pointA, triangle.getPointA());
         Assert.assertEquals(pointB, triangle.getPointB());

@@ -1065,3 +1065,159 @@ Triangle: (2.0, 0.0) (4.0, 0.0) (3.0, 1.7320508075688772)
 2018-07-13 22:34:13,282 DEBUG b.e.f.a.TriangleAction [main] The sides of the triangle calculating 
 2018-07-13 22:34:13,283 DEBUG b.e.f.a.TriangleAction [main] Calculation complete. AB = 2.0, AC = 1.9999999999999998, BC = 1.9999999999999998 
 2018-07-13 22:34:13,283 DEBUG b.e.f.a.TriangleAction [main] Triangle is not right. 
+2018-07-13 23:19:01,503 DEBUG b.e.f.r.Reader [main] File reading method is started. The path to file: /List.txt 
+2018-07-13 23:19:01,549 FATAL b.e.f.r.Reader [main] File is not found! 
+2018-07-13 23:19:01,714 DEBUG b.e.f.r.Reader [main] File reading method is started. The path to file: Data.txt 
+2018-07-13 23:19:01,718 FATAL b.e.f.r.Reader [main] File is not found! 
+2018-07-13 23:19:01,721 DEBUG b.e.f.r.Reader [main] File reading method is started. The path to file: 111 
+2018-07-13 23:19:01,722 FATAL b.e.f.r.Reader [main] File is not found! 
+2018-07-13 23:19:01,725 DEBUG b.e.f.r.Reader [main] File reading method is started. The path to file: qwertyuiop 
+2018-07-13 23:19:01,726 FATAL b.e.f.r.Reader [main] File is not found! 
+2018-07-13 23:19:01,728 DEBUG b.e.f.r.Reader [main] File reading method is started. The path to file:     
+2018-07-13 23:19:01,730 FATAL b.e.f.r.Reader [main] Invalid path to file! 
+2018-07-13 23:19:01,734 DEBUG b.e.f.r.Reader [main] File reading method is started. The path to file:  
+2018-07-13 23:19:01,737 FATAL b.e.f.r.Reader [main] File path string is empty! 
+2018-07-13 23:19:01,740 DEBUG b.e.f.r.Reader [main] File reading method is started. The path to file: /Data.txt 
+2018-07-13 23:19:02,127 DEBUG b.e.f.r.Reader [main] Line 1 is added to the list 
+2018-07-13 23:19:02,128 DEBUG b.e.f.r.Reader [main] Line 2 is added to the list 
+2018-07-13 23:19:02,129 ERROR b.e.f.r.Reader [main] Incorrect expression in line 3 
+2018-07-13 23:19:02,129 ERROR b.e.f.r.Reader [main] Line 4 is empty 
+2018-07-13 23:19:02,131 DEBUG b.e.f.r.Reader [main] Line 5 is added to the list 
+2018-07-13 23:19:02,132 DEBUG b.e.f.r.Reader [main] Line 6 is added to the list 
+2018-07-13 23:19:02,132 DEBUG b.e.f.r.Reader [main] File reading is complete 
+2018-07-13 23:19:02,135 DEBUG b.e.f.c.PointCreator [main] Point: x = 2.0 y = 3.0 is created 
+2018-07-13 23:19:02,144 DEBUG b.e.f.c.PointCreator [main] Point: x = 6.0 y = -56.0 is created 
+2018-07-13 23:19:02,146 DEBUG b.e.f.c.PointCreator [main] Point: x = 0.0 y = 0.0 is created 
+2018-07-13 23:19:02,150 DEBUG b.e.f.c.PointCreator [main] Point: x = -122.99 y = -66.7 is created 
+2018-07-13 23:19:02,161 DEBUG b.e.f.p.LineParser [main] Line: 2.0, 3.0; 4.0, -1.0; -1.0, -2.0 is being parsed 
+2018-07-13 23:19:02,181 DEBUG b.e.f.c.PointCreator [main] Point: x = 2.0 y = 3.0 is created 
+2018-07-13 23:19:02,182 DEBUG b.e.f.c.PointCreator [main] Point: x = 4.0 y = -1.0 is created 
+2018-07-13 23:19:02,183 DEBUG b.e.f.c.PointCreator [main] Point: x = -1.0 y = -2.0 is created 
+2018-07-13 23:19:02,184 DEBUG b.e.f.p.LineParser [main] Line: 2.0, 3.0; 4.0, -1.0; -1.0, -2.0 is successfully parsed. The points are created. 
+2018-07-13 23:19:02,187 DEBUG b.e.f.p.LineParser [main] Line: 1.0, 1.0; 2.0, 3.0; 9.0, 9.0 is being parsed 
+2018-07-13 23:19:02,187 DEBUG b.e.f.c.PointCreator [main] Point: x = 1.0 y = 1.0 is created 
+2018-07-13 23:19:02,188 DEBUG b.e.f.c.PointCreator [main] Point: x = 2.0 y = 3.0 is created 
+2018-07-13 23:19:02,188 DEBUG b.e.f.c.PointCreator [main] Point: x = 9.0 y = 9.0 is created 
+2018-07-13 23:19:02,192 DEBUG b.e.f.p.LineParser [main] Line: 1.0, 1.0; 2.0, 3.0; 9.0, 9.0 is successfully parsed. The points are created. 
+2018-07-13 23:19:02,199 DEBUG b.e.f.p.LineParser [main] Line: -450.0, -345.0; 2789.0, 1.7e+308; -1.7e+308, 9700.5 is being parsed 
+2018-07-13 23:19:02,200 DEBUG b.e.f.c.PointCreator [main] Point: x = -450.0 y = -345.0 is created 
+2018-07-13 23:19:02,202 DEBUG b.e.f.c.PointCreator [main] Point: x = 2789.0 y = 1.7E308 is created 
+2018-07-13 23:19:02,203 DEBUG b.e.f.c.PointCreator [main] Point: x = -1.7E308 y = 9700.5 is created 
+2018-07-13 23:19:02,203 DEBUG b.e.f.p.LineParser [main] Line: -450.0, -345.0; 2789.0, 1.7e+308; -1.7e+308, 9700.5 is successfully parsed. The points are created. 
+2018-07-13 23:19:02,204 DEBUG b.e.f.p.LineParser [main] Line: 1.8e+308, 3.0; 2.0, 3.0; 2.0, 3.0 is being parsed 
+2018-07-13 23:19:02,205 DEBUG b.e.f.p.LineParser [main] Point coordinate X: 1.8e+308 is out of double type range. Point can't be created 
+2018-07-13 23:19:02,206 DEBUG b.e.f.p.LineParser [main] Line: 1.0, 1.0; 3.0, -1.8e+308; 9.0, 9.0 is being parsed 
+2018-07-13 23:19:02,206 DEBUG b.e.f.c.PointCreator [main] Point: x = 1.0 y = 1.0 is created 
+2018-07-13 23:19:02,207 DEBUG b.e.f.p.LineParser [main] Point coordinate Y: -1.8e+308 is out of double type range. Point can't be created 
+2018-07-13 23:19:02,207 DEBUG b.e.f.p.LineParser [main] Line: 1.0, 1.0; 6.0e+375, -1.8e+410; 9.0, 9.0 is being parsed 
+2018-07-13 23:19:02,208 DEBUG b.e.f.c.PointCreator [main] Point: x = 1.0 y = 1.0 is created 
+2018-07-13 23:19:02,208 DEBUG b.e.f.p.LineParser [main] Point coordinate X: 6.0e+375 is out of double type range. Point can't be created 
+2018-07-13 23:19:02,210 DEBUG b.e.f.p.LineParser [main] Line: 2.0, 3.0; 4.0, 1.0; -1.0, -2.0 is being parsed 
+2018-07-13 23:19:02,211 DEBUG b.e.f.c.PointCreator [main] Point: x = 2.0 y = 3.0 is created 
+2018-07-13 23:19:02,211 DEBUG b.e.f.c.PointCreator [main] Point: x = 4.0 y = 1.0 is created 
+2018-07-13 23:19:02,292 DEBUG b.e.f.c.PointCreator [main] Point: x = -1.0 y = -2.0 is created 
+2018-07-13 23:19:02,292 DEBUG b.e.f.p.LineParser [main] Line: 2.0, 3.0; 4.0, 1.0; -1.0, -2.0 is successfully parsed. The points are created. 
+2018-07-13 23:19:02,295 DEBUG b.e.f.p.LineParser [main] Line: 2.0, 3.0; 4.0, 1.0; -1.0, -2.0 is being parsed 
+2018-07-13 23:19:02,295 DEBUG b.e.f.c.PointCreator [main] Point: x = 2.0 y = 3.0 is created 
+2018-07-13 23:19:02,296 DEBUG b.e.f.c.PointCreator [main] Point: x = 4.0 y = 1.0 is created 
+2018-07-13 23:19:02,296 DEBUG b.e.f.c.PointCreator [main] Point: x = -1.0 y = -2.0 is created 
+2018-07-13 23:19:02,296 DEBUG b.e.f.p.LineParser [main] Line: 2.0, 3.0; 4.0, 1.0; -1.0, -2.0 is successfully parsed. The points are created. 
+2018-07-13 23:19:02,362 DEBUG b.e.f.c.TriangleCreator [main] Triangle: (2.0, 3.0) (4.0, 1.0) (-1.0, -2.0) is created 
+2018-07-13 23:19:02,364 DEBUG b.e.f.c.TriangleCreator [main] Triangle: (2.0, 3.0) (698.0, 15500.0) (-89219.0, 3000.0) is created 
+2018-07-13 23:19:02,365 DEBUG b.e.f.c.TriangleCreator [main] Triangle: (0.0, 0.0) (0.0, -333.0) (999.0, -333.0) is created 
+2018-07-13 23:19:02,366 DEBUG b.e.f.c.TriangleCreator [main] Points (2.0, 3.0); (2.0, 3.0); (2.0, 3.0) doesn't form a triangle 
+2018-07-13 23:19:02,368 DEBUG b.e.f.c.TriangleCreator [main] Points (1.0, 1.0); (3.0, 3.0); (9.0, 9.0) doesn't form a triangle 
+2018-07-13 23:19:02,370 DEBUG b.e.f.c.TriangleCreator [main] Points (-10.0, 3.0); (0.0, 3.0); (10.0, 3.0) doesn't form a triangle 
+2018-07-13 23:19:02,372 DEBUG b.e.f.c.TriangleCreator [main] Points (-3.0, -21.6); (-3.0, 1.0); (-3.0, 22.5) doesn't form a triangle 
+2018-07-13 23:19:02,375 DEBUG b.e.f.a.TriangleAction [main] Calculating perimeter of Triangle: (2.0, 3.0) (4.0, 1.0) (-1.0, -2.0) 
+2018-07-13 23:19:02,375 DEBUG b.e.f.a.TriangleAction [main] The sides of the triangle calculating 
+2018-07-13 23:19:02,376 DEBUG b.e.f.a.TriangleAction [main] Calculation complete. AB = 2.8284271247461903, AC = 5.830951894845301, BC = 5.830951894845301 
+2018-07-13 23:19:02,376 DEBUG b.e.f.a.TriangleAction [main] Calculating is successfully completed. Perimeter = 14.490330914436791 
+2018-07-13 23:19:02,377 DEBUG b.e.f.a.TriangleAction [main] Calculating perimeter of Triangle: (6.0, 3.0) (6.0, 9.0) (-8.0, 3.0) 
+2018-07-13 23:19:02,377 DEBUG b.e.f.a.TriangleAction [main] The sides of the triangle calculating 
+2018-07-13 23:19:02,378 DEBUG b.e.f.a.TriangleAction [main] Calculation complete. AB = 6.0, AC = 14.0, BC = 15.231546211727817 
+2018-07-13 23:19:02,378 DEBUG b.e.f.a.TriangleAction [main] Calculating is successfully completed. Perimeter = 35.23154621172782 
+2018-07-13 23:19:02,380 DEBUG b.e.f.a.TriangleAction [main] Calculating perimeter of Triangle: (-1.5E-323, 2.1E201) (1.6, 6.1) (5.6, 0.1) 
+2018-07-13 23:19:02,381 DEBUG b.e.f.a.TriangleAction [main] The sides of the triangle calculating 
+2018-07-13 23:19:02,382 ERROR b.e.f.a.TriangleAction [main] The value of side AB of the Triangle: (-1.5E-323, 2.1E201) (1.6, 6.1) (5.6, 0.1) is out of double type range. 
+2018-07-13 23:19:02,383 DEBUG b.e.f.a.TriangleAction [main] Calculating perimeter of Triangle: (1.8, 2.0E-180) (1.6, 6.0E180) (-5.6E180, 0.1) 
+2018-07-13 23:19:02,383 DEBUG b.e.f.a.TriangleAction [main] The sides of the triangle calculating 
+2018-07-13 23:19:02,384 ERROR b.e.f.a.TriangleAction [main] The value of side AB of the Triangle: (1.8, 2.0E-180) (1.6, 6.0E180) (-5.6E180, 0.1) is out of double type range. 
+2018-07-13 23:19:02,386 DEBUG b.e.f.a.TriangleAction [main] Calculating square of Triangle: (2.0, 3.0) (4.0, 1.0) (-1.0, -2.0) 
+2018-07-13 23:19:02,386 DEBUG b.e.f.a.TriangleAction [main] The sides of the triangle calculating 
+2018-07-13 23:19:02,387 DEBUG b.e.f.a.TriangleAction [main] Calculation complete. AB = 2.8284271247461903, AC = 5.830951894845301, BC = 5.830951894845301 
+2018-07-13 23:19:02,387 DEBUG b.e.f.a.TriangleAction [main] Calculating is successfully completed. Square = 7.999999999999998 
+2018-07-13 23:19:02,388 DEBUG b.e.f.a.TriangleAction [main] Calculating square of Triangle: (6.0, 3.0) (6.0, 9.0) (-8.0, 3.0) 
+2018-07-13 23:19:02,388 DEBUG b.e.f.a.TriangleAction [main] The sides of the triangle calculating 
+2018-07-13 23:19:02,389 DEBUG b.e.f.a.TriangleAction [main] Calculation complete. AB = 6.0, AC = 14.0, BC = 15.231546211727817 
+2018-07-13 23:19:02,389 DEBUG b.e.f.a.TriangleAction [main] Calculating is successfully completed. Square = 42.0 
+2018-07-13 23:19:02,393 DEBUG b.e.f.a.TriangleAction [main] Calculating square of Triangle: (-1.5E-323, 2.1E201) (1.6, 6.1) (5.6, 0.1) 
+2018-07-13 23:19:02,393 DEBUG b.e.f.a.TriangleAction [main] The sides of the triangle calculating 
+2018-07-13 23:19:02,394 ERROR b.e.f.a.TriangleAction [main] The value of side AB of the Triangle: (-1.5E-323, 2.1E201) (1.6, 6.1) (5.6, 0.1) is out of double type range. 
+2018-07-13 23:19:02,395 DEBUG b.e.f.a.TriangleAction [main] Calculating square of Triangle: (1.8, 2.0E-180) (1.6, 6.0E180) (-5.6E180, 0.1) 
+2018-07-13 23:19:02,396 DEBUG b.e.f.a.TriangleAction [main] The sides of the triangle calculating 
+2018-07-13 23:19:02,396 ERROR b.e.f.a.TriangleAction [main] The value of side AB of the Triangle: (1.8, 2.0E-180) (1.6, 6.0E180) (-5.6E180, 0.1) is out of double type range. 
+2018-07-13 23:19:02,398 DEBUG b.e.f.a.TriangleAction [main] Is Triangle: (2.0, 3.0) (4.0, 1.0) (-1.0, -2.0) obtuse checking 
+2018-07-13 23:19:02,399 DEBUG b.e.f.a.TriangleAction [main] The sides of the triangle calculating 
+2018-07-13 23:19:02,399 DEBUG b.e.f.a.TriangleAction [main] Calculation complete. AB = 2.8284271247461903, AC = 5.830951894845301, BC = 5.830951894845301 
+2018-07-13 23:19:02,400 DEBUG b.e.f.a.TriangleAction [main] Triangle is not obtuse. 
+2018-07-13 23:19:02,401 DEBUG b.e.f.a.TriangleAction [main] Is Triangle: (6.0, 3.0) (6.0, 9.0) (-8.0, 3.0) obtuse checking 
+2018-07-13 23:19:02,401 DEBUG b.e.f.a.TriangleAction [main] The sides of the triangle calculating 
+2018-07-13 23:19:02,401 DEBUG b.e.f.a.TriangleAction [main] Calculation complete. AB = 6.0, AC = 14.0, BC = 15.231546211727817 
+2018-07-13 23:19:02,419 DEBUG b.e.f.a.TriangleAction [main] Triangle is not obtuse. 
+2018-07-13 23:19:02,420 DEBUG b.e.f.a.TriangleAction [main] Is Triangle: (4.0, 5.0) (7.0, 1.0) (3.0, -6.0) obtuse checking 
+2018-07-13 23:19:02,420 DEBUG b.e.f.a.TriangleAction [main] The sides of the triangle calculating 
+2018-07-13 23:19:02,421 DEBUG b.e.f.a.TriangleAction [main] Calculation complete. AB = 5.0, AC = 11.045361017187261, BC = 8.06225774829855 
+2018-07-13 23:19:02,421 DEBUG b.e.f.a.TriangleAction [main] Triangle is obtuse. 
+2018-07-13 23:19:02,422 DEBUG b.e.f.a.TriangleAction [main] Is Triangle: (2.0, 0.0) (4.0, 0.0) (3.0, 1.7320508075688772) obtuse checking 
+2018-07-13 23:19:02,422 DEBUG b.e.f.a.TriangleAction [main] The sides of the triangle calculating 
+2018-07-13 23:19:02,422 DEBUG b.e.f.a.TriangleAction [main] Calculation complete. AB = 2.0, AC = 1.9999999999999998, BC = 1.9999999999999998 
+2018-07-13 23:19:02,424 DEBUG b.e.f.a.TriangleAction [main] Triangle is not obtuse. 
+2018-07-13 23:19:02,426 DEBUG b.e.f.a.TriangleAction [main] Is Triangle: (2.0, 3.0) (4.0, 1.0) (-1.0, -2.0) oxygon checking 
+2018-07-13 23:19:02,426 DEBUG b.e.f.a.TriangleAction [main] The sides of the triangle calculating 
+2018-07-13 23:19:02,427 DEBUG b.e.f.a.TriangleAction [main] Calculation complete. AB = 2.8284271247461903, AC = 5.830951894845301, BC = 5.830951894845301 
+2018-07-13 23:19:02,432 DEBUG b.e.f.a.TriangleAction [main] Triangle is an oxygon. 
+2018-07-13 23:19:02,434 DEBUG b.e.f.a.TriangleAction [main] Is Triangle: (6.0, 3.0) (6.0, 9.0) (-8.0, 3.0) oxygon checking 
+2018-07-13 23:19:02,434 DEBUG b.e.f.a.TriangleAction [main] The sides of the triangle calculating 
+2018-07-13 23:19:02,434 DEBUG b.e.f.a.TriangleAction [main] Calculation complete. AB = 6.0, AC = 14.0, BC = 15.231546211727817 
+2018-07-13 23:19:02,435 DEBUG b.e.f.a.TriangleAction [main] Triangle is not an oxygon 
+2018-07-13 23:19:02,436 DEBUG b.e.f.a.TriangleAction [main] Is Triangle: (4.0, 5.0) (7.0, 1.0) (3.0, -6.0) oxygon checking 
+2018-07-13 23:19:02,436 DEBUG b.e.f.a.TriangleAction [main] The sides of the triangle calculating 
+2018-07-13 23:19:02,436 DEBUG b.e.f.a.TriangleAction [main] Calculation complete. AB = 5.0, AC = 11.045361017187261, BC = 8.06225774829855 
+2018-07-13 23:19:02,437 DEBUG b.e.f.a.TriangleAction [main] Triangle is not an oxygon 
+2018-07-13 23:19:02,438 DEBUG b.e.f.a.TriangleAction [main] Is Triangle: (2.0, 0.0) (4.0, 0.0) (3.0, 1.7320508075688772) oxygon checking 
+2018-07-13 23:19:02,438 DEBUG b.e.f.a.TriangleAction [main] The sides of the triangle calculating 
+2018-07-13 23:19:02,438 DEBUG b.e.f.a.TriangleAction [main] Calculation complete. AB = 2.0, AC = 1.9999999999999998, BC = 1.9999999999999998 
+2018-07-13 23:19:02,438 DEBUG b.e.f.a.TriangleAction [main] Triangle is an oxygon. 
+2018-07-13 23:19:02,442 DEBUG b.e.f.a.TriangleAction [main] Is Triangle: (2.0, 3.0) (4.0, 1.0) (-1.0, -2.0) regular checking 
+2018-07-13 23:19:02,442 DEBUG b.e.f.a.TriangleAction [main] The sides of the triangle calculating 
+2018-07-13 23:19:02,442 DEBUG b.e.f.a.TriangleAction [main] Calculation complete. AB = 2.8284271247461903, AC = 5.830951894845301, BC = 5.830951894845301 
+2018-07-13 23:19:02,443 DEBUG b.e.f.a.TriangleAction [main] Triangle is not regular 
+2018-07-13 23:19:02,444 DEBUG b.e.f.a.TriangleAction [main] Is Triangle: (6.0, 3.0) (6.0, 9.0) (-8.0, 3.0) regular checking 
+2018-07-13 23:19:02,444 DEBUG b.e.f.a.TriangleAction [main] The sides of the triangle calculating 
+2018-07-13 23:19:02,448 DEBUG b.e.f.a.TriangleAction [main] Calculation complete. AB = 6.0, AC = 14.0, BC = 15.231546211727817 
+2018-07-13 23:19:02,449 DEBUG b.e.f.a.TriangleAction [main] Triangle is not regular 
+2018-07-13 23:19:02,450 DEBUG b.e.f.a.TriangleAction [main] Is Triangle: (4.0, 5.0) (7.0, 1.0) (3.0, -6.0) regular checking 
+2018-07-13 23:19:02,450 DEBUG b.e.f.a.TriangleAction [main] The sides of the triangle calculating 
+2018-07-13 23:19:02,451 DEBUG b.e.f.a.TriangleAction [main] Calculation complete. AB = 5.0, AC = 11.045361017187261, BC = 8.06225774829855 
+2018-07-13 23:19:02,451 DEBUG b.e.f.a.TriangleAction [main] Triangle is not regular 
+2018-07-13 23:19:02,452 DEBUG b.e.f.a.TriangleAction [main] Is Triangle: (2.0, 0.0) (4.0, 0.0) (3.0, 1.7320508075688772) regular checking 
+2018-07-13 23:19:02,453 DEBUG b.e.f.a.TriangleAction [main] The sides of the triangle calculating 
+2018-07-13 23:19:02,453 DEBUG b.e.f.a.TriangleAction [main] Calculation complete. AB = 2.0, AC = 1.9999999999999998, BC = 1.9999999999999998 
+2018-07-13 23:19:02,453 DEBUG b.e.f.a.TriangleAction [main] Triangle is regular 
+2018-07-13 23:19:02,462 DEBUG b.e.f.a.TriangleAction [main] Is Triangle: (2.0, 3.0) (4.0, 1.0) (-1.0, -2.0) right checking 
+2018-07-13 23:19:02,466 DEBUG b.e.f.a.TriangleAction [main] The sides of the triangle calculating 
+2018-07-13 23:19:02,467 DEBUG b.e.f.a.TriangleAction [main] Calculation complete. AB = 2.8284271247461903, AC = 5.830951894845301, BC = 5.830951894845301 
+2018-07-13 23:19:02,467 DEBUG b.e.f.a.TriangleAction [main] Triangle is not right. 
+2018-07-13 23:19:02,472 DEBUG b.e.f.a.TriangleAction [main] Is Triangle: (6.0, 3.0) (6.0, 9.0) (-8.0, 3.0) right checking 
+2018-07-13 23:19:02,472 DEBUG b.e.f.a.TriangleAction [main] The sides of the triangle calculating 
+2018-07-13 23:19:02,473 DEBUG b.e.f.a.TriangleAction [main] Calculation complete. AB = 6.0, AC = 14.0, BC = 15.231546211727817 
+2018-07-13 23:19:02,474 DEBUG b.e.f.a.TriangleAction [main] Triangle is right. 
+2018-07-13 23:19:02,475 DEBUG b.e.f.a.TriangleAction [main] Is Triangle: (4.0, 5.0) (7.0, 1.0) (3.0, -6.0) right checking 
+2018-07-13 23:19:02,475 DEBUG b.e.f.a.TriangleAction [main] The sides of the triangle calculating 
+2018-07-13 23:19:02,476 DEBUG b.e.f.a.TriangleAction [main] Calculation complete. AB = 5.0, AC = 11.045361017187261, BC = 8.06225774829855 
+2018-07-13 23:19:02,476 DEBUG b.e.f.a.TriangleAction [main] Triangle is not right. 
+2018-07-13 23:19:02,477 DEBUG b.e.f.a.TriangleAction [main] Is Triangle: (2.0, 0.0) (4.0, 0.0) (3.0, 1.7320508075688772) right checking 
+2018-07-13 23:19:02,477 DEBUG b.e.f.a.TriangleAction [main] The sides of the triangle calculating 
+2018-07-13 23:19:02,477 DEBUG b.e.f.a.TriangleAction [main] Calculation complete. AB = 2.0, AC = 1.9999999999999998, BC = 1.9999999999999998 
+2018-07-13 23:19:02,478 DEBUG b.e.f.a.TriangleAction [main] Triangle is not right. 
