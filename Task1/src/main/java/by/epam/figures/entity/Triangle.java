@@ -1,6 +1,8 @@
 package by.epam.figures.entity;
 
 
+import by.epam.figures.observer.Observer;
+
 /**
  * An {@link Triangle} object contains three
  * {@link Point2D} objects which form a triangle.
@@ -26,16 +28,46 @@ public class Triangle {
      * Point C of a triangle.
      */
     private Point2D pointC;
+    /**
+     * Triangle's name.
+     */
+    private String triangleName;
+    /**
+     * Triangle's id.
+     */
+    private int triangleId;
+
+    /**
+     * The instance of {@link Observer}.
+     */
+    private Observer observer = new Observer();
 
     /**
      * @param p1 is transmitted first point for creating a triangle.
      * @param p2 is transmitted second point for creating a triangle.
      * @param p3 is transmitted third point for creating a triangle.
      */
-    public Triangle(final Point2D p1, final Point2D p2, final Point2D p3) {
+    public Triangle(final String name,
+                    final Point2D p1, final Point2D p2, final Point2D p3) {
+        triangleName = name;
         pointA = p1;
         pointB = p2;
         pointC = p3;
+    }
+    /**
+     * @param p1 is transmitted first point for creating a triangle.
+     * @param p2 is transmitted second point for creating a triangle.
+     * @param p3 is transmitted third point for creating a triangle.
+     * @param name is transmitted name of triangle.
+     * @param id is transmetted id of triangle.
+     */
+    public Triangle(final String name, final int id,
+                    final Point2D p1, final Point2D p2, final Point2D p3) {
+        pointA = p1;
+        pointB = p2;
+        pointC = p3;
+        triangleName = name;
+        triangleId = id;
     }
 
     /**
@@ -58,27 +90,46 @@ public class Triangle {
     }
 
     /**
+     * @return triangle's name.
+     */
+    public final String getName() {
+        return triangleName;
+    }
+
+    /**
+     * @return triangle's id.
+     */
+    public final int getId() {
+        return triangleId;
+    }
+    /**
      * @param point1 is point A of a triangle.
      */
     public final void setPointA(final Point2D point1) {
-        this.pointA = point1;
+        pointA = point1;
     }
     /**
      * @param point2 is point B of a triangle.
      */
     public final void setPointB(final Point2D point2) {
-        this.pointB = point2;
+        pointB = point2;
     }
     /**
      * @param point3 is point C of a triangle.
      */
     public final void setPointC(final Point2D point3) {
-        this.pointC = point3;
+        pointC = point3;
     }
 
+    /**
+     * @param id is triangle's individual id.
+     */
+    public final void setId(final int id) {
+        triangleId = id;
+    }
     @Override
     public final String toString() {
-        return "Triangle: ("
+        return "Triangle " + triangleName + ": ("
                 + pointA.getX() + ", " + pointA.getY() + ") ("
                 + pointB.getX() + ", " + pointB.getY() + ") ("
                 + pointC.getX() + ", " + pointC.getY() + ")";

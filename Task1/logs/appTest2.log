@@ -1,101 +1,68 @@
-2018-07-10 23:39:24,313 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:58) Incorrect expression in line 3
-"2018-07-10 23:39:24,314 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:58) Line 4 is empty
-"2018-07-10 23:39:24,319 FATAL reader.ReaderTest [main] by.epam.figures.reader.ReaderTest.testReader(ReaderTest.java:53) File is not found!
-"2018-07-10 23:39:24,322 FATAL reader.ReaderTest [main] by.epam.figures.reader.ReaderTest.testReader(ReaderTest.java:53) File is not found!
-"2018-07-10 23:39:24,324 FATAL reader.ReaderTest [main] by.epam.figures.reader.ReaderTest.testReader(ReaderTest.java:53) File is not found!
-"2018-07-10 23:39:24,326 FATAL reader.ReaderTest [main] by.epam.figures.reader.ReaderTest.testReader(ReaderTest.java:53) Invalid path to file!
-"2018-07-10 23:39:24,357 ERROR creator.TriangleCreatorTest [main] by.epam.figures.creator.TriangleCreatorTest.testCreateTriangle(TriangleCreatorTest.java:64) Points (1.0, 1.0); (3.0, 3.0); (9.0, 9.0) doesn't form a triangle
-"2018-07-10 23:39:24,369 ERROR parser.LineParserTest [main] by.epam.figures.parser.LineParserTest.testParseData(LineParserTest.java:49) Point coordinate Y: 1.8e+387 is out of double type range. A point can't be created.
-"2018-07-10 23:39:24,385 ERROR action.TriangleActionTest [main] by.epam.figures.action.TriangleActionTest.testCalcPerimeter(TriangleActionTest.java:89) The value of side AB of the Triangle: (-1.5E-323, 2.1E201) (1.6, 6.1) (5.6, 0.1) is out of double type range.
-"2018-07-10 23:39:24,396 ERROR action.TriangleActionTest [main] by.epam.figures.action.TriangleActionTest.testCalcSquare(TriangleActionTest.java:104) The value of side AB of the Triangle: (-1.5E-323, 2.1E201) (1.6, 6.1) (5.6, 0.1) is out of double type range.
-"2018-07-12 19:24:08,951 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:53) Incorrect expression in line 3
-"2018-07-12 19:24:09,041 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:53) Line 4 is empty
-"2018-07-12 19:31:43,485 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:53) Incorrect expression in line 3
-"2018-07-12 19:31:43,553 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:53) Line 4 is empty
-"2018-07-12 19:36:37,516 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:58) Incorrect expression in line 3
-"2018-07-12 19:36:37,613 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:58) Line 4 is empty
-"2018-07-12 19:40:25,566 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:59) Incorrect expression in line 3
-"2018-07-12 19:40:25,588 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:59) Line 4 is empty
-"2018-07-12 19:40:58,887 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:59) Incorrect expression in line 3
-"2018-07-12 19:40:58,888 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:59) Line 4 is empty
-"2018-07-12 19:42:11,031 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:59) Incorrect expression in line 3
-"2018-07-12 19:42:11,032 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:59) Line 4 is empty
-"2018-07-12 19:45:09,004 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:59) Incorrect expression in line 3
-"2018-07-12 19:45:09,009 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:59) Line 4 is empty
-"2018-07-12 19:45:26,778 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:59) Incorrect expression in line 3
-"2018-07-12 19:45:26,786 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:59) Line 4 is empty
-"2018-07-12 19:47:24,286 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:59) Incorrect expression in line 3
-"2018-07-12 19:47:24,307 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:59) Line 4 is empty
-"2018-07-12 19:52:28,352 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:59) Incorrect expression in line 3
-"2018-07-12 19:52:28,360 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:59) Line 4 is empty
-"2018-07-12 19:52:28,414 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:59) Incorrect expression in line 3
-"2018-07-12 19:52:28,415 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:59) Line 4 is empty
-"2018-07-12 19:52:28,441 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:59) Incorrect expression in line 3
-"2018-07-12 19:52:28,442 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:59) Line 4 is empty
-"2018-07-12 19:52:28,476 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:59) Incorrect expression in line 3
-"2018-07-12 19:52:28,476 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:59) Line 4 is empty
-"2018-07-12 19:52:28,484 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:59) Incorrect expression in line 3
-"2018-07-12 19:52:28,485 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:59) Line 4 is empty
-"2018-07-12 19:52:58,643 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:59) Incorrect expression in line 3
-"2018-07-12 19:52:58,645 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:59) Line 4 is empty
-"2018-07-12 19:55:01,889 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:59) Incorrect expression in line 3
-"2018-07-12 19:55:01,895 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:59) Line 4 is empty
-"2018-07-12 20:01:20,237 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:68) File is not found!
-"2018-07-12 20:01:20,252 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:68) File is not found!
-"2018-07-12 20:01:20,261 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:68) File is not found!
-"2018-07-12 20:01:20,266 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:72) Invalid path to file!
-"2018-07-12 20:01:20,399 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:59) Incorrect expression in line 3
-"2018-07-12 20:01:20,400 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:59) Line 4 is empty
-"2018-07-12 22:49:22,892 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:68) File is not found!
-"2018-07-12 22:49:22,936 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:68) File is not found!
-"2018-07-12 22:49:22,940 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:68) File is not found!
-"2018-07-12 22:49:22,944 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:68) File is not found!
-"2018-07-12 22:49:22,951 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:74) Invalid path to file!
-"2018-07-12 22:49:22,968 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:66) Error in the work of file reader stream
-"2018-07-12 22:49:23,134 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:59) Incorrect expression in line 3
-"2018-07-12 22:49:23,134 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:59) Line 4 is empty
-"2018-07-12 22:57:05,838 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:69) File is not found!
-"2018-07-12 22:57:05,873 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:69) File is not found!
-"2018-07-12 22:57:05,876 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:69) File is not found!
-"2018-07-12 22:57:05,881 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:69) File is not found!
-"2018-07-12 22:57:05,891 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:75) Invalid path to file!
-"2018-07-12 22:57:05,896 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:66) Error in the work of file reader stream
-"2018-07-12 22:57:06,075 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:59) Incorrect expression in line 3
-"2018-07-12 22:57:06,076 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:59) Line 4 is empty
-"2018-07-12 23:01:06,628 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:69) File is not found!
-"2018-07-12 23:01:06,641 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:69) File is not found!
-"2018-07-12 23:01:06,646 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:69) File is not found!
-"2018-07-12 23:01:06,650 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:69) File is not found!
-"2018-07-12 23:01:06,656 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:75) Invalid path to file!
-"2018-07-12 23:01:06,665 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:66) File path string is empty!
-"2018-07-12 23:01:06,832 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:59) Incorrect expression in line 3
-"2018-07-12 23:01:06,832 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:59) Line 4 is empty
-"2018-07-13 01:31:52,740 ERROR action.TriangleAction [main] by.epam.figures.action.TriangleAction.calcPerimeter(TriangleAction.java:75) The value of side AB of the Triangle: (-1.5E-323, 2.1E201) (1.6, 6.1) (5.6, 0.1) is out of double type range.
-"2018-07-13 01:31:52,754 ERROR action.TriangleAction [main] by.epam.figures.action.TriangleAction.calcPerimeter(TriangleAction.java:75) The value of side AB of the Triangle: (1.8, 2.0E-200) (1.6, -6.0E200) (5.6, 0.1) is out of double type range.
-"2018-07-13 01:35:43,447 ERROR action.TriangleAction [main] by.epam.figures.action.TriangleAction.calcPerimeter(TriangleAction.java:75) The value of side AB of the Triangle: (-1.5E-323, 2.1E201) (1.6, 6.1) (5.6, 0.1) is out of double type range.
-"2018-07-13 01:35:43,467 ERROR action.TriangleAction [main] by.epam.figures.action.TriangleAction.calcPerimeter(TriangleAction.java:75) The value of side AB of the Triangle: (1.8, 2.0E-200) (1.6, 6.0E180) (-5.6E180, 0.1) is out of double type range.
-"2018-07-13 01:36:18,802 ERROR action.TriangleAction [main] by.epam.figures.action.TriangleAction.calcPerimeter(TriangleAction.java:75) The value of side AB of the Triangle: (-1.5E-323, 2.1E201) (1.6, 6.1) (5.6, 0.1) is out of double type range.
-"2018-07-13 01:36:18,813 ERROR action.TriangleAction [main] by.epam.figures.action.TriangleAction.calcPerimeter(TriangleAction.java:75) The value of side AB of the Triangle: (1.8, 2.0E-180) (1.6, 6.0E180) (-5.6E180, 0.1) is out of double type range.
-"2018-07-13 01:39:55,641 ERROR action.TriangleAction [main] by.epam.figures.action.TriangleAction.calcSquare(TriangleAction.java:101) The value of side AB of the Triangle: (-1.5E-323, 2.1E201) (1.6, 6.1) (5.6, 0.1) is out of double type range.
-"2018-07-13 01:39:55,646 ERROR action.TriangleAction [main] by.epam.figures.action.TriangleAction.calcSquare(TriangleAction.java:101) The value of side AB of the Triangle: (1.8, 2.0E-180) (1.6, 6.0E180) (-5.6E180, 0.1) is out of double type range.
-"2018-07-13 16:24:22,547 ERROR action.TriangleAction [main] by.epam.figures.action.TriangleAction.calcPerimeter(TriangleAction.java:75) The value of side AB of the Triangle: (-1.5E-323, 2.1E201) (1.6, 6.1) (5.6, 0.1) is out of double type range.
-"2018-07-13 16:24:22,578 ERROR action.TriangleAction [main] by.epam.figures.action.TriangleAction.calcPerimeter(TriangleAction.java:75) The value of side AB of the Triangle: (1.8, 2.0E-180) (1.6, 6.0E180) (-5.6E180, 0.1) is out of double type range.
-"2018-07-13 16:24:22,578 ERROR action.TriangleAction [main] by.epam.figures.action.TriangleAction.calcSquare(TriangleAction.java:101) The value of side AB of the Triangle: (-1.5E-323, 2.1E201) (1.6, 6.1) (5.6, 0.1) is out of double type range.
-"2018-07-13 16:24:22,594 ERROR action.TriangleAction [main] by.epam.figures.action.TriangleAction.calcSquare(TriangleAction.java:101) The value of side AB of the Triangle: (1.8, 2.0E-180) (1.6, 6.0E180) (-5.6E180, 0.1) is out of double type range.
-"2018-07-13 22:34:12,944 ERROR action.TriangleAction [main] by.epam.figures.action.TriangleAction.calcPerimeter(TriangleAction.java:118) The value of side AB of the Triangle: (-1.5E-323, 2.1E201) (1.6, 6.1) (5.6, 0.1) is out of double type range.
-"2018-07-13 22:34:13,013 ERROR action.TriangleAction [main] by.epam.figures.action.TriangleAction.calcPerimeter(TriangleAction.java:118) The value of side AB of the Triangle: (1.8, 2.0E-180) (1.6, 6.0E180) (-5.6E180, 0.1) is out of double type range.
-"2018-07-13 22:34:13,140 ERROR action.TriangleAction [main] by.epam.figures.action.TriangleAction.calcSquare(TriangleAction.java:154) The value of side AB of the Triangle: (-1.5E-323, 2.1E201) (1.6, 6.1) (5.6, 0.1) is out of double type range.
-"2018-07-13 22:34:13,142 ERROR action.TriangleAction [main] by.epam.figures.action.TriangleAction.calcSquare(TriangleAction.java:154) The value of side AB of the Triangle: (1.8, 2.0E-180) (1.6, 6.0E180) (-5.6E180, 0.1) is out of double type range.
-"2018-07-13 23:19:01,549 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:97) File is not found!
-"2018-07-13 23:19:01,718 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:97) File is not found!
-"2018-07-13 23:19:01,722 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:97) File is not found!
-"2018-07-13 23:19:01,726 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:97) File is not found!
-"2018-07-13 23:19:01,730 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:103) Invalid path to file!
-"2018-07-13 23:19:01,737 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:94) File path string is empty!
-"2018-07-13 23:19:02,129 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:87) Incorrect expression in line 3
-"2018-07-13 23:19:02,129 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:87) Line 4 is empty
-"2018-07-13 23:19:02,382 ERROR action.TriangleAction [main] by.epam.figures.action.TriangleAction.calcPerimeter(TriangleAction.java:118) The value of side AB of the Triangle: (-1.5E-323, 2.1E201) (1.6, 6.1) (5.6, 0.1) is out of double type range.
-"2018-07-13 23:19:02,384 ERROR action.TriangleAction [main] by.epam.figures.action.TriangleAction.calcPerimeter(TriangleAction.java:118) The value of side AB of the Triangle: (1.8, 2.0E-180) (1.6, 6.0E180) (-5.6E180, 0.1) is out of double type range.
-"2018-07-13 23:19:02,394 ERROR action.TriangleAction [main] by.epam.figures.action.TriangleAction.calcSquare(TriangleAction.java:154) The value of side AB of the Triangle: (-1.5E-323, 2.1E201) (1.6, 6.1) (5.6, 0.1) is out of double type range.
-"2018-07-13 23:19:02,396 ERROR action.TriangleAction [main] by.epam.figures.action.TriangleAction.calcSquare(TriangleAction.java:154) The value of side AB of the Triangle: (1.8, 2.0E-180) (1.6, 6.0E180) (-5.6E180, 0.1) is out of double type range.
+2018-07-15 16:34:22,292 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:98) File is not found!
+"2018-07-15 16:34:22,305 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:98) File is not found!
+"2018-07-15 16:34:22,313 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:98) File is not found!
+"2018-07-15 16:34:22,343 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:98) File is not found!
+"2018-07-15 16:34:22,353 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:104) Invalid path to file!
+"2018-07-15 16:34:22,372 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:95) File path string is empty!
+"2018-07-15 16:34:22,528 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:88) Incorrect expression in line 1
+"2018-07-15 16:34:22,529 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:88) Incorrect expression in line 2
+"2018-07-15 16:34:22,530 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:88) Incorrect expression in line 3
+"2018-07-15 16:34:22,530 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:88) Incorrect expression in line 4
+"2018-07-15 16:34:22,531 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:88) Line 5 is empty
+"2018-07-15 16:34:22,531 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:88) Incorrect expression in line 6
+"2018-07-15 16:34:22,532 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:88) Incorrect expression in line 7
+"2018-07-15 16:36:07,486 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:98) File is not found!
+"2018-07-15 16:36:07,494 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:98) File is not found!
+"2018-07-15 16:36:07,503 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:98) File is not found!
+"2018-07-15 16:36:07,506 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:98) File is not found!
+"2018-07-15 16:36:07,522 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:104) Invalid path to file!
+"2018-07-15 16:36:07,533 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:95) File path string is empty!
+"2018-07-15 16:36:07,712 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:88) Incorrect expression in line 3
+"2018-07-15 16:36:07,713 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:88) Incorrect expression in line 4
+"2018-07-15 16:36:07,714 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:88) Line 5 is empty
+"2018-07-15 16:36:51,192 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:98) File is not found!
+"2018-07-15 16:36:51,198 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:98) File is not found!
+"2018-07-15 16:36:51,214 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:98) File is not found!
+"2018-07-15 16:36:51,216 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:98) File is not found!
+"2018-07-15 16:36:51,240 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:104) Invalid path to file!
+"2018-07-15 16:36:51,256 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:95) File path string is empty!
+"2018-07-15 16:36:51,496 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:88) Incorrect expression in line 3
+"2018-07-15 16:36:51,497 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:88) Incorrect expression in line 4
+"2018-07-15 16:36:51,503 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:88) Line 5 is empty
+"2018-07-15 17:45:26,399 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:98) File is not found!
+"2018-07-15 17:45:26,503 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:98) File is not found!
+"2018-07-15 17:45:26,506 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:98) File is not found!
+"2018-07-15 17:45:26,522 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:98) File is not found!
+"2018-07-15 17:45:26,537 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:104) Invalid path to file!
+"2018-07-15 17:45:26,542 FATAL reader.Reader [main] by.epam.figures.reader.Reader.readFile(Reader.java:95) File path string is empty!
+"2018-07-15 17:45:26,937 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:88) Incorrect expression in line 3
+"2018-07-15 17:45:26,938 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:88) Incorrect expression in line 4
+"2018-07-15 17:45:26,939 ERROR reader.Reader [main] by.epam.figures.reader.Reader.lambda$readFile$0(Reader.java:88) Line 5 is empty
+"2018-07-15 17:58:52,808 ERROR action.TriangleAction [main] by.epam.figures.action.TriangleAction.calcPerimeter(TriangleAction.java:118) The value of side AB of the Triangle tr1: (-1.5E-323, 2.1E201) (1.6, 6.1) (5.6, 0.1) is out of double type range.
+"2018-07-15 17:58:52,820 ERROR action.TriangleAction [main] by.epam.figures.action.TriangleAction.calcPerimeter(TriangleAction.java:118) The value of side AB of the Triangle tr2: (1.8, 2.0E-180) (1.6, 6.0E180) (-5.6E180, 0.1) is out of double type range.
+"2018-07-15 17:58:52,838 ERROR action.TriangleAction [main] by.epam.figures.action.TriangleAction.calcSquare(TriangleAction.java:154) The value of side AB of the Triangle tr1: (-1.5E-323, 2.1E201) (1.6, 6.1) (5.6, 0.1) is out of double type range.
+"2018-07-15 17:58:52,846 ERROR action.TriangleAction [main] by.epam.figures.action.TriangleAction.calcSquare(TriangleAction.java:154) The value of side AB of the Triangle tr2: (1.8, 2.0E-180) (1.6, 6.0E180) (-5.6E180, 0.1) is out of double type range.
+"2018-07-15 18:10:39,486 ERROR parser.LineParser [main] by.epam.figures.parser.LineParser.parseData(LineParser.java:111) Point coordinate X: 1.8e+308 is out of double type range. Point can't be created
+"2018-07-15 18:10:39,493 ERROR parser.LineParser [main] by.epam.figures.parser.LineParser.parseData(LineParser.java:111) Point coordinate Y: -1.8e+308 is out of double type range. Point can't be created
+"2018-07-15 18:10:39,497 ERROR parser.LineParser [main] by.epam.figures.parser.LineParser.parseData(LineParser.java:111) Point coordinate X: 6.0e+375 is out of double type range. Point can't be created
+"2018-07-16 23:31:39,849 ERROR action.TriangleAction [main] by.epam.figures.action.TriangleAction.calcPerimeter(TriangleAction.java:118) The value of side AB of the Triangle tr1: (-1.5E-323, 2.1E201) (1.6, 6.1) (5.6, 0.1) is out of double type range.
+"2018-07-16 23:31:39,888 ERROR action.TriangleAction [main] by.epam.figures.action.TriangleAction.calcPerimeter(TriangleAction.java:118) The value of side AB of the Triangle tr2: (1.8, 2.0E-180) (1.6, 6.0E180) (-5.6E180, 0.1) is out of double type range.
+"2018-07-16 23:31:39,904 ERROR action.TriangleAction [main] by.epam.figures.action.TriangleAction.calcSquare(TriangleAction.java:154) The value of side AB of the Triangle tr1: (-1.5E-323, 2.1E201) (1.6, 6.1) (5.6, 0.1) is out of double type range.
+"2018-07-16 23:31:39,906 ERROR action.TriangleAction [main] by.epam.figures.action.TriangleAction.calcSquare(TriangleAction.java:154) The value of side AB of the Triangle tr2: (1.8, 2.0E-180) (1.6, 6.0E180) (-5.6E180, 0.1) is out of double type range.
+"2018-07-16 23:32:45,123 ERROR creator.TriangleCreator [main] by.epam.figures.creator.TriangleCreator.createTriangle(TriangleCreator.java:68) Points (2.0, 3.0); (2.0, 3.0); (2.0, 3.0) doesn't form a triangle
+"2018-07-16 23:32:45,141 ERROR creator.TriangleCreator [main] by.epam.figures.creator.TriangleCreator.createTriangle(TriangleCreator.java:68) Points (1.0, 1.0); (3.0, 3.0); (9.0, 9.0) doesn't form a triangle
+"2018-07-16 23:32:45,143 ERROR creator.TriangleCreator [main] by.epam.figures.creator.TriangleCreator.createTriangle(TriangleCreator.java:68) Points (-10.0, 3.0); (0.0, 3.0); (10.0, 3.0) doesn't form a triangle
+"2018-07-16 23:32:45,150 ERROR creator.TriangleCreator [main] by.epam.figures.creator.TriangleCreator.createTriangle(TriangleCreator.java:68) Points (-3.0, -21.6); (-3.0, 1.0); (-3.0, 22.5) doesn't form a triangle
+"2018-07-16 23:33:07,312 ERROR creator.TriangleCreator [main] by.epam.figures.creator.TriangleCreator.createTriangle(TriangleCreator.java:68) Points (2.0, 3.0); (2.0, 3.0); (2.0, 3.0) doesn't form a triangle
+"2018-07-16 23:33:07,316 ERROR creator.TriangleCreator [main] by.epam.figures.creator.TriangleCreator.createTriangle(TriangleCreator.java:68) Points (1.0, 1.0); (3.0, 3.0); (9.0, 9.0) doesn't form a triangle
+"2018-07-16 23:33:07,323 ERROR creator.TriangleCreator [main] by.epam.figures.creator.TriangleCreator.createTriangle(TriangleCreator.java:68) Points (-10.0, 3.0); (0.0, 3.0); (10.0, 3.0) doesn't form a triangle
+"2018-07-16 23:33:07,326 ERROR creator.TriangleCreator [main] by.epam.figures.creator.TriangleCreator.createTriangle(TriangleCreator.java:68) Points (-3.0, -21.6); (-3.0, 1.0); (-3.0, 22.5) doesn't form a triangle
+"2018-07-17 18:04:28,404 ERROR creator.TriangleCreator [main] by.epam.figures.creator.TriangleCreator.createTriangle(TriangleCreator.java:66) Points (2.0, 3.0); (2.0, 3.0); (2.0, 3.0) doesn't form a triangle
+"2018-07-17 18:04:28,457 ERROR creator.TriangleCreator [main] by.epam.figures.creator.TriangleCreator.createTriangle(TriangleCreator.java:66) Points (1.0, 1.0); (3.0, 3.0); (9.0, 9.0) doesn't form a triangle
+"2018-07-17 18:04:28,459 ERROR creator.TriangleCreator [main] by.epam.figures.creator.TriangleCreator.createTriangle(TriangleCreator.java:66) Points (-10.0, 3.0); (0.0, 3.0); (10.0, 3.0) doesn't form a triangle
+"2018-07-17 18:04:28,461 ERROR creator.TriangleCreator [main] by.epam.figures.creator.TriangleCreator.createTriangle(TriangleCreator.java:66) Points (-3.0, -21.6); (-3.0, 1.0); (-3.0, 22.5) doesn't form a triangle
+"2018-07-17 18:12:36,744 ERROR creator.TriangleCreator [main] by.epam.figures.creator.TriangleCreator.createTriangle(TriangleCreator.java:66) Points (2.0, 3.0); (2.0, 3.0); (2.0, 3.0) doesn't form a triangle
+"2018-07-17 18:12:36,752 ERROR creator.TriangleCreator [main] by.epam.figures.creator.TriangleCreator.createTriangle(TriangleCreator.java:66) Points (1.0, 1.0); (3.0, 3.0); (9.0, 9.0) doesn't form a triangle
+"2018-07-17 18:12:36,762 ERROR creator.TriangleCreator [main] by.epam.figures.creator.TriangleCreator.createTriangle(TriangleCreator.java:66) Points (-10.0, 3.0); (0.0, 3.0); (10.0, 3.0) doesn't form a triangle
+"2018-07-17 18:12:36,765 ERROR creator.TriangleCreator [main] by.epam.figures.creator.TriangleCreator.createTriangle(TriangleCreator.java:66) Points (-3.0, -21.6); (-3.0, 1.0); (-3.0, 22.5) doesn't form a triangle
 "

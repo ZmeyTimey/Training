@@ -27,10 +27,12 @@ public class TriangleActionTest {
     public static Object[][] perimeters() {
         return new Object[][]
                 {{14.4903, new Triangle(
+                        "tr1",
                         new Point2D(2.0, 3.0),
                         new Point2D(4.0, 1.0),
                         new Point2D(-1.0, -2.0))},
                 {35.2315, new Triangle(
+                        "tr2",
                         new Point2D(6.0, 3.0),
                         new Point2D(6.0, 9.0),
                         new Point2D(-8.0, 3.0))}};
@@ -44,10 +46,12 @@ public class TriangleActionTest {
     public static Object[][] perimetersOutOfDouble() {
         return new Object[][]
                 {{new Triangle(
+                        "tr1",
                         new Point2D(-1.6e-323, 2.1e+201),
                         new Point2D(1.6, 6.1),
                         new Point2D(5.6, 0.1))},
                 {new Triangle(
+                        "tr2",
                         new Point2D(1.8, 2.0e-180),
                         new Point2D(1.6, 6.0e+180),
                         new Point2D(-5.6e+180, 0.1))}};
@@ -60,10 +64,12 @@ public class TriangleActionTest {
     public static Object[][] squares() {
         return new Object[][]
                 {{8.0, new Triangle(
+                        "tr1",
                         new Point2D(2.0, 3.0),
                         new Point2D(4.0, 1.0),
                         new Point2D(-1.0, -2.0))},
                 {42.0, new Triangle(
+                        "tr2",
                         new Point2D(6.0, 3.0),
                         new Point2D(6.0, 9.0),
                         new Point2D(-8.0, 3.0))}};
@@ -77,10 +83,12 @@ public class TriangleActionTest {
     public static Object[][] squaresOutOfDouble() {
         return new Object[][]
                 {{new Triangle(
+                        "tr1",
                         new Point2D(-1.6e-323, 2.1e+201),
                         new Point2D(1.6, 6.1),
                         new Point2D(5.6, 0.1))},
                 {new Triangle(
+                        "tr2",
                         new Point2D(1.8, 2.0e-180),
                         new Point2D(1.6, 6.0e+180),
                         new Point2D(-5.6e+180, 0.1))}};
@@ -94,18 +102,22 @@ public class TriangleActionTest {
     public static Object[][] typesOfTrianglesRight() {
         return new Object[][]
                 {{new Triangle(
+                        "tr1",
                         new Point2D(2.0, 3.0),
                         new Point2D(4.0, 1.0),
                         new Point2D(-1.0, -2.0)), false},
                 {new Triangle(
+                        "tr2",
                         new Point2D(6.0, 3.0),
                         new Point2D(6.0, 9.0),
                         new Point2D(-8.0, 3.0)), true},
                 {new Triangle(
+                        "tr3",
                         new Point2D(4.0, 5.0),
                         new Point2D(7.0, 1.0),
                         new Point2D(3.0, -6.0)), false},
                 {new Triangle(
+                        "tr4",
                         new Point2D(2.0, 0.0),
                         new Point2D(4.0, 0.0),
                         new Point2D(3.0, Math.sqrt(3))), false}};
@@ -119,18 +131,22 @@ public class TriangleActionTest {
     public static Object[][] typesOfTrianglesOxygon() {
         return new Object[][]
                 {{new Triangle(
+                        "tr1",
                         new Point2D(2.0, 3.0),
                         new Point2D(4.0, 1.0),
                         new Point2D(-1.0, -2.0)), true},
                 {new Triangle(
+                        "tr2",
                         new Point2D(6.0, 3.0),
                         new Point2D(6.0, 9.0),
                         new Point2D(-8.0, 3.0)), false},
                 {new Triangle(
+                        "tr3",
                         new Point2D(4.0, 5.0),
                         new Point2D(7.0, 1.0),
                         new Point2D(3.0, -6.0)), false},
                 {new Triangle(
+                        "tr4",
                         new Point2D(2.0, 0.0),
                         new Point2D(4.0, 0.0),
                         new Point2D(3.0, Math.sqrt(3))), true}};
@@ -143,18 +159,22 @@ public class TriangleActionTest {
     public static Object[][] typesOfTrianglesObtuse() {
         return new Object[][]
                 {{new Triangle(
+                        "tr1",
                         new Point2D(2.0, 3.0),
                         new Point2D(4.0, 1.0),
                         new Point2D(-1.0, -2.0)), false},
                 {new Triangle(
+                        "tr2",
                         new Point2D(6.0, 3.0),
                         new Point2D(6.0, 9.0),
                         new Point2D(-8.0, 3.0)), false},
                 {new Triangle(
+                        "tr3",
                         new Point2D(4.0, 5.0),
                         new Point2D(7.0, 1.0),
                         new Point2D(3.0, -6.0)), true},
                 {new Triangle(
+                        "tr4",
                         new Point2D(2.0, 0.0),
                         new Point2D(4.0, 0.0),
                         new Point2D(3.0, Math.sqrt(3))), false}};
@@ -167,18 +187,22 @@ public class TriangleActionTest {
     public static Object[][] typesOfTrianglesRegular() {
         return new Object[][]
                 {{new Triangle(
+                        "tr1",
                         new Point2D(2.0, 3.0),
                         new Point2D(4.0, 1.0),
                         new Point2D(-1.0, -2.0)), false},
                 {new Triangle(
+                        "tr2",
                         new Point2D(6.0, 3.0),
                         new Point2D(6.0, 9.0),
                         new Point2D(-8.0, 3.0)), false},
                 {new Triangle(
+                        "tr3",
                         new Point2D(4.0, 5.0),
                         new Point2D(7.0, 1.0),
                         new Point2D(3.0, -6.0)), false},
                 {new Triangle(
+                        "tr4",
                         new Point2D(2.0, 0.0),
                         new Point2D(4.0, 0.0),
                         new Point2D(3.0, Math.sqrt(3))), true}};

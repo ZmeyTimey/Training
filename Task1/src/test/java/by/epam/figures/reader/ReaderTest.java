@@ -27,10 +27,10 @@ public class ReaderTest {
 
         correctList.clear();
 
-        correctList.add("2.0, 3.0; 4.0, 1.0; -1.0, -2.0");
-        correctList.add("1.0, 2.0; 6.0, 8.0; 3.5, 7.6");
-        correctList.add("6.0, 3.0; 6.0, 9.0; -8.0, 3.0");
-        correctList.add("1.0, 1.0; 3.0, 3.0; 9.0, 9.0");
+        correctList.add("tr01: 2.0, 3.0; 4.0, 1.0; -1.0, -2.0");
+        correctList.add("tr02: 1.0, 2.0; 6.0, 8.0; 3.5, 7.6");
+        correctList.add("tr04: 6.0, 3.0; 6.0, 9.0; -8.0, 3.0");
+        correctList.add("tr05: 1.0, 1.0; 3.0, 3.0; 9.0, 9.0");
     }
 
     /**

@@ -104,8 +104,8 @@ public class TriangleAction {
              double perimeter = sideAB + sideAC + sideBC;
 
              if (!DoubleRangeValidator.isValid(perimeter)) {
-                 throw new OutOfDoubleRangeException("Perimeter of the " + triangle
-                         + " is out of double type range");
+                 throw new OutOfDoubleRangeException("Perimeter of the "
+                         + triangle + " is out of double type range");
              }
 
              LOGGER.log(Level.DEBUG, "Calculating is successfully completed. "
@@ -258,7 +258,9 @@ public class TriangleAction {
      * @throws OutOfDoubleRangeException is thrown when any
      * triangle's side value is out of double type range.
      */
-    public final boolean triangleIsOxygon(final Triangle triangle, final int roundCoefficient) throws OutOfDoubleRangeException {
+    public final boolean triangleIsOxygon(final Triangle triangle,
+                                          final int roundCoefficient)
+            throws OutOfDoubleRangeException {
 
         LOGGER.log(Level.DEBUG, "Is " + triangle + " oxygon checking");
 
@@ -303,7 +305,9 @@ public class TriangleAction {
      * @throws OutOfDoubleRangeException is thrown when any
      * triangle's side value is out of double type range.
      */
-    public final boolean triangleIsObtuse(final Triangle triangle, final int roundCoefficient) throws OutOfDoubleRangeException {
+    public final boolean triangleIsObtuse(final Triangle triangle,
+                                          final int roundCoefficient)
+            throws OutOfDoubleRangeException {
 
         LOGGER.log(Level.DEBUG, "Is " + triangle + " obtuse checking");
 

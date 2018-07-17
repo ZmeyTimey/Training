@@ -33,7 +33,10 @@ public class LineParser {
      * Point C of an expected triangle.
      */
     private Point2D pointC;
-
+    /**
+     * Triangle's name.
+     */
+    private String name;
     /**
      * @return point A object.
      */
@@ -42,19 +45,25 @@ public class LineParser {
     }
 
     /**
-     * @return point B object
+     * @return point B object.
      */
     public final Point2D getPointB() {
         return pointB;
     }
 
     /**
-     * @return point C object
+     * @return point C object.
      */
     public final Point2D getPointC() {
         return pointC;
     }
 
+    /**
+     * @return triangle's name.
+     */
+    public final String getName() {
+        return name;
+    }
     /**
      * @param line read from file and had to be parsed
      * @throws OutOfDoubleRangeException is thrown when a value of point
@@ -68,7 +77,12 @@ public class LineParser {
         int i = 0;
         List<Point2D> pointList = new ArrayList<>();
 
-        String[] points = line.split("; ");
+        name = line.split(": ")[0];
+
+        LOGGER.log(Level.DEBUG, "Triangle's name: " + name);
+
+        String coordinatesData = line.split(": ")[1];
+        String[] points = coordinatesData.split("; ");
 
         try {
 
@@ -94,7 +108,7 @@ public class LineParser {
                     + " is successfully parsed. The points are created.");
 
         } catch (OutOfDoubleRangeException ex) {
-            LOGGER.log(Level.DEBUG, ex.getMessage()
+            LOGGER.log(Level.ERROR, ex.getMessage()
                     + " Point can't be created");
             throw new OutOfDoubleRangeException();
                 }

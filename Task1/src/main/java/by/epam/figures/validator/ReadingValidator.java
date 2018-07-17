@@ -15,7 +15,8 @@ public class ReadingValidator {
      */
     public static boolean lineIsCorrect(final String line) {
 
-        Pattern pattern = Pattern.compile("(-?\\d+\\.\\d+,\\s-?\\d+\\.\\d+;?\\s?){3}");
+        Pattern pattern = Pattern.compile("[a-zA-Z0-9]+:"
+                + "\\s(-?\\d+\\.\\d+,\\s-?\\d+\\.\\d+;?\\s?){3}");
         Matcher matcher = pattern.matcher(line);
 
         return matcher.matches();

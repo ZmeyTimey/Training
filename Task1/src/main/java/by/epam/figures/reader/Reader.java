@@ -68,7 +68,8 @@ public class Reader {
      */
     public final void readFile() throws FileReadingException {
 
-        LOGGER.log(Level.DEBUG, "File reading method is started. The path to file: " + filePath);
+        LOGGER.log(Level.DEBUG, "File reading method is started. "
+                + "The path to file: " + filePath);
 
         lineCounter = 0;
         URI filePathURI;

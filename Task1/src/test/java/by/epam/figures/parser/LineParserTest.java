@@ -14,20 +14,25 @@ public class LineParserTest {
     private LineParser parser = new LineParser();
 
     /**
-     * @return a string with a data and the points that had to be created on the basis of this data.
+     * @return a string with a data and the points that had to be created
+     * on the basis of this data.
      */
     @DataProvider(name = "test1")
     public static Object[][] correctPoints() {
         return new Object[][]
-                {{"2.0, 3.0; 4.0, -1.0; -1.0, -2.0",
+                {{"triangle01: 2.0, 3.0; 4.0, 1.0; -1.0, -2.0",
+                        "triangle01",
                         new Point2D(2.0, 3.0),
-                        new Point2D(4.0, -1.0),
+                        new Point2D(4.0, 1.0),
                         new Point2D(-1.0, -2.0)},
-                {"1.0, 1.0; 2.0, 3.0; 9.0, 9.0",
+                {"triangle05: 1.0, 1.0; 3.0, 3.0; 9.0, 9.0",
+                        "triangle05",
                         new Point2D(1.0, 1.0),
-                        new Point2D(2.0, 3.0),
+                        new Point2D(3.0, 3.0),
                         new Point2D(9.0, 9.0)},
-                {"-450.0, -345.0; 2789.0, 1.7e+308; -1.7e+308, 9700.5",
+                {"BigTriangle: -450.0, -345.0; 2789.0, 1.7e+308; "
+                        + "-1.7e+308, 9700.5",
+                        "BigTriangle",
                         new Point2D(-450.0, -345.0),
                         new Point2D(2789.0, 1.7e+308),
                         new Point2D(-1.7e+308, 9700.5)}};
@@ -38,12 +43,16 @@ public class LineParserTest {
      * don't coincide with this data.
      */
     @DataProvider(name = "test2")
-    public static Object[][] notCoincidePoints() {
+    public static Object[][] notCoincideData() {
         return new Object[][]
-                {{"2.0, 3.0; 4.0, 1.0; -1.0, -2.0",
-                        new Point2D(3.0, 2.0), new Point2D(1.0, 4.0), new Point2D(-2.0, -1.0)},
-                {"2.0, 3.0; 4.0, 1.0; -1.0, -2.0",
-                        new Point2D(4.0, 1.0), new Point2D(-1.0, -2.0), new Point2D(2.0, 3.0)}};
+                {{"tr1: 2.0, 3.0; 4.0, 1.0; -1.0, -2.0",
+                        new Point2D(3.0, 2.0),
+                        new Point2D(1.0, 4.0),
+                        new Point2D(-2.0, -1.0)},
+                {"tr2: 2.0, 3.0; 4.0, 1.0; -1.0, -2.0",
+                        new Point2D(4.0, 1.0),
+                        new Point2D(-1.0, -2.0),
+                        new Point2D(2.0, 3.0)}};
     }
 
     /**
@@ -52,13 +61,14 @@ public class LineParserTest {
     @DataProvider(name = "test3")
     public static Object[][] outOfDoublePoints() {
         return new Object[][]
-                {{"1.8e+308, 3.0; 2.0, 3.0; 2.0, 3.0"},
-                {"1.0, 1.0; 3.0, -1.8e+308; 9.0, 9.0"},
-                {"1.0, 1.0; 6.0e+375, -1.8e+410; 9.0, 9.0"}};
+                {{"tr1: 1.8e+308, 3.0; 2.0, 3.0; 2.0, 3.0"},
+                {"tr2: 1.0, 1.0; 3.0, -1.8e+308; 9.0, 9.0"},
+                {"tr3: 1.0, 1.0; 6.0e+375, -1.8e+410; 9.0, 9.0"}};
     }
 
     /**
      * @param line is a string supposed to be parsed.
+     * @param name is a triangle's name.
      * @param point1 is a first point.
      * @param point2 is a second point.
      * @param point3 is a third point.
@@ -67,6 +77,7 @@ public class LineParserTest {
      */
     @Test (dataProvider = "test1")
     public final void testParseData(final String line,
+                              final String name,
                               final Point2D point1,
                               final Point2D point2,
                               final Point2D point3)
@@ -74,6 +85,7 @@ public class LineParserTest {
 
             parser.parseData(line);
 
+            Assert.assertEquals(name, parser.getName());
             Assert.assertEquals(point1, parser.getPointA());
             Assert.assertEquals(point2, parser.getPointB());
             Assert.assertEquals(point3, parser.getPointC());
