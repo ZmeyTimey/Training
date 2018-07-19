@@ -14,7 +14,7 @@ public class PointsFormLineException extends Exception {
 
     /**
      * Constructor for {@link PointsFormLineException}.
-     * @param message of exception.
+     * @param message of the exception.
      */
     public PointsFormLineException(final String message) {
         super(message);
@@ -22,8 +22,8 @@ public class PointsFormLineException extends Exception {
 
     /**
      * Constructor for {@link PointsFormLineException}.
-     * @param message of exception.
-     * @param cause of exception.
+     * @param message of the exception.
+     * @param cause of the exception.
      */
     public PointsFormLineException(final String message,
                                    final Throwable cause) {
@@ -32,7 +32,7 @@ public class PointsFormLineException extends Exception {
 
     /**
      * Constructor for {@link PointsFormLineException}.
-     * @param cause of exception.
+     * @param cause of the exception.
      */
     public PointsFormLineException(final Throwable cause) {
         super(cause);

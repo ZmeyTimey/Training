@@ -13,7 +13,7 @@ public class FileIsAbsentException extends FileReadingException {
 
     /**
      * Constructor for {@link FileIsAbsentException}.
-     * @param message of exception.
+     * @param message of the exception.
      */
     public FileIsAbsentException(final String message) {
         super(message);
@@ -21,8 +21,8 @@ public class FileIsAbsentException extends FileReadingException {
 
     /**
      * Constructor for {@link FileIsAbsentException}.
-     * @param message of exception.
-     * @param cause of exception.
+     * @param message of the exception.
+     * @param cause of the exception.
      */
     public FileIsAbsentException(final String message, final Throwable cause) {
         super(message, cause);
@@ -30,7 +30,7 @@ public class FileIsAbsentException extends FileReadingException {
 
     /**
      * Constructor for {@link FileIsAbsentException}.
-     * @param cause of exception.
+     * @param cause of the exception.
      */
     public FileIsAbsentException(final Throwable cause) {
         super(cause);

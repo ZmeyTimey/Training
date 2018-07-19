@@ -13,7 +13,7 @@ public class InvalidLineException extends LineReadingException {
 
     /**
      * Constructor for {@link InvalidLineException}.
-     * @param message of exception.
+     * @param message of the exception.
      */
     public InvalidLineException(final String message) {
         super(message);
@@ -21,15 +21,15 @@ public class InvalidLineException extends LineReadingException {
 
     /**
      * Constructor for {@link InvalidLineException}.
-     * @param message of exception.
-     * @param cause of exception.
+     * @param message of the exception.
+     * @param cause of the exception.
      */
     public InvalidLineException(final String message, final Throwable cause) {
         super(message, cause);
     }
     /**
      * Constructor for {@link InvalidLineException}.
-     * @param cause of exception.
+     * @param cause of the exception.
      */
     public InvalidLineException(final Throwable cause) {
         super(cause);

@@ -42,7 +42,9 @@ public class Triangle {
      */
     private Observer observer = new Observer();
 
+    private Registrator registrator;
     /**
+     * @param name is a name of the triangle.
      * @param p1 is transmitted first point for creating a triangle.
      * @param p2 is transmitted second point for creating a triangle.
      * @param p3 is transmitted third point for creating a triangle.
@@ -102,23 +104,35 @@ public class Triangle {
     public final int getId() {
         return triangleId;
     }
+
+    /**
+     * @return {@link Registrator} objact connected with
+     * this triangle.
+     */
+    public final Registrator getRegistrator() {
+        return registrator;
+    }
+
     /**
      * @param point1 is point A of a triangle.
      */
     public final void setPointA(final Point2D point1) {
         pointA = point1;
+        observer.update(this);
     }
     /**
      * @param point2 is point B of a triangle.
      */
     public final void setPointB(final Point2D point2) {
         pointB = point2;
+        observer.update(this);
     }
     /**
      * @param point3 is point C of a triangle.
      */
     public final void setPointC(final Point2D point3) {
         pointC = point3;
+        observer.update(this);
     }
 
     /**
@@ -127,6 +141,16 @@ public class Triangle {
     public final void setId(final int id) {
         triangleId = id;
     }
+
+    /**
+     * @param perimeter is the perimeter of the triangle.
+     * @param square is the square of the triangle.
+     */
+    public final void setRegistrator(final double perimeter,
+                                     final double square) {
+        registrator = new Registrator(perimeter, square);
+    }
+
     @Override
     public final String toString() {
         return "Triangle " + triangleName + ": ("

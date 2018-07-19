@@ -13,7 +13,7 @@ public class LineReadingException extends Exception {
 
     /**
      * Constructor for {@link LineReadingException}.
-     * @param message of exception.
+     * @param message of the exception.
      */
     public LineReadingException(final String message) {
         super(message);
@@ -21,8 +21,8 @@ public class LineReadingException extends Exception {
 
     /**
      * Constructor for {@link LineReadingException}.
-     * @param message of exception.
-     * @param cause of exception.
+     * @param message of the exception.
+     * @param cause of the exception.
      */
     public LineReadingException(final String message, final Throwable cause) {
         super(message, cause);
@@ -30,7 +30,7 @@ public class LineReadingException extends Exception {
 
     /**
      * Constructor for {@link LineReadingException}.
-     * @param cause of exception.
+     * @param cause of the exception.
      */
     public LineReadingException(final Throwable cause) {
         super(cause);

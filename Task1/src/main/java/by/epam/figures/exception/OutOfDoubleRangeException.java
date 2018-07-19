@@ -13,7 +13,7 @@ public class OutOfDoubleRangeException extends Exception {
 
     /**
      * Constructor for {@link OutOfDoubleRangeException}.
-     * @param message of exception.
+     * @param message of the exception.
      */
     public OutOfDoubleRangeException(final String message) {
         super(message);
@@ -21,8 +21,8 @@ public class OutOfDoubleRangeException extends Exception {
 
     /**
      * Constructor for {@link OutOfDoubleRangeException}.
-     * @param message of exception.
-     * @param cause of exception.
+     * @param message of the exception.
+     * @param cause of the exception.
      */
     public OutOfDoubleRangeException(final String message,
                                      final Throwable cause) {
@@ -31,7 +31,7 @@ public class OutOfDoubleRangeException extends Exception {
 
     /**
      * Constructor for {@link OutOfDoubleRangeException}.
-     * @param cause of exception.
+     * @param cause of the exception.
      */
     public OutOfDoubleRangeException(final Throwable cause) {
         super(cause);

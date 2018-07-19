@@ -29,14 +29,18 @@ public class Observer {
 
         TriangleAction action = new TriangleAction();
 
+        LOGGER.log(Level.DEBUG, "Observer detected changes");
+
+        double newPerimeter = 0;
+        double newSquare = 0;
+
         try {
-            Registrator reg = new Registrator(action.calcPerimeter(triangle),
-                    action.calcSquare(triangle));
+            newPerimeter = action.calcPerimeter(triangle);
+            newSquare = action.calcSquare(triangle);
 
-            Repository.update(triangle.getId(), triangle.getName(), reg);
-
-            } catch (OutOfDoubleRangeException ex) {
-            LOGGER.log(Level.ERROR, ex.getMessage());
+        } catch (OutOfDoubleRangeException ex) {
+            ex.printStackTrace();
         }
+            Repository.update(triangle.getId(), newPerimeter, newSquare);
     }
 }

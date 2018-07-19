@@ -65,4 +65,6 @@
 "2018-07-17 18:12:36,752 ERROR creator.TriangleCreator [main] by.epam.figures.creator.TriangleCreator.createTriangle(TriangleCreator.java:66) Points (1.0, 1.0); (3.0, 3.0); (9.0, 9.0) doesn't form a triangle
 "2018-07-17 18:12:36,762 ERROR creator.TriangleCreator [main] by.epam.figures.creator.TriangleCreator.createTriangle(TriangleCreator.java:66) Points (-10.0, 3.0); (0.0, 3.0); (10.0, 3.0) doesn't form a triangle
 "2018-07-17 18:12:36,765 ERROR creator.TriangleCreator [main] by.epam.figures.creator.TriangleCreator.createTriangle(TriangleCreator.java:66) Points (-3.0, -21.6); (-3.0, 1.0); (-3.0, 22.5) doesn't form a triangle
+"2018-07-17 20:31:04,175 WARN specification.SearchById [main] by.epam.figures.specification.SearchById.getRegistrator(SearchById.java:76) Registrator of the triangle with id = 2 not found
+"2018-07-17 20:31:04,276 WARN specification.SearchById [main] by.epam.figures.specification.SearchById.getRegistrator(SearchById.java:76) Registrator of the triangle with id = 3 not found
 "

@@ -3,7 +3,8 @@ package by.epam.figures.repository;
 import by.epam.figures.entity.Registrator;
 import by.epam.figures.entity.Triangle;
 
-import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * This class stores links to {@link Triangle} objects and
@@ -13,8 +14,8 @@ public class Storage {
     /**
      * A map which stores links to triangles and their registrators.
      */
-    private HashMap<Triangle, Registrator> storageMap
-            = new HashMap<Triangle, Registrator>();
+    private Set<Triangle> storageSet
+            = new HashSet<>();
 
     /**
      * A single instance of {@link Storage} is specified
@@ -37,7 +38,7 @@ public class Storage {
     /**
      * @return storage map.
      */
-    public HashMap<Triangle, Registrator> getStorageMap() {
-        return storageMap;
+    public Set<Triangle> getStorageSet() {
+        return storageSet;
     }
 }

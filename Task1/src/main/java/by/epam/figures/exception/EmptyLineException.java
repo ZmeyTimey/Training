@@ -13,7 +13,7 @@ public class EmptyLineException extends LineReadingException {
 
     /**
      * Constructor for {@link EmptyLineException}.
-     * @param message of exception.
+     * @param message of the exception.
      */
     public EmptyLineException(final String message) {
         super(message);
@@ -21,15 +21,15 @@ public class EmptyLineException extends LineReadingException {
 
     /**
      * Constructor for {@link EmptyLineException}.
-     * @param message of exception.
-     * @param cause of exception.
+     * @param message of the exception.
+     * @param cause of the exception.
      */
     public EmptyLineException(final String message, final Throwable cause) {
         super(message, cause);
     }
     /**
      * Constructor for {@link EmptyLineException}.
-     * @param cause of exception.
+     * @param cause of the exception.
      */
     public EmptyLineException(final Throwable cause) {
         super(cause);

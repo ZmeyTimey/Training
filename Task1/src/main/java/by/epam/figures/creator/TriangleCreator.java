@@ -49,10 +49,9 @@ public class TriangleCreator {
                 try {
                     TriangleAction action = new TriangleAction();
 
-                    Registrator reg = new Registrator(
-                            action.calcPerimeter(triangle),
+                    triangle.setRegistrator(action.calcPerimeter(triangle),
                             action.calcSquare(triangle));
-                    Repository.add(triangle, reg);
+                    Repository.add(triangle);
 
                     LOGGER.log(Level.DEBUG,
                             "Triangle has been added to the storage.");

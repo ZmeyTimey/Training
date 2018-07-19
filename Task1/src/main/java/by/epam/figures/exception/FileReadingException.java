@@ -13,22 +13,22 @@ public class FileReadingException extends Exception {
 
     /**
      * Constructor for {@link FileReadingException}.
-     * @param message of exception.
+     * @param message of the exception.
      */
     public FileReadingException(final String message) {
         super(message);
     }
     /**
      * Constructor for {@link FileReadingException}.
-     * @param message of exception.
-     * @param cause of exception.
+     * @param message of the exception.
+     * @param cause of the exception.
      */
     public FileReadingException(final String message, final Throwable cause) {
         super(message, cause);
     }
     /**
      * Constructor for {@link FileReadingException}.
-     * @param cause of exception.
+     * @param cause of the exception.
      */
     public FileReadingException(final Throwable cause) {
         super(cause);

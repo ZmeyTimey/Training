@@ -12,7 +12,7 @@ public class EmptyPathException extends FileReadingException {
 
     /**
      * Constructor for {@link EmptyPathException}.
-     * @param message of exception.
+     * @param message of the exception.
      */
     public EmptyPathException(final String message) {
         super(message);
@@ -20,8 +20,8 @@ public class EmptyPathException extends FileReadingException {
 
     /**
      * Constructor for {@link EmptyPathException}.
-     * @param message of exception.
-     * @param cause of exception.
+     * @param message of the exception.
+     * @param cause of the exception.
      */
     public EmptyPathException(final String message, final Throwable cause) {
         super(message, cause);
@@ -29,7 +29,7 @@ public class EmptyPathException extends FileReadingException {
 
     /**
      * Constructor for {@link EmptyPathException}.
-     * @param cause of exception.
+     * @param cause of the exception.
      */
     public EmptyPathException(final Throwable cause) {
         super(cause);

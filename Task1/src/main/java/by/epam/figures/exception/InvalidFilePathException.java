@@ -12,7 +12,7 @@ public class InvalidFilePathException extends FileReadingException {
 
     /**
      * Constructor for {@link InvalidFilePathException}.
-     * @param message of exception.
+     * @param message of the exception.
      */
     public InvalidFilePathException(final String message) {
         super(message);
@@ -20,8 +20,8 @@ public class InvalidFilePathException extends FileReadingException {
 
     /**
      * Constructor for {@link InvalidFilePathException}.
-     * @param message of exception.
-     * @param cause of exception.
+     * @param message of the exception.
+     * @param cause of the exception.
      */
     public InvalidFilePathException(final String message,
                                     final Throwable cause) {
@@ -29,7 +29,7 @@ public class InvalidFilePathException extends FileReadingException {
     }
     /**
      * Constructor for {@link InvalidFilePathException}.
-     * @param cause of exception.
+     * @param cause of the exception.
      */
     public InvalidFilePathException(final Throwable cause) {
         super(cause);

@@ -1,19 +1,16 @@
 package by.epam.figures.specification;
 
-import by.epam.figures.entity.Registrator;
 import by.epam.figures.entity.Triangle;
-import by.epam.figures.repository.Storage;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.Iterator;
-import java.util.Map;
+import java.util.List;
 
 /**
- * Class is for searching {@link Triangle} objects by id.
+ * This class is for searching {@link Triangle} objects by id.
  */
-public class SearchById {
+public class SearchById extends Specification {
 
     /**
      * {@link Logger} class object for making logs.
@@ -27,18 +24,16 @@ public class SearchById {
      */
     public static Triangle getTriangle(final int id) {
 
-        Iterator it = Storage.getInstance().getStorageMap()
-                .entrySet().iterator();
-
+        List<Triangle> triangleList = createTriangleList();
         Triangle triangle = null;
 
-        while (it.hasNext()) {
-            Map.Entry pair = (Map.Entry) it.next();
-            Triangle tr = (Triangle) pair.getKey();
+        int i = 0;
+        while (i < triangleList.size()) {
 
-            if (tr.getId() == id) {
-                triangle = tr;
+            if (triangleList.get(i).getId() == id) {
+                triangle = triangleList.get(i);
             }
+            i++;
         }
 
         if (triangle == null) {
@@ -46,36 +41,5 @@ public class SearchById {
                     + " not found");
         }
         return triangle;
-    }
-
-    /**
-     * Method searches {@link Registrator} object connected with triangle
-     * with adjusted id in the storage.
-     * @param id is id of the triangle whose {@link Registrator}
-     * is needed to be found.
-     * @return {@link Registrator} of the triangle with adjusted id.
-     */
-    public static Registrator getRegistrator(final int id) {
-
-        Iterator it = Storage.getInstance().getStorageMap()
-                .entrySet().iterator();
-
-        Registrator registrator = null;
-
-        while (it.hasNext()) {
-            Map.Entry pair = (Map.Entry) it.next();
-            Triangle tr = (Triangle) pair.getKey();
-            Registrator reg = (Registrator) pair.getValue();
-
-            if (tr.getId() == id) {
-                registrator = reg;
-            }
-        }
-
-        if (registrator == null) {
-            LOGGER.log(Level.WARN, "Registrator of the triangle with id = "
-                    + id + " not found");
-        }
-        return registrator;
     }
 }
