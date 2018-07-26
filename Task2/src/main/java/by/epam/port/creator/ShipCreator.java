@@ -10,7 +10,7 @@ import org.apache.logging.log4j.Logger;
 import java.util.concurrent.Semaphore;
 
 /**
- * This class is for {@link Ship} class instances.
+ * This class is for creating {@link Ship} class instances.
  */
 public final class ShipCreator {
 
@@ -58,7 +58,7 @@ public final class ShipCreator {
 
                 Ship ship = new Ship(semaphore, name,
                         nominalVolume, occupiedVolume,
-                        loadVolume, unloadVolume);
+                        unloadVolume, loadVolume);
 
                 LOGGER.log(Level.DEBUG, "The ship " + ship.getName()
                         + " created.");

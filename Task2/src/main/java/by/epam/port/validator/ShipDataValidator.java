@@ -1,7 +1,8 @@
 package by.epam.port.validator;
 
 /**
- * This class is for checking validness of the Ship class data.
+ * This class is for checking validness of the input data for creating
+ * Ship class object.
  */
 public final class ShipDataValidator {
 
@@ -9,6 +10,7 @@ public final class ShipDataValidator {
      * Private constructor for this class.
      */
     private ShipDataValidator() { }
+
     /**
      * Method checks whether the correct proportion between nominal volume
      * and other quantities is observed.

@@ -42,8 +42,8 @@ public class TriangleChangerTest {
     }
 
     /**
-     * @return data which is necessary for starting method
-     * changeData().
+     * @return data which is necessary for starting
+     * changeData() method.
      */
     @DataProvider(name = "test1")
     public static Object[][] inputData() {
@@ -54,7 +54,31 @@ public class TriangleChangerTest {
     }
 
     /**
-     * Changes coordinates of adjusted triangle's point.
+     * @return data with new coordinate values which coincide
+     * with initial coordinate values.
+     */
+    @DataProvider(name = "test2")
+    public static Object[][] equalInputData() {
+        return new Object[][]
+                {{1, 'A', 2.0, 3.0},
+                {2, 'B', 6.0, 8.0},
+                {3, 'C', -8, 3.0}};
+    }
+
+    /**
+     * @return data for changeData() method
+     * with invalid point names.
+     */
+    @DataProvider(name = "test3")
+    public static Object[][] invalidPointNameData() {
+        return new Object[][]
+                {{1, 'a', 6.0, 2.0},
+                {2, 'h', 6.0, 600.0},
+                {3, '2', -8000.0, 18.0}};
+    }
+
+    /**
+     * Tests changeData() method with valid input data.
      * @param id is triangle's id.
      * @param pointName is a name of changing point (A, B or C).
      * @param newValueX is a new value of X-coordinate of the point.
@@ -79,5 +103,56 @@ public class TriangleChangerTest {
                 SearchById.getTriangle(id).getRegistrator().getPerimeter());
         Assert.assertNotEquals(square,
                 SearchById.getTriangle(id).getRegistrator().getSquare());
+    }
+
+    /**
+     * Tests changeData() method with input data which includes
+     * coordinate values which coincide with initial coordinate values.
+     * @param id is triangle's id.
+     * @param pointName is a name of changing point (A, B or C).
+     * @param newValueX is a new value of X-coordinate of the point.
+     * @param newValueY is a new value of Y-coordinate of the point.
+     * @throws InvalidPointNameException is thrown when point name received
+     * by the method is not valid.
+     */
+    @Test (dataProvider = "test2")
+    public void testChangeData2(final int id, final char pointName,
+                                final double newValueX,
+                                final double newValueY)
+            throws InvalidPointNameException {
+
+        double perimeter = SearchById.getTriangle(id).getRegistrator()
+                .getPerimeter();
+        double square = SearchById.getTriangle(id).getRegistrator().
+                getSquare();
+
+        TriangleChanger.changeData(id, pointName, newValueX, newValueY);
+
+        Assert.assertEquals(perimeter,
+                SearchById.getTriangle(id).getRegistrator().getPerimeter());
+        Assert.assertEquals(square,
+                SearchById.getTriangle(id).getRegistrator().getSquare());
+    }
+
+    /**
+     * Tests changeData() method with input data which includes invalid point name.
+     * @param id is triangle's id.
+     * @param pointName is a name of changing point (A, B or C).
+     * @param newValueX is a new value of X-coordinate of the point.
+     * @param newValueY is a new value of Y-coordinate of the point.
+     * @throws InvalidPointNameException is thrown when point name received
+     * by the method is not valid.
+     */
+    @Test (dataProvider = "test3", expectedExceptions = InvalidPointNameException.class)
+    public void testChangeData3(final int id, final char pointName,
+                                final double newValueX,
+                                final double newValueY) throws InvalidPointNameException {
+
+        double perimeter = SearchById.getTriangle(id).getRegistrator()
+                .getPerimeter();
+        double square = SearchById.getTriangle(id).getRegistrator().
+                getSquare();
+
+        TriangleChanger.changeData(id, pointName, newValueX, newValueY);
     }
 }

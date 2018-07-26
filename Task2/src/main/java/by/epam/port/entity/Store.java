@@ -2,6 +2,7 @@ package by.epam.port.entity;
 
 import by.epam.port.exception.FileReadingException;
 
+import by.epam.port.exception.InvalidStoreDataException;
 import by.epam.port.parser.PortDataParser;
 import by.epam.port.reader.PortDataFileReader;
 import org.apache.logging.log4j.Level;
@@ -32,7 +33,8 @@ public final class Store {
      * A single instance of this class is specified
      * to be the only one possible.
      */
-    private static final Store INSTANCE = new Store(readData());
+    private static final Store INSTANCE = new Store(getData());
+
     /**
      * The number of containers that are in the store now.
      */
@@ -61,7 +63,7 @@ public final class Store {
      * Getter for NOMINAL_VOLUME field.
      * @return nominal volume of the store (in containers).
      */
-    public int getNominalVolume() {
+    int getNominalVolume() {
         return NOMINAL_VOLUME;
     }
 
@@ -69,7 +71,7 @@ public final class Store {
      * Getter for occupiedVolume field.
      * @return the occupied volume of the store (in containers).
      */
-    public int getOccupiedVolume() {
+    int getOccupiedVolume() {
         return occupiedVolume;
     }
 
@@ -86,7 +88,8 @@ public final class Store {
      * classes' methods for getting necessary data for the store.
      * @return array of read values.
      */
-    private static int[] readData() {
+    private static int[] getData() {
+
         final int NUMBER_OF_VALUES = 3;
 
         PortDataFileReader reader = new PortDataFileReader("/PortData.txt");
@@ -96,7 +99,13 @@ public final class Store {
 
         try {
             readData = reader.read();
-            parsedData = PortDataParser.parse(readData);
+
+            try {
+                parsedData = PortDataParser.parse(readData);
+            } catch (InvalidStoreDataException e) {
+                LOGGER.log(Level.FATAL, e.getMessage());
+            }
+
         } catch (FileReadingException e) {
             LOGGER.log(Level.FATAL, e.getMessage());
         }
@@ -105,18 +114,16 @@ public final class Store {
     }
 
     /**
-     * Method loads containers to the store.
-     * @param downloadVolume is a number of containers that must be loaded.
+     * Method loads one container to the store.
      */
-    public void load(final int downloadVolume) {
-        occupiedVolume += downloadVolume;
+    void load() {
+        occupiedVolume += 1;
     }
 
     /**
-     * Method unloads containers from the store.
-     * @param unloadVolume is a number of containers that must be unloaded.
+     * Method unloads one container from the store.
      */
-    public void unload(final int unloadVolume) {
-        occupiedVolume -= unloadVolume;
+    void unload() {
+        occupiedVolume -= 1;
     }
 }

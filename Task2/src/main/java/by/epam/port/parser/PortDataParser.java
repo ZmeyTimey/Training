@@ -1,5 +1,7 @@
 package by.epam.port.parser;
 
+import by.epam.port.exception.InvalidStoreDataException;
+import by.epam.port.validator.StoreDataValidator;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -24,9 +26,12 @@ public final class PortDataParser {
     /**
      * Method parses a line read from file.
      * @param line is a line read from file.
+     * @throws InvalidStoreDataException is thrown when the intended
+     * for the Store class instance creation data is not valid.
      * @return the result of parsing as array of numbers.
      */
-    public static int[] parse(final String line) {
+    public static int[] parse(final String line)
+            throws InvalidStoreDataException {
 
         LOGGER.log(Level.DEBUG, "String: " + line + " is being parsed");
 
@@ -42,9 +47,20 @@ public final class PortDataParser {
             i++;
         }
 
-        LOGGER.log(Level.DEBUG,
-                "Parsing completed. The values have been obtained");
+        if (StoreDataValidator.isDocksValueIsValid(valuesInt[0])) {
+            if (StoreDataValidator.isOccupiedVolumeValid(
+                    valuesInt[1], valuesInt[2])) {
+                LOGGER.log(Level.DEBUG,
+                        "Parsing completed. The values have been obtained");
 
-        return valuesInt;
+                return valuesInt;
+            } else {
+                throw new InvalidStoreDataException("The initial volume occupied "
+                        + "by containers is too large!");
+            }
+        } else {
+            throw new InvalidStoreDataException("Invalid number of docks! "
+                    + "It can't be equal 0");
+        }
     }
 }

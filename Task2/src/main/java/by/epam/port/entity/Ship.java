@@ -1,11 +1,15 @@
 package by.epam.port.entity;
 
+import by.epam.port.exception.OutOfStoreVolumeException;
+import by.epam.port.exception.StoreIsEmptyException;
+import by.epam.port.exception.LoadingException;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.TimeUnit;
 
 /**
  * {@link Ship} class instances describes the functionality of the ships
@@ -19,9 +23,14 @@ public class Ship implements Callable<String> {
     private static final Logger LOGGER
             = LogManager.getLogger(Ship.class);
     /**
+     * Time required to load or unload a single container in milliseconds.
+     */
+    private static final int WORK_TIME = 10;
+    /**
      * The ship's name.
      */
-    private final String SHIP_NAME;
+
+    private final  String SHIP_NAME;
     /**
      * The number of containers that a ship can accommodate.
      */
@@ -47,11 +56,7 @@ public class Ship implements Callable<String> {
      * The store in which a ship unloads containers and from which loads them.
      */
     private Store store = Store.getInstance();
-    /**
-     * The variable indicates whether the ship is
-     * in the loading or unloading state.
-     */
-    private boolean isInUnloadingState;
+
     /**
      * Constructor for this class.
      * @param sem is {@link Semaphore} class instance.
@@ -84,45 +89,60 @@ public class Ship implements Callable<String> {
         return SHIP_NAME;
     }
 
+    @Override
+    public final String toString() {
+        return SHIP_NAME + ":\n" + "Nominal volume = " + NOMINAL_VOLUME + ";\n"
+                + "Occupied volume = " + occupiedVolume + ";\n"
+                + "Unload volume = " + unloadVolume + ";\n"
+                + "Load volume = " + loadVolume + ".";
+    }
+
     /**
      * Method loads the volume of containers that should be loaded
      * and unload the volume that should be unloaded while there are
      * any containers that should be loaded or unloaded.
+     * @throws LoadingException is thrown when during loading
+     * the nominal volume of the store is exceeded or the store is empty.
      * @return the name of this class instance thread.
      */
     @Override
-    public String call() {
+    public String call() throws LoadingException {
 
         try {
-            LOGGER.log(Level.DEBUG, "The ship " + this.getName()
-                    + " approached the port.");
+            LOGGER.log(Level.DEBUG, this.getName() + " approached the port.");
 
             semaphore.acquire();
 
-            LOGGER.log(Level.DEBUG, "The ship " + this.getName()
-                    + " moored to dock.");
+            LOGGER.log(Level.DEBUG, this.getName() + " moored to dock.");
 
-            isInUnloadingState = true;
-            LOGGER.log(Level.DEBUG, "The ship " + this.getName()
-                    + " proceeded to unload.");
-
-            while (unloadVolume > 0 && loadVolume > 0) {
-                if (isInUnloadingState) {
+            while (unloadVolume > 0) {
+                LOGGER.log(Level.DEBUG, this.toString()
+                        + "\nPROCEEDED TO UNLOAD \n");
+                System.out.println("Store NV: " + store.getNominalVolume());
+                System.out.println("Store OV: " + store.getOccupiedVolume());
+                if (!(store.getNominalVolume() < store.getOccupiedVolume())) {
                     unload();
+                    TimeUnit.MILLISECONDS.sleep(WORK_TIME);
                 } else {
-                    load();
+                    throw new OutOfStoreVolumeException(
+                            "The nominal volume of the store is exceed!");
                 }
+            }
 
-                if ((store.getNominalVolume() == store.getOccupiedVolume())
-                        || (unloadVolume == 0)) {
-                    isInUnloadingState = false;
-                    LOGGER.log(Level.DEBUG, "The ship " + this.getName()
-                            + " proceeded to load.");
-                }
-                if ((store.getOccupiedVolume() == 0) || (loadVolume == 0)) {
-                    isInUnloadingState = true;
-                    LOGGER.log(Level.DEBUG, "The ship " + this.getName()
-                            + " proceeded to unload.");
+
+
+            while (loadVolume > 0) {
+                LOGGER.log(Level.DEBUG, this.toString()
+                        + "\nPROCEEDED TO LOAD \n");
+                System.out.println("Store NV: " + store.getNominalVolume());
+                System.out.println("Store OV: " + store.getOccupiedVolume());
+                if (!(store.getOccupiedVolume() == 0)) {
+                    load();
+                    TimeUnit.MILLISECONDS.sleep(WORK_TIME);
+                } else {
+                    throw new StoreIsEmptyException(
+                            "Loading from the store is impossible!"
+                                    + " The store is empty.");
                 }
             }
 
@@ -146,7 +166,7 @@ public class Ship implements Callable<String> {
     private void unload() {
         occupiedVolume--;
         unloadVolume--;
-        store.load(1);
+        store.load();
     }
 
     /**
@@ -155,6 +175,6 @@ public class Ship implements Callable<String> {
     private void load() {
         occupiedVolume++;
         loadVolume--;
-        store.unload(1);
+        store.unload();
     }
 }

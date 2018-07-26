@@ -1,21 +1,18 @@
 package by.epam.port.runner;
 
 import by.epam.port.creator.ShipCreator;
-import by.epam.port.entity.Ship;
 import by.epam.port.entity.Store;
 import by.epam.port.exception.FileReadingException;
 import by.epam.port.exception.InvalidShipDataException;
 import by.epam.port.parser.ShipsDataParser;
 import by.epam.port.reader.PortDataFileReader;
 import by.epam.port.reader.ShipsDataFileReader;
-import by.epam.port.validator.ReadingValidator;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.Callable;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.Semaphore;
 
@@ -50,19 +47,17 @@ public final class Runner {
         ShipsDataFileReader reader = new ShipsDataFileReader("/ShipsData.txt");
         ShipsDataParser parser = new ShipsDataParser();
 
-        List<String> shipsLineList = new ArrayList<>();
+        List<String> shipsLineList;
+        List<FutureTask<String>> taskList = new ArrayList<>();
         List<Thread> threadList = new ArrayList<>();
 
         try {
             shipsLineList = reader.read();
-        } catch (FileReadingException e) {
-            LOGGER.log(Level.FATAL, e.getMessage());
-        }
 
-        int i = 0;
-        while (i < shipsLineList.size()) {
+            int i = 0;
+            while (i < shipsLineList.size()) {
 
-            parser.parse(shipsLineList.get(i));
+                parser.parse(shipsLineList.get(i));
 
                 try {
                     FutureTask<String> task = new FutureTask<>(
@@ -75,6 +70,7 @@ public final class Runner {
                                     parser.getLoadVolume()
                             ));
 
+                    taskList.add(task);
                     threadList.add(new Thread(task));
 
                 } catch (InvalidShipDataException e) {
@@ -83,10 +79,14 @@ public final class Runner {
                 i++;
             }
 
-        i = 0;
-        while (i < threadList.size()) {
+            i = 0;
+            while (i < threadList.size()) {
             threadList.get(i).start();
             i++;
+            }
+
+        } catch (FileReadingException e) {
+            LOGGER.log(Level.FATAL, e.getMessage());
         }
     }
 }

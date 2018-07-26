@@ -25,6 +25,7 @@ public class SorterByName extends Specification implements Comparator<Triangle> 
      * @param triangle2 is the second of comparing triangles.
      * @return the result of comparison triangles' names.
      */
+    @Override
     public int compare(final Triangle triangle1,
                        final Triangle triangle2) {
         return triangle1.getName().compareToIgnoreCase(triangle2.getName());
