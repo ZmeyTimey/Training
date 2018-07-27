@@ -1,8 +1,6 @@
 package by.epam.port.entity;
 
-import by.epam.port.exception.FileReadingException;
-
-import by.epam.port.exception.InvalidStoreDataException;
+import by.epam.port.exception.AppException;
 import by.epam.port.parser.PortDataParser;
 import by.epam.port.reader.PortDataFileReader;
 import org.apache.logging.log4j.Level;
@@ -45,7 +43,7 @@ public final class Store {
      * @param data is an array which contains the necessary data for
      * creating the {@link Store} instance.
      */
-    private Store(final int[] data) {
+    private Store(final int... data) {
 
         NUMBER_OF_DOCKS = data[0];
         NOMINAL_VOLUME = data[1];
@@ -102,11 +100,11 @@ public final class Store {
 
             try {
                 parsedData = PortDataParser.parse(readData);
-            } catch (InvalidStoreDataException e) {
+            } catch (AppException e) {
                 LOGGER.log(Level.FATAL, e.getMessage());
             }
 
-        } catch (FileReadingException e) {
+        } catch (AppException e) {
             LOGGER.log(Level.FATAL, e.getMessage());
         }
 

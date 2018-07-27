@@ -1,20 +1,23 @@
 package by.epam.port.runner;
 
 import by.epam.port.creator.ShipCreator;
+import by.epam.port.entity.Ship;
 import by.epam.port.entity.Store;
-import by.epam.port.exception.FileReadingException;
-import by.epam.port.exception.InvalidShipDataException;
+import by.epam.port.exception.AppException;
 import by.epam.port.parser.ShipsDataParser;
 import by.epam.port.reader.PortDataFileReader;
 import by.epam.port.reader.ShipsDataFileReader;
-import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.FutureTask;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.Phaser;
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Runner for the Port application.
@@ -46,10 +49,12 @@ public final class Runner {
 
         ShipsDataFileReader reader = new ShipsDataFileReader("/ShipsData.txt");
         ShipsDataParser parser = new ShipsDataParser();
+        Phaser phaser = new Phaser();
+        phaser.register();
 
         List<String> shipsLineList;
-        List<FutureTask<String>> taskList = new ArrayList<>();
-        List<Thread> threadList = new ArrayList<>();
+        List<Future<String>> futureList = new ArrayList<>();
+        List<Ship> shipList = new ArrayList<>();
 
         try {
             shipsLineList = reader.read();
@@ -60,33 +65,66 @@ public final class Runner {
                 parser.parse(shipsLineList.get(i));
 
                 try {
-                    FutureTask<String> task = new FutureTask<>(
+                    Ship ship =
                             ShipCreator.createShip(
                                     semaphore,
                                     parser.getShipName(),
                                     parser.getNominalVolume(),
                                     parser.getOccupiedVolume(),
                                     parser.getUnloadVolume(),
-                                    parser.getLoadVolume()
-                            ));
+                                    parser.getLoadVolume());
 
-                    taskList.add(task);
-                    threadList.add(new Thread(task));
+                    shipList.add(ship);
 
-                } catch (InvalidShipDataException e) {
-                    LOGGER.log(Level.ERROR, e.getMessage());
+                } catch (AppException e) {
+                    if (LOGGER.isErrorEnabled()) {
+                        LOGGER.error(e.getMessage());
+                    }
+                }
+                i++;
+            }
+
+            ExecutorService executor
+                    = Executors.newFixedThreadPool(shipList.size());
+
+            i = 0;
+            while (i < shipList.size()) {
+
+                final int WAIT_TIME = 100;
+                Future<String> future = executor.submit(shipList.get(i));
+                futureList.add(future);
+
+                try {
+                    TimeUnit.MILLISECONDS.sleep(WAIT_TIME);
+
+                } catch (InterruptedException e) {
+                    if (LOGGER.isErrorEnabled()) {
+                        LOGGER.error(e.getMessage());
+                    }
                 }
                 i++;
             }
 
             i = 0;
-            while (i < threadList.size()) {
-            threadList.get(i).start();
-            i++;
+            while (i < futureList.size()) {
+
+                try {
+                    if (LOGGER.isDebugEnabled()) {
+                        LOGGER.debug(futureList.get(i).get());
+                    }
+
+                } catch (Exception e) {
+                    if (LOGGER.isErrorEnabled()) {
+                        LOGGER.error(e.getMessage());
+                    }
+                }
+                i++;
             }
 
-        } catch (FileReadingException e) {
-            LOGGER.log(Level.FATAL, e.getMessage());
+            executor.shutdown();
+
+        } catch (AppException e) {
+            LOGGER.fatal(e.getMessage());
         }
     }
 }

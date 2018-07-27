@@ -1,6 +1,5 @@
 package by.epam.port.parser;
 
-import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -88,7 +87,9 @@ public class ShipsDataParser {
      */
     public void parse(final String line) {
 
-        LOGGER.log(Level.DEBUG, "String: " + line + " is being parsed");
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("String: " + line + " is being parsed");
+        }
 
         shipName = line.split(" ")[0];
         String tempLine = line.split(" ", 2)[1];
@@ -99,12 +100,14 @@ public class ShipsDataParser {
         unloadVolume = Integer.parseInt(tempLine.split(" ")[0]);
         loadVolume = Integer.parseInt(tempLine.split(" ")[1]);
 
-        LOGGER.log(Level.DEBUG, "Parsing completed. The values of "
-                + "the ship's characteristics' created:\n"
-                + "Name: " + shipName + ";\n"
-                + "Nominal volume: " + nominalVolume + ";\n"
-                + "Occupied volume: " + occupiedVolume + ";\n"
-                + "Unload volume: " + unloadVolume + ";\n"
-                + "Load volume: " + loadVolume + ".");
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("Parsing completed. The values of "
+                    + "the ship's characteristics' created:\n"
+                    + "Name: " + shipName + ";\n"
+                    + "Nominal volume: " + nominalVolume + ";\n"
+                    + "Occupied volume: " + occupiedVolume + ";\n"
+                    + "Unload volume: " + unloadVolume + ";\n"
+                    + "Load volume: " + loadVolume + ".");
+        }
     }
 }

@@ -1,12 +1,6 @@
 package by.epam.port.reader;
 
-import by.epam.port.exception.FileIsAbsentException;
-import by.epam.port.exception.FileReadingException;
-import by.epam.port.exception.LineReadingException;
-import by.epam.port.exception.URIConvertException;
-import by.epam.port.exception.InvalidLineException;
-import by.epam.port.exception.EmptyLineException;
-
+import by.epam.port.exception.AppException;
 import by.epam.port.validator.ReadingValidator;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -54,10 +48,10 @@ public class ShipsDataFileReader {
     /**
      * Method reads data from the file.
      * @return a list of read strings.
-     * @throws FileReadingException includes exceptions which emerge
+     * @throws AppException includes exceptions which emerge
      * during reading from file.
      */
-    public List<String> read() throws FileReadingException {
+    public List<String> read() throws AppException {
         List<String> lineList = new ArrayList<>();
         try {
             URL resource = PortDataFileReader.class
@@ -72,19 +66,19 @@ public class ShipsDataFileReader {
                             LOGGER.log(Level.DEBUG,
                                     "Ships data successfully read");
 
-                        } catch (LineReadingException e) {
+                        } catch (AppException e) {
                             LOGGER.log(Level.ERROR, e.getMessage());
                         }
                     });
 
         } catch (IOException e) {
-            throw new FileReadingException(
+            throw new AppException(
                     "Problem with reading data from a file: ", e);
         } catch (NullPointerException e) {
-            throw new FileIsAbsentException("File is not found!");
+            throw new AppException("File is not found! ", e);
         } catch (URISyntaxException e) {
-            throw new URIConvertException(
-                    "Unable to convert path link into URI");
+            throw new AppException(
+                    "Unable to convert path link into URI. ", e);
         }
 
         return lineList;
@@ -94,27 +88,32 @@ public class ShipsDataFileReader {
      * Adds valid read line into list.
      * @param line is a line which had to be read.
      * @param lineList is a list of valid read lines.
-     * @throws LineReadingException is thrown when a line
+     * @throws AppException is thrown when a line
      * which is read from file is not valid.
      */
 
     private void addLine(final String line,
                          final List<String> lineList)
-            throws LineReadingException {
+            throws AppException {
 
         lineCounter++;
 
         if (ReadingValidator.lineIsNotEmpty(line)) {
+
             if (ReadingValidator.shipDataLineIsValid(line)) {
                 lineList.add(line);
-                LOGGER.log(Level.DEBUG, "Line "
-                        + lineCounter + " is added to the list");
+
+                if (LOGGER.isDebugEnabled()) {
+                    LOGGER.debug("Line "
+                            + lineCounter + " is added to the list");
+                }
+
             } else {
-                throw new InvalidLineException("Incorrect expression in line "
+                throw new AppException("Incorrect expression in line "
                         + lineCounter);
             }
         } else {
-            throw new EmptyLineException("Line " + lineCounter + " is empty");
+            throw new AppException("Line " + lineCounter + " is empty");
         }
     }
 }

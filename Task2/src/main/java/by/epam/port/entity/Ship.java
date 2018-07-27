@@ -1,8 +1,5 @@
 package by.epam.port.entity;
 
-import by.epam.port.exception.OutOfStoreVolumeException;
-import by.epam.port.exception.StoreIsEmptyException;
-import by.epam.port.exception.LoadingException;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -25,7 +22,7 @@ public class Ship implements Callable<String> {
     /**
      * Time required to load or unload a single container in milliseconds.
      */
-    private static final int WORK_TIME = 10;
+    private static final int WORK_TIME = 5;
     /**
      * The ship's name.
      */
@@ -39,7 +36,8 @@ public class Ship implements Callable<String> {
      * {@link Semaphore} instance for gaining access by the ship to one of
      * the limited number of docks is the port.
      */
-    private Semaphore semaphore;
+    private final Semaphore SEMAPHORE;
+
     /**
      * Number of containers on board.
      */
@@ -73,7 +71,7 @@ public class Ship implements Callable<String> {
                 final int unloadVol,
                 final int loadVol) {
 
-        semaphore = sem;
+        SEMAPHORE = sem;
         SHIP_NAME = name;
         NOMINAL_VOLUME = nomVol;
         occupiedVolume = occVol;
@@ -101,80 +99,117 @@ public class Ship implements Callable<String> {
      * Method loads the volume of containers that should be loaded
      * and unload the volume that should be unloaded while there are
      * any containers that should be loaded or unloaded.
-     * @throws LoadingException is thrown when during loading
-     * the nominal volume of the store is exceeded or the store is empty.
      * @return the name of this class instance thread.
      */
     @Override
-    public String call() throws LoadingException {
+    public String call() {
 
-        try {
-            LOGGER.log(Level.DEBUG, this.getName() + " approached the port.");
-
-            semaphore.acquire();
-
-            LOGGER.log(Level.DEBUG, this.getName() + " moored to dock.");
-
-            while (unloadVolume > 0) {
-                LOGGER.log(Level.DEBUG, this.toString()
-                        + "\nPROCEEDED TO UNLOAD \n");
-                System.out.println("Store NV: " + store.getNominalVolume());
-                System.out.println("Store OV: " + store.getOccupiedVolume());
-                if (!(store.getNominalVolume() < store.getOccupiedVolume())) {
-                    unload();
-                    TimeUnit.MILLISECONDS.sleep(WORK_TIME);
-                } else {
-                    throw new OutOfStoreVolumeException(
-                            "The nominal volume of the store is exceed!");
-                }
-            }
-
-
-
-            while (loadVolume > 0) {
-                LOGGER.log(Level.DEBUG, this.toString()
-                        + "\nPROCEEDED TO LOAD \n");
-                System.out.println("Store NV: " + store.getNominalVolume());
-                System.out.println("Store OV: " + store.getOccupiedVolume());
-                if (!(store.getOccupiedVolume() == 0)) {
-                    load();
-                    TimeUnit.MILLISECONDS.sleep(WORK_TIME);
-                } else {
-                    throw new StoreIsEmptyException(
-                            "Loading from the store is impossible!"
-                                    + " The store is empty.");
-                }
-            }
-
-        } catch (InterruptedException e) {
-            LOGGER.log(Level.ERROR, e.getMessage());
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug(this.getName() + " arrived at the port"
+                    + " and awaits access to dock.");
         }
 
-        semaphore.release();
-        LOGGER.log(Level.DEBUG, "The ship " + this.getName() + " completed"
-                + " the loading/unloading work and left the dock.");
+        try {
+            SEMAPHORE.acquire();
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug(this.getName() + " moored to dock");
+            }
+            unload();
+            load();
 
-        return (this.getName() + ":\n"
-                + "occupied volume = " + occupiedVolume + " containers;\n"
-                + "load volume = " + loadVolume + " containers;\n"
-                + "unload volume = " + unloadVolume + " containers.");
+        } catch (InterruptedException e) {
+            if (LOGGER.isErrorEnabled()) {
+                LOGGER.error(e.getMessage());
+            }
+
+        } finally {
+
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug(this.getName()
+                        + " completed the loading / unloading operations"
+                        + " and left the dock");
+            }
+            SEMAPHORE.release();
+        }
+
+        return "\n" + this.toString();
     }
 
     /**
      * Method unloads one container from ship to the store.
      */
     private void unload() {
-        occupiedVolume--;
-        unloadVolume--;
-        store.load();
+
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug(this + "\nUNLOADING CONTAINERS\n");
+        }
+
+        while (unloadVolume > 0) {
+
+            if (store.getNominalVolume()
+                    == store.getOccupiedVolume()) {
+
+                if (LOGGER.isDebugEnabled()) {
+                    LOGGER.debug(this.getName() + ":\n"
+                            + "The store is full!\nUNLOADING INTERRUPTED\n");
+                }
+
+                return;
+            }
+
+            try {
+                TimeUnit.MILLISECONDS.sleep(WORK_TIME);
+
+            } catch (InterruptedException e) {
+                if (LOGGER.isErrorEnabled()) {
+                    LOGGER.error(e.getMessage());
+                }
+            }
+            occupiedVolume--;
+            unloadVolume--;
+            store.load();
+        }
+
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug(this.getName() + ":\nUNLOADING COMPLETED\n");
+        }
     }
 
     /**
      * Method loads one container from warehouse to the ship.
      */
     private void load() {
-        occupiedVolume++;
-        loadVolume--;
-        store.unload();
+
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.log(Level.DEBUG, this + "\nLOADING CONTAINERS\n");
+        }
+
+        while (loadVolume > 0) {
+
+            if (store.getOccupiedVolume() == 0) {
+
+                if (LOGGER.isDebugEnabled()) {
+                    LOGGER.debug(this.getName() + ":\n"
+                            + "The store is empty!\nLOADING INTERRUPTED\n");
+                }
+                return;
+            }
+
+            try {
+                TimeUnit.MILLISECONDS.sleep(WORK_TIME);
+
+            } catch (InterruptedException e) {
+                if (LOGGER.isErrorEnabled()) {
+                    LOGGER.error(e.getMessage());
+                }
+            }
+            occupiedVolume++;
+            loadVolume--;
+            store.unload();
+        }
+
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug(this.getName() + ":\nLOADING COMPLETED\n");
+        }
     }
 }

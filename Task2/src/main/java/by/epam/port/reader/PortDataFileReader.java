@@ -1,11 +1,6 @@
 package by.epam.port.reader;
 
-import by.epam.port.exception.FileIsAbsentException;
-import by.epam.port.exception.FileReadingException;
-import by.epam.port.exception.InvalidLineException;
-import by.epam.port.exception.URIConvertException;
-import by.epam.port.exception.EmptyLineException;
-
+import by.epam.port.exception.AppException;
 import by.epam.port.validator.ReadingValidator;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -47,10 +42,10 @@ public class PortDataFileReader {
     /**
      * Method reads data from the file.
      * @return string with read data.
-     * @throws FileReadingException includes exceptions which emerge
+     * @throws AppException includes exceptions which emerge
      * during reading from file.
      */
-    public String read() throws FileReadingException {
+    public String read() throws AppException {
 
         String dataString = "";
         List<String> lineList = new ArrayList<>();
@@ -64,13 +59,12 @@ public class PortDataFileReader {
                    .forEach(lineList::add);
 
         } catch (IOException e) {
-            throw new FileReadingException(
+            throw new AppException(
                     "Problem with reading data from a file: ", e);
         } catch (NullPointerException e) {
-            throw new FileIsAbsentException("File is not found!");
+            throw new AppException("File is not found! ", e);
         } catch (URISyntaxException e) {
-            throw new URIConvertException(
-                    "Unable to convert path link into URI");
+            throw new AppException("Unable to convert path link into URI. ", e);
         }
 
             int i = 0;
@@ -91,12 +85,12 @@ public class PortDataFileReader {
                 return dataString;
 
             } else {
-                throw new InvalidLineException(
+                throw new AppException(
                         "Invalid expression in the read data");
             }
 
         } else {
-            throw new EmptyLineException("Read file is empty");
+            throw new AppException("Read file is empty");
         }
     }
 }

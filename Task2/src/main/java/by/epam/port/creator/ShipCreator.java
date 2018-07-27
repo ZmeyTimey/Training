@@ -1,9 +1,8 @@
 package by.epam.port.creator;
 
 import by.epam.port.entity.Ship;
-import by.epam.port.exception.InvalidShipDataException;
+import by.epam.port.exception.AppException;
 import by.epam.port.validator.ShipDataValidator;
-import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -27,7 +26,8 @@ public final class ShipCreator {
 
     /**
      * Method creates a new {@link Ship} object if the input data is valid.
-     * @param semaphore is {@link Semaphore} class instance.
+     * @param semaphore {@link Semaphore} instance for gaining access
+     * by the ship to one of the limited number of docks is the port.
      * @param name is the ship's name.
      * @param nominalVolume is a number of containers that
      *                      a ship can accommodate.
@@ -37,7 +37,7 @@ public final class ShipCreator {
      * @param unloadVolume is a number of containers to be unloaded
      *                     to the store.
      * @return new {@link Ship} object.
-     * @throws InvalidShipDataException is thrown when the intended for
+     * @throws AppException is thrown when the intended for
      * the {@link Ship} object creation data is not valid.
      */
     public static Ship createShip(final Semaphore semaphore,
@@ -46,7 +46,7 @@ public final class ShipCreator {
                                   final int occupiedVolume,
                                   final int unloadVolume,
                                   final int loadVolume)
-            throws InvalidShipDataException {
+            throws AppException {
 
         if (ShipDataValidator.isNominalVolumeProportionValid(
                 nominalVolume,
@@ -60,19 +60,20 @@ public final class ShipCreator {
                         nominalVolume, occupiedVolume,
                         unloadVolume, loadVolume);
 
-                LOGGER.log(Level.DEBUG, "The ship " + ship.getName()
-                        + " created.");
-
+                if (LOGGER.isDebugEnabled()) {
+                    LOGGER.debug("The ship " + ship.getName()
+                            + " created.");
+                }
                 return ship;
 
             } else {
-                throw new InvalidShipDataException(
+                throw new AppException(
                         "Invalid occupiedVolume and unloadVolume proportion. "
                 + "The ship " + name + " object can't be created.");
             }
 
         } else {
-            throw new InvalidShipDataException(
+            throw new AppException(
                     "Invalid proportion between nominal volume and other"
                             + " volume values. The ship " + name
                             + " object can't be created.");
