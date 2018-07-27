@@ -21,11 +21,11 @@ public final class Store {
     /**
      * The number of containers that the store can accommodate.
      */
-    private final int NOMINAL_VOLUME;
+    private final transient int NOMINAL_VOLUME;
     /**
      * The number of docks in the port.
      */
-    private final int NUMBER_OF_DOCKS;
+    private final transient int NUMBER_OF_DOCKS;
 
     /**
      * A single instance of this class is specified
@@ -36,7 +36,7 @@ public final class Store {
     /**
      * The number of containers that are in the store now.
      */
-    private int occupiedVolume;
+    private transient int occupiedVolume;
 
     /**
      * Constructor for this class.
@@ -61,7 +61,7 @@ public final class Store {
      * Getter for NOMINAL_VOLUME field.
      * @return nominal volume of the store (in containers).
      */
-    int getNominalVolume() {
+    /* default */ int getNominalVolume() {
         return NOMINAL_VOLUME;
     }
 
@@ -69,7 +69,7 @@ public final class Store {
      * Getter for occupiedVolume field.
      * @return the occupied volume of the store (in containers).
      */
-    int getOccupiedVolume() {
+    /* default */ int getOccupiedVolume() {
         return occupiedVolume;
     }
 
@@ -90,13 +90,14 @@ public final class Store {
 
         final int NUMBER_OF_VALUES = 3;
 
-        PortDataFileReader reader = new PortDataFileReader("/PortData.txt");
+        final PortDataFileReader READER
+                = new PortDataFileReader("/PortData.txt");
 
         String readData;
         int[] parsedData = new int[NUMBER_OF_VALUES];
 
         try {
-            readData = reader.read();
+            readData = READER.read();
 
             try {
                 parsedData = PortDataParser.parse(readData);
@@ -114,14 +115,14 @@ public final class Store {
     /**
      * Method loads one container to the store.
      */
-    void load() {
+    /* default */ void load() {
         occupiedVolume += 1;
     }
 
     /**
      * Method unloads one container from the store.
      */
-    void unload() {
+    /* default */ void unload() {
         occupiedVolume -= 1;
     }
 }

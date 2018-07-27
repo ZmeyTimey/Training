@@ -56,15 +56,15 @@ public final class ShipCreator {
             if (ShipDataValidator.isOccupiedUnloadVolumesValid(
                     occupiedVolume, unloadVolume)) {
 
-                Ship ship = new Ship(semaphore, name,
+                final Ship SHIP = new Ship(semaphore, name,
                         nominalVolume, occupiedVolume,
                         unloadVolume, loadVolume);
 
                 if (LOGGER.isDebugEnabled()) {
-                    LOGGER.debug("The ship " + ship.getName()
+                    LOGGER.debug("The SHIP " + SHIP.getName()
                             + " created.");
                 }
-                return ship;
+                return SHIP;
 
             } else {
                 throw new AppException(

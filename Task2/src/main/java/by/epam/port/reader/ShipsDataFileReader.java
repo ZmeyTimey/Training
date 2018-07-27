@@ -30,19 +30,19 @@ public class ShipsDataFileReader {
     /**
      * A number of line which is being read from file.
      */
-    private int lineCounter;
+    private transient int lineCounter;
 
     /**
      * A path to the file which contains characteristics of the port data.
      */
-    private String shipsDataFilePath;
+    private final transient String SHIPS_DATA_FILE_PATH;
 
     /**
      * Constructor for this class.
-     * @param shipsPath  is input value of shipsDataFilePath.
+     * @param shipsPath  is input value of SHIPS_DATA_FILE_PATH.
      */
     public ShipsDataFileReader(final String shipsPath) {
-        shipsDataFilePath = shipsPath;
+        SHIPS_DATA_FILE_PATH = shipsPath;
     }
 
     /**
@@ -52,17 +52,19 @@ public class ShipsDataFileReader {
      * during reading from file.
      */
     public List<String> read() throws AppException {
-        List<String> lineList = new ArrayList<>();
-        try {
-            URL resource = PortDataFileReader.class
-                    .getResource(shipsDataFilePath);
-            URI filePathURI = resource.toURI();
 
-            Files.lines(Paths.get(filePathURI), StandardCharsets.UTF_8)
+        final Class THIS_CLASS = PortDataFileReader.class;
+        final URL RESOURCE = THIS_CLASS.getResource(SHIPS_DATA_FILE_PATH);
+
+        final List<String> LINE_LIST = new ArrayList<>();
+
+        try {
+            final URI FILE_PATH_URI = RESOURCE.toURI();
+            Files.lines(Paths.get(FILE_PATH_URI), StandardCharsets.UTF_8)
                     .forEach(line -> {
 
                         try {
-                            addLine(line, lineList);
+                            addLine(line, LINE_LIST);
                             LOGGER.log(Level.DEBUG,
                                     "Ships data successfully read");
 
@@ -81,7 +83,7 @@ public class ShipsDataFileReader {
                     "Unable to convert path link into URI. ", e);
         }
 
-        return lineList;
+        return LINE_LIST;
     }
 
     /**

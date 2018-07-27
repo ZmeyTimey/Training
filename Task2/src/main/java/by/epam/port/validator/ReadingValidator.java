@@ -20,10 +20,10 @@ public final class ReadingValidator {
      */
     public static boolean portDataStringIsValid(final String line) {
 
-        Pattern pattern = Pattern.compile("(\\d+\\s+){2}\\d+\\s*");
-        Matcher matcher = pattern.matcher(line);
+        final Pattern PATTERN = Pattern.compile("(\\d+\\s+){2}\\d+\\s*");
+        final Matcher MATHCHER = PATTERN.matcher(line);
 
-        return matcher.matches();
+        return MATHCHER.matches();
     }
 
     /**
@@ -34,11 +34,11 @@ public final class ReadingValidator {
      */
     public static boolean shipDataLineIsValid(final String line) {
 
-        Pattern pattern = Pattern.compile(
+        final Pattern PATTERN = Pattern.compile(
                 "[a-zA-Z0-9]+(\\s\\d+){4}");
-        Matcher matcher = pattern.matcher(line);
+        final Matcher MATHCER = PATTERN.matcher(line);
 
-        return matcher.matches();
+        return MATHCER.matches();
         }
 
     /**
@@ -46,10 +46,10 @@ public final class ReadingValidator {
      * @return the conditions indicating that line is not empty.
      */
     public static boolean lineIsNotEmpty(final String line) {
-        Pattern pattern = Pattern.compile("\\s*");
-        Matcher matcher = pattern.matcher(line);
+        final Pattern PATTERN = Pattern.compile("\\s*");
+        final Matcher MATHCER = PATTERN.matcher(line);
 
-        return !matcher.matches();
+        return !MATHCER.matches();
     }
 
 }

@@ -39,14 +39,15 @@ public final class PortDataParser {
 
         final int NUMBER_OF_VALUES = 3;
 
-        String[] valuesString = line.split("\\s+", NUMBER_OF_VALUES);
+        final String[] VALUES_STRING = line.split("\\s+", NUMBER_OF_VALUES);
         int[] valuesInt = new int[NUMBER_OF_VALUES];
 
-        int i = 0;
-        while (i < valuesString.length) {
-            valuesInt[i] = Integer.parseInt(
-                    valuesString[i].replaceAll("\\s+", ""));
-            i++;
+        int counter = 0;
+        while (counter < VALUES_STRING.length) {
+            final String NO_SPACES_STRING = VALUES_STRING[counter]
+                    .replaceAll("\\s+", "");
+            valuesInt[counter] = Integer.parseInt(NO_SPACES_STRING);
+            counter++;
         }
 
         if (StoreDataValidator.isDocksValueIsValid(valuesInt[0])) {

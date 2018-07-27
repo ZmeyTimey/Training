@@ -1,6 +1,5 @@
 package by.epam.port.entity;
 
-import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -10,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * {@link Ship} class instances describes the functionality of the ships
- * that load containers into the store and unload them from the store.
+ * that load containers into the STORE and unload them from the STORE.
  */
 public class Ship implements Callable<String> {
 
@@ -22,38 +21,38 @@ public class Ship implements Callable<String> {
     /**
      * Time required to load or unload a single container in milliseconds.
      */
-    private static final int WORK_TIME = 5;
+    private static final int WORK_TIME = 10;
     /**
      * The ship's name.
      */
 
-    private final  String SHIP_NAME;
+    private final transient String SHIP_NAME;
     /**
      * The number of containers that a ship can accommodate.
      */
-    private final int NOMINAL_VOLUME;
+    private final transient int NOMINAL_VOLUME;
     /**
      * {@link Semaphore} instance for gaining access by the ship to one of
      * the limited number of docks is the port.
      */
-    private final Semaphore SEMAPHORE;
+    private final transient Semaphore SEMAPHORE;
 
     /**
      * Number of containers on board.
      */
-    private int occupiedVolume;
+    private transient int occupiedVolume;
     /**
-     * Number of containers to be unloaded to the store.
+     * Number of containers to be unloaded to the STORE.
      */
-    private int unloadVolume;
+    private transient int unloadVolume;
     /**
-     * Number of containers to be loaded from the store to the ship.
+     * Number of containers to be loaded from the STORE to the ship.
      */
-    private int loadVolume;
+    private transient int loadVolume;
     /**
-     * The store in which a ship unloads containers and from which loads them.
+     * The STORE in which a ship unloads containers and from which loads them.
      */
-    private Store store = Store.getInstance();
+    private final transient Store STORE = Store.getInstance();
 
     /**
      * Constructor for this class.
@@ -105,14 +104,14 @@ public class Ship implements Callable<String> {
     public String call() {
 
         if (LOGGER.isDebugEnabled()) {
-            LOGGER.debug(this.getName() + " arrived at the port"
+            LOGGER.debug(SHIP_NAME + " arrived at the port"
                     + " and awaits access to dock.");
         }
 
         try {
             SEMAPHORE.acquire();
             if (LOGGER.isDebugEnabled()) {
-                LOGGER.debug(this.getName() + " moored to dock");
+                LOGGER.debug(SHIP_NAME + " moored to dock");
             }
             unload();
             load();
@@ -125,7 +124,7 @@ public class Ship implements Callable<String> {
         } finally {
 
             if (LOGGER.isDebugEnabled()) {
-                LOGGER.debug(this.getName()
+                LOGGER.debug(SHIP_NAME
                         + " completed the loading / unloading operations"
                         + " and left the dock");
             }
@@ -136,7 +135,7 @@ public class Ship implements Callable<String> {
     }
 
     /**
-     * Method unloads one container from ship to the store.
+     * Method unloads one container from ship to the STORE.
      */
     private void unload() {
 
@@ -146,32 +145,25 @@ public class Ship implements Callable<String> {
 
         while (unloadVolume > 0) {
 
-            if (store.getNominalVolume()
-                    == store.getOccupiedVolume()) {
+            if (STORE.getNominalVolume()
+                    == STORE.getOccupiedVolume()) {
 
                 if (LOGGER.isDebugEnabled()) {
-                    LOGGER.debug(this.getName() + ":\n"
-                            + "The store is full!\nUNLOADING INTERRUPTED\n");
+                    LOGGER.debug(SHIP_NAME + ":\n"
+                            + "The STORE is full!\nUNLOADING INTERRUPTED\n");
                 }
 
                 return;
             }
 
-            try {
-                TimeUnit.MILLISECONDS.sleep(WORK_TIME);
-
-            } catch (InterruptedException e) {
-                if (LOGGER.isErrorEnabled()) {
-                    LOGGER.error(e.getMessage());
-                }
-            }
+            work();
             occupiedVolume--;
             unloadVolume--;
-            store.load();
+            STORE.load();
         }
 
         if (LOGGER.isDebugEnabled()) {
-            LOGGER.debug(this.getName() + ":\nUNLOADING COMPLETED\n");
+            LOGGER.debug(SHIP_NAME + ":\nUNLOADING COMPLETED\n");
         }
     }
 
@@ -181,35 +173,45 @@ public class Ship implements Callable<String> {
     private void load() {
 
         if (LOGGER.isDebugEnabled()) {
-            LOGGER.log(Level.DEBUG, this + "\nLOADING CONTAINERS\n");
+            LOGGER.debug(this + "\nLOADING CONTAINERS\n");
         }
 
         while (loadVolume > 0) {
 
-            if (store.getOccupiedVolume() == 0) {
+            if (STORE.getOccupiedVolume() == 0) {
 
                 if (LOGGER.isDebugEnabled()) {
-                    LOGGER.debug(this.getName() + ":\n"
-                            + "The store is empty!\nLOADING INTERRUPTED\n");
+                    LOGGER.debug(SHIP_NAME + ":\n"
+                            + "The STORE is empty!\nLOADING INTERRUPTED\n");
                 }
                 return;
             }
 
-            try {
-                TimeUnit.MILLISECONDS.sleep(WORK_TIME);
-
-            } catch (InterruptedException e) {
-                if (LOGGER.isErrorEnabled()) {
-                    LOGGER.error(e.getMessage());
-                }
-            }
+            work();
             occupiedVolume++;
             loadVolume--;
-            store.unload();
+            STORE.unload();
         }
 
         if (LOGGER.isDebugEnabled()) {
-            LOGGER.debug(this.getName() + ":\nLOADING COMPLETED\n");
+            LOGGER.debug(SHIP_NAME + ":\nLOADING COMPLETED\n");
+        }
+    }
+
+    /**
+     * The method delays execution of the thread for the time
+     * it takes to load or unload one box.
+     */
+    private void work() {
+        try {
+
+            final TimeUnit TIME_UNIT = TimeUnit.MILLISECONDS;
+            TIME_UNIT.sleep(WORK_TIME);
+
+        } catch (InterruptedException e) {
+            if (LOGGER.isErrorEnabled()) {
+                LOGGER.error(e.getMessage());
+            }
         }
     }
 }

@@ -4,7 +4,7 @@ import by.epam.port.creator.ShipCreator;
 import by.epam.port.entity.Ship;
 import by.epam.port.entity.Store;
 import by.epam.port.exception.AppException;
-import by.epam.port.parser.ShipsDataParser;
+import by.epam.port.parser.ShipDataParser;
 import by.epam.port.reader.PortDataFileReader;
 import by.epam.port.reader.ShipsDataFileReader;
 import org.apache.logging.log4j.LogManager;
@@ -43,56 +43,58 @@ public final class Runner {
      */
     public static void main(final String[] args) {
 
-        Store store = Store.getInstance();
+        final Store STORE = Store.getInstance();
 
-        Semaphore semaphore = new Semaphore(store.getNumberOfDocks(), true);
+        final int DOCKS = STORE.getNumberOfDocks();
+        final Semaphore SEMAPHORE = new Semaphore(DOCKS, true);
 
-        ShipsDataFileReader reader = new ShipsDataFileReader("/ShipsData.txt");
-        ShipsDataParser parser = new ShipsDataParser();
-        Phaser phaser = new Phaser();
-        phaser.register();
+        final ShipsDataFileReader READER = new ShipsDataFileReader("/ShipsData.txt");
+        final ShipDataParser PARSER = new ShipDataParser();
+        final Phaser PHASER = new Phaser();
+        PHASER.register();
 
         List<String> shipsLineList;
-        List<Future<String>> futureList = new ArrayList<>();
-        List<Ship> shipList = new ArrayList<>();
+        final List<Future<String>> FUTURE_LIST = new ArrayList<>();
+        final List<Ship> SHIP_LIST = new ArrayList<>();
 
         try {
-            shipsLineList = reader.read();
+            shipsLineList = READER.read();
 
-            int i = 0;
-            while (i < shipsLineList.size()) {
+            int counter = 0;
+            while (counter < shipsLineList.size()) {
 
-                parser.parse(shipsLineList.get(i));
+                PARSER.parse(shipsLineList.get(counter));
 
                 try {
-                    Ship ship =
+                    final Ship SHIP =
                             ShipCreator.createShip(
-                                    semaphore,
-                                    parser.getShipName(),
-                                    parser.getNominalVolume(),
-                                    parser.getOccupiedVolume(),
-                                    parser.getUnloadVolume(),
-                                    parser.getLoadVolume());
+                                    SEMAPHORE,
+                                    PARSER.getShipName(),
+                                    PARSER.getNominalVolume(),
+                                    PARSER.getOccupiedVolume(),
+                                    PARSER.getUnloadVolume(),
+                                    PARSER.getLoadVolume());
 
-                    shipList.add(ship);
+                    SHIP_LIST.add(SHIP);
 
                 } catch (AppException e) {
                     if (LOGGER.isErrorEnabled()) {
                         LOGGER.error(e.getMessage());
                     }
                 }
-                i++;
+                counter++;
             }
 
-            ExecutorService executor
-                    = Executors.newFixedThreadPool(shipList.size());
+            final ExecutorService EXECUTOR
+                    = Executors.newFixedThreadPool(SHIP_LIST.size());
 
-            i = 0;
-            while (i < shipList.size()) {
+            counter = 0;
+            while (counter < SHIP_LIST.size()) {
 
                 final int WAIT_TIME = 100;
-                Future<String> future = executor.submit(shipList.get(i));
-                futureList.add(future);
+                final Future<String> FUTURE
+                        = EXECUTOR.submit(SHIP_LIST.get(counter));
+                FUTURE_LIST.add(FUTURE);
 
                 try {
                     TimeUnit.MILLISECONDS.sleep(WAIT_TIME);
@@ -102,15 +104,15 @@ public final class Runner {
                         LOGGER.error(e.getMessage());
                     }
                 }
-                i++;
+                counter++;
             }
 
-            i = 0;
-            while (i < futureList.size()) {
+            counter = 0;
+            while (counter < FUTURE_LIST.size()) {
 
                 try {
                     if (LOGGER.isDebugEnabled()) {
-                        LOGGER.debug(futureList.get(i).get());
+                        LOGGER.debug(FUTURE_LIST.get(counter).get());
                     }
 
                 } catch (Exception e) {
@@ -118,10 +120,10 @@ public final class Runner {
                         LOGGER.error(e.getMessage());
                     }
                 }
-                i++;
+                counter++;
             }
 
-            executor.shutdown();
+            EXECUTOR.shutdown();
 
         } catch (AppException e) {
             LOGGER.fatal(e.getMessage());

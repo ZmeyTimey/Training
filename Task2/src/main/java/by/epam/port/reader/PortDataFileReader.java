@@ -29,14 +29,14 @@ public class PortDataFileReader {
     /**
      * A path to the file which contains characteristics of the port data.
      */
-    private String portDataFilePath;
+    private final transient String PORT_DATA_FILE_PATH;
 
     /**
      * Constructor for this class.
-     * @param portPath is input value of portDataFilePath.
+     * @param portPath is input value of PORT_DATA_FILE_PATH.
      */
     public PortDataFileReader(final String portPath) {
-        portDataFilePath = portPath;
+        PORT_DATA_FILE_PATH = portPath;
     }
 
     /**
@@ -47,16 +47,15 @@ public class PortDataFileReader {
      */
     public String read() throws AppException {
 
-        String dataString = "";
-        List<String> lineList = new ArrayList<>();
+        final List<String> LINE_LIST = new ArrayList<>();
 
         try {
-            URL resource = PortDataFileReader.class
-                    .getResource(portDataFilePath);
-            URI filePathURI = resource.toURI();
+            final Class THIS_CLASS = PortDataFileReader.class;
+            final URL RESOURCE = THIS_CLASS.getResource(PORT_DATA_FILE_PATH);
+            final URI FILE_PATH_URI = RESOURCE.toURI();
 
-            Files.lines(Paths.get(filePathURI), StandardCharsets.UTF_8)
-                   .forEach(lineList::add);
+            Files.lines(Paths.get(FILE_PATH_URI), StandardCharsets.UTF_8)
+                   .forEach(LINE_LIST::add);
 
         } catch (IOException e) {
             throw new AppException(
@@ -67,15 +66,16 @@ public class PortDataFileReader {
             throw new AppException("Unable to convert path link into URI. ", e);
         }
 
-            int i = 0;
-        while (i < lineList.size()) {
+        int counter = 0;
+        String dataString = "";
+        while (counter < LINE_LIST.size()) {
 
             dataString = (new StringBuilder()
                     .append(dataString)
-                    .append(lineList.get(i)))
+                    .append(LINE_LIST.get(counter)))
                     .append(" ")
                     .toString();
-            i++;
+            counter++;
         }
 
         if ((ReadingValidator.lineIsNotEmpty(dataString))) {

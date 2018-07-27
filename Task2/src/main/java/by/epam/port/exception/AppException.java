@@ -9,6 +9,7 @@ public class AppException extends Exception {
      * Constructor of this exception class.
      */
     public AppException() {
+        super();
     }
 
     /**
