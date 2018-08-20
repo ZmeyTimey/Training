@@ -32,6 +32,13 @@ public class Composite implements Component {
     }
 
     /**
+     * Setter for the value of component.
+     * @param newValue is what replace an old value of component.
+     */
+    public void setValue(final Object newValue) {
+        value = newValue;
+    }
+    /**
      * A list of the parts that make up the text component.
      */
     private List<Component> components = new ArrayList<>();

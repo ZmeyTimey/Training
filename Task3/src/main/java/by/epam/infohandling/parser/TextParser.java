@@ -31,15 +31,21 @@ public class TextParser implements Parser {
         }
 
         Component textComponent = new Composite(text);
+
         String[] paragraphs = text.split("\n");
+        int numberOfParagraphs = paragraphs.length;
+
         ParagraphParser paragraphParser = new ParagraphParser();
 
-        int counter = 0;
-        while (counter < paragraphs.length) {
+        for (int counter = 0;
+             counter < numberOfParagraphs;
+             counter++) {
+
             Component childComponent
                     = paragraphParser.handleRequest(paragraphs[counter]);
             textComponent.add(childComponent);
-            counter++;
+
+            restoreText(textComponent);
 
             if (LOGGER.isDebugEnabled()) {
                 LOGGER.debug("Paragraph " + (counter + 1) + " added");
@@ -47,5 +53,34 @@ public class TextParser implements Parser {
         }
 
         return textComponent;
+    }
+
+    /**
+     * This method restores the parsed text.
+     * @param textComponent is a {@link Component} instance of the parsed text.
+     */
+    private void restoreText(final Component textComponent) {
+
+        StringBuilder builder = new StringBuilder();
+
+        int numberOfParagraphs = textComponent.getNumberOfChildren();
+
+        for (int counter = 0;
+             counter < numberOfParagraphs;
+             counter++) {
+
+            Component paragraphComponent
+                    = (Component) textComponent.getChild(counter);
+            String paragraph
+                    = (String) paragraphComponent.getValue();
+
+            if (!(counter == 0)) {
+                builder.append("\n");
+            }
+            builder.append(paragraph);
+        }
+
+        String restoredText = builder.toString();
+        textComponent.setValue(restoredText);
     }
 }

@@ -18,6 +18,9 @@ public class Leaf implements Component {
         return value;
     }
 
+    public void setValue(final Object newValue) {
+        value = newValue;
+    }
     public void add(final Component component) {
         if (LOGGER.isErrorEnabled()) {
             LOGGER.error("Unable to add child component"

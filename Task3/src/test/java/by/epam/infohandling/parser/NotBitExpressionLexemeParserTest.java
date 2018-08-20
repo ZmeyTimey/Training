@@ -33,6 +33,7 @@ public class NotBitExpressionLexemeParserTest {
      */
     @Test (dataProvider = "test1")
     public void testHandleRequest(final String lexeme, Object[] components) {
+
         Parser notBitExpressionLexemeParser = new NotBitExpressionLexemeParser();
         Component lexemeComponent = notBitExpressionLexemeParser.handleRequest(lexeme);
 

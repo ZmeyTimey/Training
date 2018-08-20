@@ -13,6 +13,11 @@ public interface Component {
     Object getValue();
 
     /**
+     * Abstract method for setting the value of component.
+     * @param newValue is what replace an old value of component.
+     */
+    void setValue(Object newValue);
+    /**
      * Abstract method for replacing component's child.
      * @param number is an input number of child component that should
      *               be replaced.
