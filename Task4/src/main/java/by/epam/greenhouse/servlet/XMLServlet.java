@@ -59,6 +59,12 @@ public class XMLServlet extends HttpServlet {
     }
 
     /**
+     * {@inheritDoc}
+     */
+    protected void doGet() {
+        System.out.println("HUY");
+    }
+    /**
      * Gets xml file and outputs table based on parsed data.
      *
      * @param request is http request to server, containing uploaded file and
@@ -86,11 +92,11 @@ public class XMLServlet extends HttpServlet {
             InputStream inputStream = fileItem.getInputStream();
             String parserType = selectItem.getString();
 
-            Builder flowerBuilder = getDeviceBuilder(parserType);
+            Builder flowerBuilder = getBuilder(parserType);
             flowerBuilder.buildSet(inputStream);
 
-            Set<Flower> devices = flowerBuilder.getEntities();
-            request.setAttribute("devices", devices);
+            Set<Flower> flowers = flowerBuilder.getEntities();
+            request.setAttribute("flowers", flowers);
             request.getRequestDispatcher("/result.jsp").forward(request,
                     response);
         } catch (Exception ex) {
@@ -105,7 +111,7 @@ public class XMLServlet extends HttpServlet {
      * @return device builder object.
      * @throws Exception exception.
      */
-    private Builder getDeviceBuilder(final String parserType) throws
+    private Builder getBuilder(final String parserType) throws
             Exception {
         switch (parserType) {
             case "dom":

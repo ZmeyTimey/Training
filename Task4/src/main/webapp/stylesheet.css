@@ -1,0 +1,17 @@
+table, th, td {
+    border: 2px solid #aacfe4;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 15px;
+}
+th {
+    text-align: left;
+}
+
+input, select{
+    display: block;
+    font-size:20px;
+    border:solid 2px #aacfe4;
+    margin:2px 0 20px 10px;
+}

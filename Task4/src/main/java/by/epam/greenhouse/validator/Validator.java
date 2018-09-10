@@ -17,7 +17,7 @@ import java.io.IOException;
 /**
  * This class is for XML-file validating.
  */
-public class Validator {
+public final class Validator {
 
     /**
      * {@link Logger} class object for making logs.
@@ -26,11 +26,16 @@ public class Validator {
             = LogManager.getLogger(Validator.class);
 
     /**
+     * Private constructor for this class.
+     */
+    private Validator() {
+    }
+    /**
      * Methods validates xml file against xsd schema.
      * @param filePath is a path to the file that should be validated.
      * @param schemaPath is a path to the xsd-scheme to the xml-file.
      */
-    public static void validate(final String filePath,
+    static void validate(final String filePath,
                                   final String schemaPath) {
 
         File fileXML = new File(filePath);

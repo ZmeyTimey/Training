@@ -23,7 +23,7 @@ public class DOMBuilderTest {
     @BeforeClass
     public void init() {
 
-        String path = "file.xml";
+        String path = "src/main/resources/flowers.xml";
         try {
             stream = new FileInputStream(path);
         } catch (FileNotFoundException e) {
@@ -37,7 +37,7 @@ public class DOMBuilderTest {
         parser.buildSet(stream);
 
         Set<Flower> flowers = parser.getEntities();
-        Set<Flower> correctFlowers =  DataProvider.getData();
+        /*Set<Flower> correctFlowers =  DataProvider.getData();
 
         Iterator iC = flowers.iterator();
         Iterator iCF = correctFlowers.iterator();
@@ -74,7 +74,7 @@ public class DOMBuilderTest {
 
         Assert.assertEquals(flower1.getVisualParameters(), correctFlower1.getVisualParameters());
         Assert.assertEquals(flower1.getGrowingTips(), correctFlower1.getGrowingTips());
-        Assert.assertEquals(flower1.getPropagation(), correctFlower1.getPropagation());
-        // Assert.assertEquals(flowers, DataProvider.getData());
+        Assert.assertEquals(flower1.getPropagation(), correctFlower1.getPropagation());*/
+        Assert.assertEquals(flowers, DataProvider.getData());
     }
 }

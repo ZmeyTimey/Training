@@ -21,7 +21,7 @@ public class SAXBuilderTest {
     @BeforeClass
     public void init() {
 
-        String path = "file.xml";
+        String path = "src/main/resources/flowers.xml";
         try {
             stream = new FileInputStream(path);
         } catch (FileNotFoundException e) {
