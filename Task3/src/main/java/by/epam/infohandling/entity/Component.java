@@ -17,13 +17,6 @@ public interface Component {
      * @param newValue is what replace an old value of component.
      */
     void setValue(Object newValue);
-    /**
-     * Abstract method for replacing component's child.
-     * @param number is an input number of child component that should
-     *               be replaced.
-     * @param newComponent is a component replacing specified child component.
-     */
-    void replace(int number, Component newComponent);
 
     /**
      * Abstract method for realization adding components into

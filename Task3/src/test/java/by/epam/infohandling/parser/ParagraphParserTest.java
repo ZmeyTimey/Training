@@ -21,25 +21,25 @@ public class ParagraphParserTest {
                         + "but also the leap into 13<<2 electronic "
                         + "typesetting, remaining 3>>5 essentially "
                         + "~6&9|(3&4) unchanged. It was popularised "
-                        + "in the 5|(1&2&(3|4&(^5|6&47)|3)|2)|1) "
+                        + "in the 5|(1&2&(3|4&(10^5|6&47)|3)|2)|1 "
                         + "with the release of Letraset sheets "
                         + "containing Lorem Ipsum passages, and more "
                         + "recently with desktop publishing software "
                         + "like Aldus PageMaker including versions "
                         + "of Lorem Ipsum.",
                 "It has survived - not only (five) centuries, but also "
-                        + "the leap into 13<<2 electronic typesetting, "
-                        + "remaining 3>>5 essentially ~6&9|(3&4) unchanged. ",
-                "It was popularised in the 5|(1&2&(3|4&(^5|6&47)|3)|2)|1) " +
+                        + "the leap into 52 electronic typesetting, "
+                        + "remaining 0 essentially 9 unchanged.",
+                "It was popularised in the 7 " +
                         "with the release of Letraset sheets containing " +
                         "Lorem Ipsum passages, and more recently with " +
                         "desktop publishing software like Aldus PageMaker " +
                         "including versions of Lorem Ipsum."},
 
-                {"It is (^5|1&2<<(2|5>>2&71))|1200 established "
+                {"It is (10^5|1&2<<(2|5>>2&71))|1200 established "
                         + "fact that a reader will be of a page "
                         + "when looking at its layout.",
-                "It is (^5|1&2<<(2|5>>2&71))|1200 established "
+                "It is 1215 established "
                         + "fact that a reader will be of a page "
                         + "when looking at its layout."}};
     }

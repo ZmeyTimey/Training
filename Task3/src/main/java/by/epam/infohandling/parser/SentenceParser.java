@@ -33,21 +33,59 @@ public class SentenceParser implements Parser {
 
         Component sentenceComponent = new Composite(sentence);
         String[] lexemes = sentence.split(" ");
+        int numberOfLexemes = lexemes.length;
+
         LexemeParser lexemeParser = new LexemeParser();
 
         int counter = 0;
-        while (counter < lexemes.length) {
+        while (counter < numberOfLexemes) {
+
             String lexeme = lexemes[counter];
             Component childComponent
                     = lexemeParser.handleRequest(lexeme);
             sentenceComponent.add(childComponent);
+
+            restoreSentence(sentenceComponent);
+
             counter++;
 
             if (LOGGER.isDebugEnabled()) {
-                LOGGER.debug("Component " + "'" + lexeme + "'" + " added");
+                LOGGER.debug("Component "
+                        + "'" + lexeme + "'" + " added");
             }
         }
 
         return sentenceComponent;
+    }
+
+    /**
+     * This method restores the parsed sentence.
+     * @param sentenceComponent is a {@link Component} instance
+     *                      of the parsed sentence.
+     */
+    private void restoreSentence(final Component sentenceComponent) {
+
+        StringBuilder builder = new StringBuilder();
+
+        int numberOfLexemes = sentenceComponent.getNumberOfChildren();
+
+        for (int counter = 0;
+             counter < numberOfLexemes;
+             counter++) {
+
+            Component lexemeComponent
+                    = (Component) sentenceComponent.getChild(counter);
+            String lexeme
+                    = (String) lexemeComponent.getValue();
+
+            if (!(counter == 0)) {
+                builder.append(" ");
+            }
+
+            builder.append(lexeme);
+        }
+
+        String restoredSentence = builder.toString();
+        sentenceComponent.setValue(restoredSentence);
     }
 }

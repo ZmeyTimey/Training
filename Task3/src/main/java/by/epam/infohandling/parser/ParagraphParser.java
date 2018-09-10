@@ -46,11 +46,45 @@ public class ParagraphParser implements Parser {
             Component childComponent = sentenceParser.handleRequest(sentence);
             paragraphComponent.add(childComponent);
 
+            restoreParagraph(paragraphComponent);
+
             if (LOGGER.isDebugEnabled()) {
                 LOGGER.debug("Component " + "'" + sentence + "'" + " added");
             }
         }
 
         return paragraphComponent;
+    }
+
+    /**
+     * This method restores the parsed paragraph.
+     * @param paragraphComponent is a {@link Component} instance
+     *                      of the parsed sentence.
+     */
+    private void restoreParagraph(final Component paragraphComponent) {
+
+        StringBuilder builder = new StringBuilder();
+
+        int numberOfSentences
+                = paragraphComponent.getNumberOfChildren();
+
+        for (int counter = 0;
+             counter < numberOfSentences;
+             counter++) {
+
+            Component sentenceComponent
+                    = (Component) paragraphComponent.getChild(counter);
+            String sentence
+                    = (String) sentenceComponent.getValue();
+
+            builder.append(sentence);
+
+            if (!(counter == (numberOfSentences - 1))) {
+                builder.append(" ");
+            }
+        }
+
+        String restoredSentence = builder.toString();
+        paragraphComponent.setValue(restoredSentence);
     }
 }

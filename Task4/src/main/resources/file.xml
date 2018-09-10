@@ -1,0 +1,361 @@
+<?xml version="1.0"
+        encoding="UTF-8"?>
+<Flowers>
+<Flower id="1" family = "Rosaceae">
+    <Name>rose</Name>
+    <Soil>podzolic</Soil>
+    <Origin>Ancient Greece</Origin>
+    <DeliveryDate>2016-05-03T09:00:00Z</DeliveryDate>
+    <VisualParameters>
+        <StalkColor>green</StalkColor>
+        <LeavesColor>green</LeavesColor>
+        <AverageSize>60</AverageSize>
+    </VisualParameters>
+    <GrowingTips>
+        <Temperature>
+            <min>6</min>
+            <max>20</max>
+        </Temperature>
+        <Photophilous>true</Photophilous>
+        <Watering>15000</Watering>
+    </GrowingTips>
+    <Propagation>cuttings</Propagation>
+</Flower>>
+
+    <Flower id="2" family = "Liliaceae">
+        <Name>tulip</Name>
+        <Soil>kidney</Soil>
+        <Origin>Near East</Origin>
+        <DeliveryDate>2016-05-09T11:00:00Z</DeliveryDate>
+        <VisualParameters>
+            <StalkColor>green</StalkColor>
+            <LeavesColor>green</LeavesColor>
+            <AverageSize>60</AverageSize>
+        </VisualParameters>
+        <GrowingTips>
+            <Temperature>
+                <min>8</min>
+                <max>18</max>
+            </Temperature>
+            <Photophilous>true</Photophilous>
+            <Watering>10000</Watering>
+        </GrowingTips>
+        <Propagation>cuttings</Propagation>
+    </Flower>
+
+    <Flower id="3" family="Cannabaceae">
+        <Name>hemp</Name>
+        <Soil>kidney</Soil>
+        <Origin>China</Origin>
+        <DeliveryDate>2016-05-12T09:00:00Z</DeliveryDate>
+        <VisualParameters>
+            <StalkColor>green</StalkColor>
+            <LeavesColor>green</LeavesColor>
+            <AverageSize>50</AverageSize>
+        </VisualParameters>
+        <GrowingTips>
+            <Temperature>
+                <min>20</min>
+                <max>28</max>
+            </Temperature>
+            <Photophilous>true</Photophilous>
+            <Watering>5000</Watering>
+        </GrowingTips>
+        <Propagation>cuttings</Propagation>
+    </Flower>
+
+    <Flower id = "4" family="Asteraceae">
+        <Name>gynur</Name>
+        <Soil>sod-podzolic</Soil>
+        <Origin>Africa and the tropics of Asia</Origin>
+        <DeliveryDate>2016-06-21T09:00:00Z</DeliveryDate>
+        <VisualParameters>
+            <StalkColor>purple</StalkColor>
+            <LeavesColor>green</LeavesColor>
+            <LeavesColor>purple</LeavesColor>
+            <AverageSize>40</AverageSize>
+        </VisualParameters>
+        <GrowingTips>
+            <Temperature>
+                <min>20</min>
+                <max>24</max>
+            </Temperature>
+            <Photophilous>false</Photophilous>
+            <Watering>7000</Watering>
+        </GrowingTips>
+        <Propagation>cuttings</Propagation>
+    </Flower>
+
+    <Flower id = "5" family="Geraniaceae">
+        <Name>geranium</Name>
+        <Soil>podzolic</Soil>
+        <Origin>South Africa</Origin>
+        <DeliveryDate>2016-08-22T20:00:00Z</DeliveryDate>
+        <VisualParameters>
+            <StalkColor>green</StalkColor>
+            <LeavesColor>green</LeavesColor>
+            <AverageSize>60</AverageSize>
+        </VisualParameters>
+        <GrowingTips>
+            <Temperature>
+                <min>15</min>
+                <max>20</max>
+            </Temperature>
+            <Photophilous>true</Photophilous>
+            <Watering>18000</Watering>
+        </GrowingTips>
+        <Propagation>seeds</Propagation>
+        <Propagation>cuttings</Propagation>
+    </Flower>
+
+    <Flower id = "6" family="Commelinaceae">
+        <Name>dichorisandra</Name>
+        <Soil>sod-podzolic</Soil>
+        <Origin>Peru, Brazil</Origin>
+        <DeliveryDate>2016-09-06T09:00:00Z</DeliveryDate>
+        <VisualParameters>
+            <StalkColor>green</StalkColor>
+            <StalkColor>red</StalkColor>
+            <LeavesColor>green</LeavesColor>
+            <AverageSize>50</AverageSize>
+        </VisualParameters>
+        <GrowingTips>
+            <Temperature>
+                <min>18</min>
+                <max>25</max>
+            </Temperature>
+            <Photophilous>false</Photophilous>
+            <Watering>9000</Watering>
+        </GrowingTips>
+        <Propagation>cuttings</Propagation>
+        <Propagation>seeds</Propagation>
+    </Flower>
+
+    <Flower id = "7" family="Amaryllidaceae">
+        <Name>gippeastrum</Name>
+        <Soil>sod-podzolic</Soil>
+        <Origin>South America</Origin>
+        <DeliveryDate>2016-09-13T21:00:00Z</DeliveryDate>
+        <VisualParameters>
+            <StalkColor>green</StalkColor>
+            <LeavesColor>green</LeavesColor>
+            <AverageSize>55</AverageSize>
+        </VisualParameters>
+        <GrowingTips>
+            <Temperature>
+                <min>15</min>
+                <max>25</max>
+            </Temperature>
+            <Photophilous>true</Photophilous>
+            <Watering>7000</Watering>
+        </GrowingTips>
+        <Propagation>seeds</Propagation>
+    </Flower>
+
+    <Flower id = "8" family="Violaceae">
+        <Name>viola</Name>
+        <Soil>podzolic</Soil>
+        <Origin>Africa</Origin>
+        <DeliveryDate>2016-09-26T19:00:00Z</DeliveryDate>
+        <VisualParameters>
+            <StalkColor>green</StalkColor>
+            <StalkColor>violet</StalkColor>
+            <LeavesColor>green</LeavesColor>
+            <LeavesColor>white</LeavesColor>
+            <AverageSize>20</AverageSize>
+        </VisualParameters>
+        <GrowingTips>
+            <Temperature>
+                <min>18</min>
+                <max>24</max>
+            </Temperature>
+            <Photophilous>false</Photophilous>
+            <Watering>6000</Watering>
+        </GrowingTips>
+        <Propagation>leaves</Propagation>
+        <Propagation>seeds</Propagation>
+    </Flower>
+
+    <Flower id = "9" family="Araceae" evergreen="true">
+        <Name>aglaonema</Name>
+        <Soil>kidney</Soil>
+        <Origin>Malay Archipelago, Eastern India</Origin>
+        <DeliveryDate>2016-12-10T09:00:00Z</DeliveryDate>
+        <VisualParameters>
+            <StalkColor>green</StalkColor>
+            <StalkColor>pink</StalkColor>
+            <LeavesColor>white</LeavesColor>
+            <LeavesColor>green</LeavesColor>
+            <LeavesColor>pink</LeavesColor>
+            <AverageSize>70</AverageSize>
+        </VisualParameters>
+        <GrowingTips>
+            <Temperature>
+                <min>17</min>
+                <max>23</max>
+            </Temperature>
+            <Photophilous>false</Photophilous>
+            <Watering>10000</Watering>
+        </GrowingTips>
+        <Propagation>seeds</Propagation>
+        <Propagation>cuttings</Propagation>
+    </Flower>
+
+    <Flower id = "10" family="Orchidaceae">
+        <Name>orchid</Name>
+        <Soil>kidney</Soil>
+        <Origin>India, South-East Asia</Origin>
+        <DeliveryDate>2017-03-17T09:00:00Z</DeliveryDate>
+        <VisualParameters>
+            <StalkColor>green</StalkColor>
+            <LeavesColor>green</LeavesColor>
+            <AverageSize>60</AverageSize>
+        </VisualParameters>
+        <GrowingTips>
+            <Temperature>
+                <min>17</min>
+                <max>25</max>
+            </Temperature>
+            <Photophilous>true</Photophilous>
+            <Watering>14000</Watering>
+        </GrowingTips>
+        <Propagation>cuttings</Propagation>
+    </Flower>
+
+    <Flower id = "11" family="Acanthaceae">
+        <Name>aphelandra</Name>
+        <Soil>podzolic</Soil>
+        <Origin>Central and Southern Africa</Origin>
+        <DeliveryDate>2017-04-02T12:00:00Z</DeliveryDate>
+        <VisualParameters>
+            <StalkColor>green</StalkColor>
+            <LeavesColor>white</LeavesColor>
+            <LeavesColor>green</LeavesColor>
+            <AverageSize>30</AverageSize>
+        </VisualParameters>
+        <GrowingTips>
+            <Temperature>
+                <min>19</min>
+                <max>24</max>
+            </Temperature>
+            <Photophilous>true</Photophilous>
+            <Watering>10000</Watering>
+        </GrowingTips>
+        <Propagation>cuttings</Propagation>
+    </Flower>
+
+    <Flower id = "12" family="Bromeliaceae" evergreen="true">
+        <Name>tillandsia</Name>
+        <Soil>sod-podzolic</Soil>
+        <Origin>tropics of America</Origin>
+        <DeliveryDate>2017-05-09T09:00:00Z</DeliveryDate>
+        <VisualParameters>
+            <StalkColor>green</StalkColor>
+            <LeavesColor>green</LeavesColor>
+            <LeavesColor>pink</LeavesColor>
+            <LeavesColor>red</LeavesColor>
+            <LeavesColor>violet</LeavesColor>
+            <AverageSize>30</AverageSize>
+        </VisualParameters>
+        <GrowingTips>
+            <Temperature>
+                <min>18</min>
+                <max>28</max>
+            </Temperature>
+            <Photophilous>false</Photophilous>
+            <Watering>7000</Watering>
+        </GrowingTips>
+        <Propagation>seeds</Propagation>
+        <Propagation>cuttings</Propagation>
+    </Flower>
+
+    <Flower id = "13" family="Amaryllidaceae">
+        <Name>amaryllis</Name>
+        <Soil>sod-podzolic</Soil>
+        <Origin>South Africa</Origin>
+        <DeliveryDate>2017-06-19T16:00:00Z</DeliveryDate>
+        <VisualParameters>
+            <StalkColor>green</StalkColor>
+            <LeavesColor>green</LeavesColor>
+            <AverageSize>55</AverageSize>
+        </VisualParameters>
+        <GrowingTips>
+            <Temperature>
+                <min>15</min>
+                <max>25</max>
+            </Temperature>
+            <Photophilous>false</Photophilous>
+            <Watering>7000</Watering>
+        </GrowingTips>
+        <Propagation>seeds</Propagation>
+    </Flower>
+
+    <Flower id = "14" family="Begoniaceae">
+        <Name>begonia</Name>
+        <Soil>podzolic</Soil>
+        <Origin>Antilles</Origin>
+        <DeliveryDate>2017-08-20T09:00:00Z</DeliveryDate>
+        <VisualParameters>
+            <StalkColor>green</StalkColor>
+            <StalkColor>brown</StalkColor>
+            <LeavesColor>green</LeavesColor>
+            <LeavesColor>red</LeavesColor>
+            <AverageSize>15</AverageSize>
+        </VisualParameters>
+        <GrowingTips>
+            <Temperature>
+                <min>18</min>
+                <max>22</max>
+            </Temperature>
+            <Photophilous>true</Photophilous>
+            <Watering>9000</Watering>
+        </GrowingTips>
+        <Propagation>leaves</Propagation>
+        <Propagation>cuttings</Propagation>
+    </Flower>
+
+    <Flower id = "15" family="Gesneriaceae">
+        <Name>streptocarpus</Name>
+        <Soil>sod-podzolic</Soil>
+        <Origin>Madagascar</Origin>
+        <DeliveryDate>2018-03-01T09:00:00Z</DeliveryDate>
+        <VisualParameters>
+            <StalkColor>green</StalkColor>
+            <StalkColor>red</StalkColor>
+            <LeavesColor>green</LeavesColor>
+            <AverageSize>35</AverageSize>
+        </VisualParameters>
+        <GrowingTips>
+            <Temperature>
+                <min>14</min>
+                <max>25</max>
+            </Temperature>
+            <Photophilous>false</Photophilous>
+            <Watering>6000</Watering>
+        </GrowingTips>
+        <Propagation>leaves</Propagation>
+        <Propagation>cuttings</Propagation>
+        <Propagation>seeds</Propagation>
+    </Flower>
+
+    <Flower id = "16" family="Gesneriaceae">
+        <Name>aeschynanthus</Name>
+        <Soil>kidney</Soil>
+        <Origin>India</Origin>
+        <DeliveryDate>2018-05-07T13:00:00Z</DeliveryDate>
+        <VisualParameters>
+            <StalkColor>green</StalkColor>
+            <LeavesColor>green</LeavesColor>
+            <AverageSize>50</AverageSize>
+        </VisualParameters>
+        <GrowingTips>
+            <Temperature>
+                <min>18</min>
+                <max>25</max>
+            </Temperature>
+            <Photophilous>true</Photophilous>
+            <Watering>5000</Watering>
+        </GrowingTips>
+        <Propagation>cuttings</Propagation>
+    </Flower>
+</Flowers>

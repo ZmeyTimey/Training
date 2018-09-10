@@ -23,6 +23,7 @@ public class LexemeParser implements Parser {
     boolean getBitExpression() {
         return isBitExpression;
     }
+
     /**
      * This method creates an instance of {@link Composite} class that stores
      * an input value of lexeme and sends a request for it's handling

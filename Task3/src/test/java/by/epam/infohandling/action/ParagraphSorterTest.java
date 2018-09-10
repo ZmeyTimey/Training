@@ -32,11 +32,11 @@ public class ParagraphSorterTest {
 
     /**
      * Providing data which contains a list of paragraphs of the text that should be
-     * after sorting.
+     * received after sorting.
      * @return a list of paragraphs placed in the order they should be placed after sorting.
      */
     @DataProvider(name = "test1")
-    public static Object[][] sortedText() {
+    public static Object[][] sortedParagraphs() {
         return new Object[][]
                 {{"It is 1215 established "
                         + "fact that a reader will be of a page "

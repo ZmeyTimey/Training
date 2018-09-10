@@ -84,6 +84,7 @@ public class ParagraphSorter implements Sorter {
 
         return paragraphList;
     }
+
     /**
      * This method builds a new value of the text after it has been sorted.
      * @param text is the text with sorted paragraphs.
@@ -91,7 +92,7 @@ public class ParagraphSorter implements Sorter {
      * @return new text value.
      */
     private String buildTextValue(final Component text,
-                                  int numberOfParagraphs) {
+                                  final int numberOfParagraphs) {
 
         int counter = 0;
         String newTextValue;

@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
  * The test class for {@link LexemeParser}.
  */
 public class LexemeParserTest {
+
     /**
      * Providing data containing bit expressions.
      * @return an array of bit expressions.
@@ -15,9 +16,9 @@ public class LexemeParserTest {
     @DataProvider(name = "test1")
     public static Object[] expressions() {
         return new Object[] {"13<<2", "3>>5", "~6&9|(3&4)",
-                "5|(1&2&(3|4&(^5|6&47)|3)|2)|1)",
-                "(~71&(2&3|(3|2&1>>2|2)&2)|10&2))|78",
-                "(^5|1&2<<(2|5>>2&71))|1200"};
+                "5|(1&2&(3|4&(10^5|6&47)|3)|2)|1",
+                "(~71&(2&3|(3|2&1>>2|2)&2)|(10&2))|78",
+                "(10^5|1&2<<(2|5>>2&71))|1200"};
     }
 
     /**

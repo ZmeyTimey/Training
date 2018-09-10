@@ -21,8 +21,8 @@ public class SentenceSorter implements Sorter {
     /**
      * This method sorts all the sentences in the text by the length
      * of lexemes they contain.
-     *
      * @param text is an input text.
+     * @return a list of sorted {@link Component} instances.
      */
     public List<Component> sort(final Component text) {
 
@@ -35,7 +35,7 @@ public class SentenceSorter implements Sorter {
         int numberOfSentences = sentenceList.size();
 
         for (int i = numberOfSentences - 1; i > 0; i--) {
-            
+
             for (int j = 0; j < i; j++) {
 
                 Component sentenceComponent = sentenceList.get(j);

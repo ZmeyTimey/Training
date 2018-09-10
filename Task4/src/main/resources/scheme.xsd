@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.example.com/Flowers"
+        xmlns:tns="http://www.example.com/Flowers"
+        elementFormDefault="qualified">
+    <element name="Flowers">
+        <complexType>
+            <sequence>
+                <element name="Flower"
+                         type="tns:Flower"
+                         minOccurs="0"
+                         maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+
+    <complexType name="Flower">
+        <sequence>
+            <element type="string" name="Name"/>
+            <element name="Soil">
+            <simpleType>
+                <restriction base = "string">
+                    <enumeration value = "podzolic"/>
+                    <enumeration value = "kidney"/>
+                    <enumeration value = "sod-podzolic"/>
+                </restriction>
+            </simpleType>
+            </element>
+            <element name="Origin" type="string"/>
+            <element name="DeliveryDate" type="dateTime"/>
+            <element name="VisualParameters" type="tns:VisualParameters"/>
+            <element name="GrowingTips" type="tns:GrowingTips"/>
+            <element name="Propagation"
+                        minOccurs="1" maxOccurs="3">
+                <simpleType>
+                    <restriction base = "string">
+                        <enumeration value = "cuttings"/>
+                        <enumeration value = "seeds"/>
+                        <enumeration value = "leaves"/>
+                    </restriction>
+                </simpleType>
+            </element>
+        </sequence>
+        <attribute type="ID" name="id" use="required"/>
+        <attribute type="string" name="family" use="required"/>
+        <attribute type="boolean" name="evergreen" use="optional" default="false"/>
+    </complexType>
+
+    <complexType name="VisualParameters">
+        <sequence>
+            <element type="string" name="StalkColor"
+                        minOccurs="1" maxOccurs="unbounded"/>
+            <element type="string" name="LeavesColor"
+                        minOccurs="1" maxOccurs="unbounded"/>
+            <element name="AverageSize">
+                <simpleType>
+                    <restriction base="integer">
+                        <minInclusive value="1"/>
+                    </restriction>
+                </simpleType>
+            </element>
+        </sequence>
+    </complexType>
+
+    <complexType name="GrowingTips">
+        <all>
+            <element name="Temperature" type="tns:Temperature" />
+            <element name="Photophilous" type="boolean" />
+            <element name="Watering">
+                <simpleType>
+                    <restriction base="integer">
+                        <minInclusive value="0"/>
+                    </restriction>
+                </simpleType>
+            </element>
+        </all>
+    </complexType>
+
+    <complexType name="Temperature">
+        <all>
+            <element name="min">
+                <simpleType>
+                    <restriction base="integer">
+                        <minInclusive value="-20"/>
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="max">
+                <simpleType>
+                    <restriction base="integer">
+                        <maxInclusive value="40"/>
+                    </restriction>
+                </simpleType>
+            </element>
+        </all>
+    </complexType>
+</schema>

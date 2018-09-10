@@ -106,7 +106,7 @@ public class Triangle {
     }
 
     /**
-     * @return {@link Registrator} objact connected with
+     * @return {@link Registrator} object connected with
      * this triangle.
      */
     public final Registrator getRegistrator() {

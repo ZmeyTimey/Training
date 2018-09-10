@@ -26,14 +26,16 @@ public class NotBitExpressionLexemeParser implements Parser {
      * This method creates an instance of {@link Component} that stores
      * an input value of lexeme and sends a request for it's handling
      * to other parsers.
-     * @param lexeme is a lexeme that needs to be parsed.
+     * @param lexeme is a lexeme that should be parsed.
      * @return {@link Composite} or {@link Leaf} class instance that contains
      * lexeme value and list of it's components.
      */
     public Component handleRequest(final String lexeme) {
 
         if (LOGGER.isDebugEnabled()) {
-            LOGGER.debug("Lexeme " + "'" + lexeme + "'" + " is being parsed.");
+            LOGGER.debug("Lexeme "
+                    + "'" + lexeme + "'"
+                    + " is being parsed.");
         }
 
         final Pattern PATTERN = Pattern.compile("[,.!?()]+");
@@ -60,7 +62,8 @@ public class NotBitExpressionLexemeParser implements Parser {
                 lexemeComponent.add(childComponent);
 
                 if (LOGGER.isDebugEnabled()) {
-                    LOGGER.debug("Component " + "'" + lexeme + "'" + " added");
+                    LOGGER.debug("Component "
+                            + "'" + lexeme + "'" + " added");
                 }
             }
         }
@@ -130,7 +133,8 @@ public class NotBitExpressionLexemeParser implements Parser {
             counter--;
 
             if (LOGGER.isDebugEnabled()) {
-                LOGGER.debug("Component " + "'" + punctuationMark + "'" + " added");
+                LOGGER.debug("Component "
+                        + "'" + punctuationMark + "'" + " added");
             }
         }
     }
