@@ -5,7 +5,7 @@
   Time: 1:36
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%--<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +14,7 @@
 </head>
 <body>
 <h3>Welcome to Timey's magic XML parser!</h3>
-<form action="XMLServlet" method="post" enctype="multipart/form-data">
+<form action="src/main/java/by/epam/greenhouse/servlet/XMLServlet" method="post" enctype="multipart/form-data">
     <input required="required" type="file" name="inputFile">
     <select name="parserType" title="Parser type">
         <option selected="selected" value="dom">DOM</option>
@@ -23,5 +23,16 @@
     </select>
     <input type="submit" value="Parse!">
 </form>
+</body>
+</html>
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Basic Web Page</title>
+</head>
+<body>
+Hello World!
 </body>
 </html>

@@ -64,6 +64,7 @@ public class XMLServlet extends HttpServlet {
     protected void doGet() {
         System.out.println("HUY");
     }
+
     /**
      * Gets xml file and outputs table based on parsed data.
      *
