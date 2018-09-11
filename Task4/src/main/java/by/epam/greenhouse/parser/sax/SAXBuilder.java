@@ -70,6 +70,10 @@ public class SAXBuilder implements Builder {
     @Override
     public void buildSet(final InputStream fileInputStream) {
 
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("Starting SAX parser!");
+        }
+
         try {
             xmlReader.parse(new InputSource(fileInputStream));
 
@@ -81,5 +85,9 @@ public class SAXBuilder implements Builder {
         }
 
         flowers = handler.getFlowers();
+
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("Parsing is successfully completed!");
+        }
     }
 }

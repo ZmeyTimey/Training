@@ -7,7 +7,10 @@ import by.epam.greenhouse.entity.VisualParameters;
 import by.epam.greenhouse.parser.sax.Handler;
 import org.testng.annotations.BeforeSuite;
 
-import java.util.*;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
 
 /**
  * This class is for providing data which is necessary for testing parser-classes.

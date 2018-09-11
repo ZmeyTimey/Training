@@ -10,7 +10,7 @@ public class ValidatorTest {
     @Test
     public void validateTest() {
         final String FILE_PATH = "src/main/resources/flowers.xml";
-        final String SCHEMA_PATH ="src/main/resources/scheme.xsd";
+        final String SCHEMA_PATH = "src/main/resources/schema.xsd";
 
         Validator.validate(FILE_PATH, SCHEMA_PATH);
 

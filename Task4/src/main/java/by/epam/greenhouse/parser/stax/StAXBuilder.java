@@ -18,7 +18,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -65,6 +64,10 @@ public class StAXBuilder implements Builder {
     @Override
     public void buildSet(final InputStream inputStream) {
 
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("Starting StAX parser!");
+        }
+
         XMLStreamReader reader;
         String name;
 
@@ -96,6 +99,10 @@ public class StAXBuilder implements Builder {
             } catch (IOException e) {
                 LOGGER.error("Unable to close file: " + e);
             }
+        }
+
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("Parsing is successfully completed!");
         }
     }
 

@@ -1,6 +1,8 @@
 package by.epam.greenhouse.entity;
 
-import java.util.*;
+import java.util.Date;
+import java.util.Objects;
+import java.util.Set;
 
 /**
  * Flower entity-class.
@@ -44,7 +46,7 @@ public class Flower {
      */
     private GrowingTips growingTips;
     /**
-     * Propagation type of a flower.
+     * Propagation type(s) of a flower.
      */
     private Set<String> propagation;
 
@@ -246,7 +248,7 @@ public class Flower {
     public Set<String> getPropagation() {
 
         if (propagation == null) {
-            propagation = new HashSet<>();
+            propagation = new PropertiesSet();
     }
         return propagation;
     }

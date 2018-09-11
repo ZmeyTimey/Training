@@ -59,13 +59,6 @@ public class XMLServlet extends HttpServlet {
     }
 
     /**
-     * {@inheritDoc}
-     */
-    protected void doGet() {
-        System.out.println("HUY");
-    }
-
-    /**
      * Gets xml file and outputs table based on parsed data.
      *
      * @param request is http request to server, containing uploaded file and
@@ -98,8 +91,8 @@ public class XMLServlet extends HttpServlet {
 
             Set<Flower> flowers = flowerBuilder.getEntities();
             request.setAttribute("flowers", flowers);
-            request.getRequestDispatcher("/result.jsp").forward(request,
-                    response);
+            request.getRequestDispatcher("/result.jsp")
+                    .forward(request, response);
         } catch (Exception ex) {
             throw new ServletException(ex);
         }

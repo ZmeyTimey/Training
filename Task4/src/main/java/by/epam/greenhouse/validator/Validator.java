@@ -38,6 +38,11 @@ public final class Validator {
     static void validate(final String filePath,
                                   final String schemaPath) {
 
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug(
+                    "XML-file validation started");
+        }
+
         File fileXML = new File(filePath);
         File schemaFile = new File(schemaPath);
 
@@ -71,6 +76,11 @@ public final class Validator {
             if (LOGGER.isFatalEnabled()) {
                 LOGGER.fatal("An error in parser operation occurred ");
             }
+        }
+
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug(
+                    "Validation completed");
         }
     }
 }

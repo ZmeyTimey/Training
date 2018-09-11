@@ -4,7 +4,6 @@ import by.epam.greenhouse.entity.Flower;
 import by.epam.greenhouse.entity.GrowingTips;
 import by.epam.greenhouse.entity.Temperature;
 import by.epam.greenhouse.entity.VisualParameters;
-import by.epam.greenhouse.parser.Builder;
 import by.epam.greenhouse.parser.FlowersEnum;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -12,15 +11,11 @@ import org.apache.logging.log4j.core.util.datetime.FastDateFormat;
 import org.xml.sax.Attributes;
 import org.xml.sax.helpers.DefaultHandler;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.List;
 
 /**
  * The handler for {@link Flower} data.

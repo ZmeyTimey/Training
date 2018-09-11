@@ -10,12 +10,12 @@ import java.util.Set;
 public class VisualParameters {
 
     /**
-     * Stalk color of a plant.
+     * Stalk color(s) of a plant.
      */
     private Set<String> stalkColor;
 
     /**
-     * Leaves color of a plant.
+     * Leaves color(s) of a plant.
      */
     private Set<String> leavesColor;
 
@@ -53,7 +53,7 @@ public class VisualParameters {
     public Set<String> getStalkColor() {
 
         if (stalkColor == null) {
-            stalkColor = new HashSet<>();
+            stalkColor = new PropertiesSet();
         }
         return stalkColor;
     }
@@ -66,7 +66,7 @@ public class VisualParameters {
     public Set<String> getLeavesColor() {
 
         if (leavesColor == null) {
-            leavesColor = new HashSet<>();
+            leavesColor = new PropertiesSet();
         }
         return leavesColor;
     }

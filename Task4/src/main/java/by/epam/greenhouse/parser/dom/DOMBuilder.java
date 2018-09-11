@@ -22,7 +22,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -77,7 +76,9 @@ public class DOMBuilder implements Builder {
     @Override
     public void buildSet(final InputStream fileInputStream) {
 
-        LOGGER.info("Starting DOM parser!");
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("Starting DOM parser!");
+        }
 
         try {
             Document doc = docBuilder.parse(fileInputStream);
@@ -97,7 +98,9 @@ public class DOMBuilder implements Builder {
             LOGGER.error("Parsing failure: " + e);
         }
 
-        LOGGER.info("Parsing is successfully completed!");
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("Parsing is successfully completed!");
+        }
     }
 
     /**
