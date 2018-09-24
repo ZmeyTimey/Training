@@ -4,8 +4,6 @@ table, th, td {
 }
 th, td {
     padding: 15px;
-}
-th {
     text-align: center;
 }
 h3 {
@@ -16,5 +14,4 @@ h3 {
 select, input{
     font-size:30px;
     border:solid 2px royalblue;
-    margin:2px 0 20px 10px;
 }
