@@ -6,7 +6,19 @@ import by.epam.figures.entity.Point2D;
  * {@link TriangleValidator} checks are three points form a triangle
  * or they are on one line.
  */
-public class TriangleValidator {
+public final class TriangleValidator {
+
+    /**
+     * Accuracy of point coordinates comparison.
+     */
+    private static final double COMPARISON_ACCURACY = .000001;
+    /**
+     * Private constructor.
+     */
+    private TriangleValidator() {
+        throw new AssertionError(
+                "Creating an object of this class is not allowed");
+    }
     /**
      * @param p1 is a point A of supposed triangle.
      * @param p2 is a point B of supposed triangle.
@@ -16,7 +28,10 @@ public class TriangleValidator {
     public static boolean pointsFormATriangle(final Point2D p1,
                                               final Point2D p2,
                                               final Point2D p3) {
-        return !(((p3.getX() - p1.getX()) * (p2.getY() - p1.getY()))
-                == ((p3.getY() - p1.getY()) * (p2.getX() - p1.getX())));
+
+        return Math.abs(
+                (p3.getX() - p1.getX()) * (p2.getY() - p1.getY())
+                - (p3.getY() - p1.getY()) * (p2.getX() - p1.getX()))
+                > COMPARISON_ACCURACY;
     }
 }

@@ -1,5 +1,6 @@
 package by.epam.university.controller.filter;
 
+import by.epam.university.controller.constant.ViewPath;
 import by.epam.university.dao.UserDAO;
 import by.epam.university.dao.exception.DAOException;
 import by.epam.university.dao.impl.MySqlDAOFactory;
@@ -97,17 +98,17 @@ public class AuthorizationFilter implements Filter {
         if (role.equals(Role.ADMIN)) {
 
             request.getRequestDispatcher(
-                    "/jsp/admin_menu.jsp").forward(request, response);
+                    ViewPath.ADMIN_MENU).forward(request, response);
 
         } else if (role.equals(Role.ENTRANT)) {
 
             request.getRequestDispatcher(
-                    "/jsp/entrant_menu.jsp").forward(request, response);
+                    ViewPath.ENTRANT_MENU).forward(request, response);
 
         } else {
 
             request.getRequestDispatcher(
-                    "/jsp/login.jsp").forward(request, response);
+                    ViewPath.LOGIN_PAGE).forward(request, response);
         }
     }
 }

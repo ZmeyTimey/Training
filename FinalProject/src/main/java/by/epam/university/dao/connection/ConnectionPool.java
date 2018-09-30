@@ -60,10 +60,10 @@ public final class ConnectionPool {
         try {
             Class.forName(driverName);
             connectionQueue = new ArrayBlockingQueue<>(poolSize);
-//            for (int i = 0; i < poolSize; i++) {
+            for (int i = 0; i < poolSize; i++) {
                 Connection connection = DriverManager.getConnection(dbUrl, user, password);
                 connectionQueue.add(new PooledConnection(connection));
-//            }
+            }
         } catch (ClassNotFoundException | SQLException e) {
             throw new ConnectionPoolException("Exception during connection pool initialization.", e);
         }
@@ -112,7 +112,11 @@ public final class ConnectionPool {
         return connection;
     }
 
-    public void closeDBResources(Connection connection, Statement statement, ResultSet resultSet) throws SQLException {
+    public void closeDBResources(Connection connection,
+                                 Statement statement,
+                                 ResultSet resultSet)
+            throws SQLException {
+
         closeResultSet(resultSet);
         closeStatement(statement);
         closeConnection(connection);

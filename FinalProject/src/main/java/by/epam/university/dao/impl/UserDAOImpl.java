@@ -87,9 +87,14 @@ public class UserDAOImpl extends AbstractDAO implements UserDAO {
         ResultSet resultSet = null;
 
         try {
+            System.out.println("add user");
             connection = getConnection();
-            statement = connection.prepareStatement(ADD_USER, Statement.RETURN_GENERATED_KEYS);
+            System.out.println(connection);
+            statement
+                    = connection.prepareStatement(
+                            ADD_USER, Statement.RETURN_GENERATED_KEYS);
 
+            System.out.println(statement);
             statement.setString(1, user.getLogin());
             statement.setString(2, user.getPassword());
             statement.setString(3, user.getName());
@@ -99,11 +104,14 @@ public class UserDAOImpl extends AbstractDAO implements UserDAO {
             statement.setString(7, user.getPhone());
 
             Role role = user.getRole();
+            System.out.println(role);
             int roleId = getRoleId(role);
+            System.out.println(roleId);
             statement.setInt(8, roleId);
 
             statement.executeUpdate();
 
+            System.out.println("executeUpdate");
             resultSet = statement.getGeneratedKeys();
             resultSet.next();
 
@@ -181,7 +189,8 @@ public class UserDAOImpl extends AbstractDAO implements UserDAO {
      *             working with data base.
      */
     @Override
-    public User getUser(String login, String password) throws DAOException {
+    public User getUser(String login, String password)
+            throws DAOException {
 
         Connection connection = null;
         PreparedStatement statement = null;
@@ -305,12 +314,18 @@ public class UserDAOImpl extends AbstractDAO implements UserDAO {
         ResultSet resultSet;
 
         try {
+            System.out.println("getRoleId start");
             connection = getConnection();
+            System.out.println(connection);
             statement = connection.prepareStatement(GET_ROLE_ID);
+            System.out.println(statement);
             statement.setString(1, value);
             resultSet = statement.executeQuery();
+            System.out.println(resultSet);
             resultSet.next();
-            return resultSet.getInt(1);
+            int result = resultSet.getInt(1);
+            System.out.println(result);
+            return result;
 
         } catch (SQLException | ConnectionPoolException e) {
             throw new DAOException(

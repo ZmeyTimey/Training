@@ -11,13 +11,19 @@ import java.util.Iterator;
 /**
  * {@link Repository} class allows you to manage the {@link Storage}.
  */
-public class Repository {
+public final class Repository {
     /**
      * {@link Logger} class object for making logs.
      */
     private static final Logger LOGGER = LogManager.getLogger(Repository.class);
 
-    private Repository() { }
+    /**
+     * Private constructor.
+     */
+    private Repository() {
+        throw new AssertionError(
+            "Creating an object of this class is not allowed");
+    }
 
     /**
      * Method adds a pair of triangle and it's {@link Registrator}

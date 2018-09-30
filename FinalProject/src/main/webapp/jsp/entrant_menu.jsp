@@ -12,6 +12,6 @@
 </head>
 <body>
 <h1>Hello, entrant!</h1>
-<a href="/logout">Logout</a>
+<a href="logout">Logout</a>
 </body>
 </html>

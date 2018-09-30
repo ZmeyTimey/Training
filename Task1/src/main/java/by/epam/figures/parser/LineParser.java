@@ -64,6 +64,7 @@ public class LineParser {
     public final String getName() {
         return name;
     }
+
     /**
      * @param line read from file and had to be parsed
      * @throws OutOfDoubleRangeException is thrown when a value of point
@@ -102,7 +103,7 @@ public class LineParser {
                 i++;
             }
 
-            getPointsFromList(pointList);
+            splitPointsFromList(pointList);
 
             LOGGER.log(Level.DEBUG, "Line: " + line
                     + " is successfully parsed. The points are created.");
@@ -117,7 +118,7 @@ public class LineParser {
     /**
      * @param pointList is a list of points created on the basis of parsed data.
      */
-    private void getPointsFromList(final List<Point2D> pointList) {
+    private void splitPointsFromList(final List<Point2D> pointList) {
 
         pointA = pointList.get(0);
         pointB = pointList.get(1);

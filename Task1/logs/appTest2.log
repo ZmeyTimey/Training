@@ -67,4 +67,13 @@
 "2018-07-17 18:12:36,765 ERROR creator.TriangleCreator [main] by.epam.figures.creator.TriangleCreator.createTriangle(TriangleCreator.java:66) Points (-3.0, -21.6); (-3.0, 1.0); (-3.0, 22.5) doesn't form a triangle
 "2018-07-17 20:31:04,175 WARN specification.SearchById [main] by.epam.figures.specification.SearchById.getRegistrator(SearchById.java:76) Registrator of the triangle with id = 2 not found
 "2018-07-17 20:31:04,276 WARN specification.SearchById [main] by.epam.figures.specification.SearchById.getRegistrator(SearchById.java:76) Registrator of the triangle with id = 3 not found
+"2018-09-30 18:02:26,834 WARN reader.ReaderTest [main] by.epam.figures.creator.FigureCreatorTest.testCreateTriangle(FigureCreatorTest.java:55) Points (1.0, 1.0); (3.0, 3.0); (9.0, 9.0) doesn't form a triangle
+"2018-09-30 18:17:53,364 WARN specification.SearchById [main] by.epam.figures.specification.SearchById.getTriangle(SearchById.java:40) Triangle with id = 1 not found
+"2018-09-30 18:17:53,605 WARN specification.SearchById [main] by.epam.figures.specification.SearchById.getTriangle(SearchById.java:40) Triangle with id = 1 not found
+"2018-09-30 18:17:53,673 WARN specification.SearchById [main] by.epam.figures.specification.SearchById.getTriangle(SearchById.java:40) Triangle with id = 1 not found
+"2018-09-30 18:17:53,721 ERROR creator.TriangleCreator [main] by.epam.figures.creator.TriangleCreator.createTriangle(TriangleCreator.java:73) Points (2.0, 3.0); (2.0, 3.0); (2.0, 3.0) doesn't form a triangle
+"2018-09-30 18:17:53,729 ERROR creator.TriangleCreator [main] by.epam.figures.creator.TriangleCreator.createTriangle(TriangleCreator.java:73) Points (1.0, 1.0); (3.0, 3.0); (9.0, 9.0) doesn't form a triangle
+"2018-09-30 18:17:53,749 ERROR creator.TriangleCreator [main] by.epam.figures.creator.TriangleCreator.createTriangle(TriangleCreator.java:73) Points (-10.0, 3.0); (0.0, 3.0); (10.0, 3.0) doesn't form a triangle
+"2018-09-30 18:17:53,761 ERROR creator.TriangleCreator [main] by.epam.figures.creator.TriangleCreator.createTriangle(TriangleCreator.java:73) Points (-3.0, -21.6); (-3.0, 1.0); (-3.0, 22.5) doesn't form a triangle
+"2018-09-30 18:18:09,706 WARN reader.ReaderTest [main] by.epam.figures.creator.FigureCreatorTest.testCreateTriangle(FigureCreatorTest.java:55) Points (1.0, 1.0); (3.0, 3.0); (9.0, 9.0) doesn't form a triangle
 "

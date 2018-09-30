@@ -171,7 +171,7 @@ public class TriangleAction {
         return (double) intermediate / precise;
     }
 
-    public boolean triangleIsRight(final Triangle triangle,
+    public boolean isTriangleRight(final Triangle triangle,
                                    final int roundCoefficient)
             throws OutOfDoubleRangeException {
 

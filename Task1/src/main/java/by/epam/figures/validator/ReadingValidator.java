@@ -8,7 +8,15 @@ import java.util.regex.Pattern;
  * and is it's valid.
  */
 
-public class ReadingValidator {
+public final class ReadingValidator {
+
+    /**
+     * Private constructor.
+     */
+    private ReadingValidator() {
+        throw new AssertionError(
+                "Creating an object of this class is not allowed");
+    }
     /**
      * @param line is a line read from file.
      * @return the conditions indicating that line is valid.

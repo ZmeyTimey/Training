@@ -13,6 +13,12 @@ public class Point2D {
      * Coefficient is used in hash code generating.
      */
     private static final int HASH_CODE_COEFFICIENT_2 = 37;
+
+    /**
+     * Accuracy of point coordinates comparison.
+     */
+    private static final double COMPARISON_ACCURACY = .000001;
+
     /**
      * X-coordinate of a point.
      */
@@ -92,7 +98,7 @@ public class Point2D {
 
         Point2D point = (Point2D) obj;
 
-        return (coordinateX == point.coordinateX)
+        return (Math.abs(coordinateX - point.coordinateX) < COMPARISON_ACCURACY)
                 && (coordinateY == point.coordinateY);
     }
 }

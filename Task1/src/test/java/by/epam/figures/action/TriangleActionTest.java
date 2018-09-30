@@ -275,7 +275,7 @@ public class TriangleActionTest {
                                           final boolean isRight)
             throws OutOfDoubleRangeException {
 
-        Assert.assertEquals(action.triangleIsRight(triangle,
+        Assert.assertEquals(action.isTriangleRight(triangle,
                 ROUND_COEFFICIENT), isRight);
     }
 

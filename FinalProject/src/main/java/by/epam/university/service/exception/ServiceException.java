@@ -2,8 +2,6 @@ package by.epam.university.service.exception;
 
 public class ServiceException extends Exception {
 
-    private static final long serialVersionUID = 782056315821807740L;
-
     public ServiceException() {
         super();
     }

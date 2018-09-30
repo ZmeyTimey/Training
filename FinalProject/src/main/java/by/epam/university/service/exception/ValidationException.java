@@ -2,8 +2,6 @@ package by.epam.university.service.exception;
 
 public class ValidationException extends Exception {
 
-    private static final long serialVersionUID = -3618779226956478411L;
-
     public ValidationException() {
         super();
     }

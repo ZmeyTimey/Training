@@ -8,12 +8,20 @@ import org.apache.logging.log4j.Logger;
 /**
  * Contains method createPoint which creates a new {@link Point2D} object.
  */
-public class PointCreator {
+public final class PointCreator {
     /**
      * {@link Logger} class object for making logs.
      */
     private static final Logger LOGGER
             = LogManager.getLogger(PointCreator.class);
+
+    /**
+     * Private constructor.
+     */
+    private PointCreator() {
+        throw new AssertionError(
+                "Creating an object of this class is not allowed");
+    }
 
     /**
      *

@@ -19,6 +19,16 @@
         <url-pattern>/</url-pattern>
     </filter-mapping>
 
+    <servlet>
+        <servlet-name>Controller</servlet-name>
+        <servlet-class>by.epam.university.controller.Controller</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Controller</servlet-name>
+        <url-pattern>/controller</url-pattern>
+    </servlet-mapping>
+
     <!--Logout servlet-->
     <servlet>
         <servlet-name>LogoutServlet</servlet-name>
@@ -27,7 +37,7 @@
 
     <servlet-mapping>
         <servlet-name>LogoutServlet</servlet-name>
-        <url-pattern>/logout</url-pattern>
+        <url-pattern>logout</url-pattern>
     </servlet-mapping>
 </web-app>
 

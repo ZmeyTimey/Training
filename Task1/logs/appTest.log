@@ -2714,3 +2714,60 @@
 2018-07-17 22:16:23,680 DEBUG b.e.f.a.TriangleAction [main] Calculation complete. AB = 6.0, AC = 8006.014051948698, BC = 8006.0050587043725 
 2018-07-17 22:16:23,680 DEBUG b.e.f.a.TriangleAction [main] Calculating is successfully completed. Square = 24017.99999999636 
 2018-07-17 22:16:23,681 DEBUG b.e.f.r.Repository [main] Repository updating 
+2018-09-30 18:02:26,834 WARN b.e.f.r.ReaderTest [main] Points (1.0, 1.0); (3.0, 3.0); (9.0, 9.0) doesn't form a triangle 
+2018-09-30 18:17:53,303 DEBUG b.e.f.c.TriangleCreator [main] Triangle tr: (2.0, 3.0) (4.0, 1.0) (-1.0, -2.0) has been created 
+2018-09-30 18:17:53,318 DEBUG b.e.f.a.TriangleAction [main] Calculating perimeter of Triangle tr: (2.0, 3.0) (4.0, 1.0) (-1.0, -2.0) 
+2018-09-30 18:17:53,319 DEBUG b.e.f.a.TriangleAction [main] The sides of the triangle calculating 
+2018-09-30 18:17:53,321 DEBUG b.e.f.a.TriangleAction [main] Calculation complete. AB = 2.8284271247461903, AC = 5.830951894845301, BC = 5.830951894845301 
+2018-09-30 18:17:53,321 DEBUG b.e.f.a.TriangleAction [main] Calculating is successfully completed. Perimeter = 14.490330914436791 
+2018-09-30 18:17:53,323 DEBUG b.e.f.a.TriangleAction [main] Calculating square of Triangle tr: (2.0, 3.0) (4.0, 1.0) (-1.0, -2.0) 
+2018-09-30 18:17:53,357 DEBUG b.e.f.a.TriangleAction [main] The sides of the triangle calculating 
+2018-09-30 18:17:53,357 DEBUG b.e.f.a.TriangleAction [main] Calculation complete. AB = 2.8284271247461903, AC = 5.830951894845301, BC = 5.830951894845301 
+2018-09-30 18:17:53,358 DEBUG b.e.f.a.TriangleAction [main] Calculating is successfully completed. Square = 7.999999999999998 
+2018-09-30 18:17:53,359 DEBUG b.e.f.c.TriangleCreator [main] Triangle has been added to the storage. 
+2018-09-30 18:17:53,364 WARN b.e.f.s.SearchById [main] Triangle with id = 1 not found 
+2018-09-30 18:17:53,459 DEBUG b.e.f.c.TriangleCreator [main] Triangle tr: (2.0, 3.0) (698.0, 15500.0) (-89219.0, 3000.0) has been created 
+2018-09-30 18:17:53,460 DEBUG b.e.f.a.TriangleAction [main] Calculating perimeter of Triangle tr: (2.0, 3.0) (698.0, 15500.0) (-89219.0, 3000.0) 
+2018-09-30 18:17:53,461 DEBUG b.e.f.a.TriangleAction [main] The sides of the triangle calculating 
+2018-09-30 18:17:53,571 DEBUG b.e.f.a.TriangleAction [main] Calculation complete. AB = 15512.621474141628, AC = 89271.32154281127, BC = 90781.69908632466 
+2018-09-30 18:17:53,594 DEBUG b.e.f.a.TriangleAction [main] Calculating is successfully completed. Perimeter = 195565.64210327755 
+2018-09-30 18:17:53,594 DEBUG b.e.f.a.TriangleAction [main] Calculating square of Triangle tr: (2.0, 3.0) (698.0, 15500.0) (-89219.0, 3000.0) 
+2018-09-30 18:17:53,597 DEBUG b.e.f.a.TriangleAction [main] The sides of the triangle calculating 
+2018-09-30 18:17:53,598 DEBUG b.e.f.a.TriangleAction [main] Calculation complete. AB = 15512.621474141628, AC = 89271.32154281127, BC = 90781.69908632466 
+2018-09-30 18:17:53,598 DEBUG b.e.f.a.TriangleAction [main] Calculating is successfully completed. Square = 6.923718744999995E8 
+2018-09-30 18:17:53,599 DEBUG b.e.f.c.TriangleCreator [main] Triangle has been added to the storage. 
+2018-09-30 18:17:53,605 WARN b.e.f.s.SearchById [main] Triangle with id = 1 not found 
+2018-09-30 18:17:53,647 DEBUG b.e.f.c.TriangleCreator [main] Triangle tr: (0.0, 0.0) (0.0, -333.0) (999.0, -333.0) has been created 
+2018-09-30 18:17:53,658 DEBUG b.e.f.a.TriangleAction [main] Calculating perimeter of Triangle tr: (0.0, 0.0) (0.0, -333.0) (999.0, -333.0) 
+2018-09-30 18:17:53,659 DEBUG b.e.f.a.TriangleAction [main] The sides of the triangle calculating 
+2018-09-30 18:17:53,659 DEBUG b.e.f.a.TriangleAction [main] Calculation complete. AB = 333.0, AC = 1053.0384608360703, BC = 999.0 
+2018-09-30 18:17:53,666 DEBUG b.e.f.a.TriangleAction [main] Calculating is successfully completed. Perimeter = 2385.03846083607 
+2018-09-30 18:17:53,667 DEBUG b.e.f.a.TriangleAction [main] Calculating square of Triangle tr: (0.0, 0.0) (0.0, -333.0) (999.0, -333.0) 
+2018-09-30 18:17:53,667 DEBUG b.e.f.a.TriangleAction [main] The sides of the triangle calculating 
+2018-09-30 18:17:53,668 DEBUG b.e.f.a.TriangleAction [main] Calculation complete. AB = 333.0, AC = 1053.0384608360703, BC = 999.0 
+2018-09-30 18:17:53,669 DEBUG b.e.f.a.TriangleAction [main] Calculating is successfully completed. Square = 166333.49999999985 
+2018-09-30 18:17:53,671 DEBUG b.e.f.c.TriangleCreator [main] Triangle has been added to the storage. 
+2018-09-30 18:17:53,673 WARN b.e.f.s.SearchById [main] Triangle with id = 1 not found 
+2018-09-30 18:17:53,721 ERROR b.e.f.c.TriangleCreator [main] Points (2.0, 3.0); (2.0, 3.0); (2.0, 3.0) doesn't form a triangle 
+2018-09-30 18:17:53,729 ERROR b.e.f.c.TriangleCreator [main] Points (1.0, 1.0); (3.0, 3.0); (9.0, 9.0) doesn't form a triangle 
+2018-09-30 18:17:53,749 ERROR b.e.f.c.TriangleCreator [main] Points (-10.0, 3.0); (0.0, 3.0); (10.0, 3.0) doesn't form a triangle 
+2018-09-30 18:17:53,761 ERROR b.e.f.c.TriangleCreator [main] Points (-3.0, -21.6); (-3.0, 1.0); (-3.0, 22.5) doesn't form a triangle 
+2018-09-30 18:18:09,706 WARN b.e.f.r.ReaderTest [main] Points (1.0, 1.0); (3.0, 3.0); (9.0, 9.0) doesn't form a triangle 
+2018-09-30 18:35:43,720 DEBUG b.e.f.c.PointCreator [main] Point: x = 2.0 y = 3.0 is created 
+2018-09-30 18:35:43,751 DEBUG b.e.f.c.PointCreator [main] Point: x = 4.0 y = 1.0 is created 
+2018-09-30 18:35:43,751 DEBUG b.e.f.c.PointCreator [main] Point: x = -1.0 y = -2.0 is created 
+2018-09-30 18:35:43,751 DEBUG b.e.f.c.PointCreator [main] Point: x = 1.0 y = 1.0 is created 
+2018-09-30 18:35:43,751 DEBUG b.e.f.c.PointCreator [main] Point: x = 3.0 y = 3.0 is created 
+2018-09-30 18:35:43,751 DEBUG b.e.f.c.PointCreator [main] Point: x = 9.0 y = 9.0 is created 
+2018-09-30 18:49:36,984 DEBUG b.e.f.c.PointCreator [main] Point: x = 2.0 y = 3.0 is created 
+2018-09-30 18:49:36,995 DEBUG b.e.f.c.PointCreator [main] Point: x = 4.0 y = 1.0 is created 
+2018-09-30 18:49:36,997 DEBUG b.e.f.c.PointCreator [main] Point: x = -1.0 y = -2.0 is created 
+2018-09-30 18:49:36,999 DEBUG b.e.f.c.PointCreator [main] Point: x = 1.0 y = 1.0 is created 
+2018-09-30 18:49:37,001 DEBUG b.e.f.c.PointCreator [main] Point: x = 3.0 y = 3.0 is created 
+2018-09-30 18:49:37,002 DEBUG b.e.f.c.PointCreator [main] Point: x = 9.0 y = 9.0 is created 
+2018-09-30 18:52:31,579 DEBUG b.e.f.c.PointCreator [main] Point: x = 2.0 y = 3.0 is created 
+2018-09-30 18:52:31,615 DEBUG b.e.f.c.PointCreator [main] Point: x = 4.0 y = 1.0 is created 
+2018-09-30 18:52:31,617 DEBUG b.e.f.c.PointCreator [main] Point: x = -1.0 y = -2.0 is created 
+2018-09-30 18:52:31,618 DEBUG b.e.f.c.PointCreator [main] Point: x = 1.0 y = 1.0 is created 
+2018-09-30 18:52:31,619 DEBUG b.e.f.c.PointCreator [main] Point: x = 3.0 y = 3.0 is created 
+2018-09-30 18:52:31,620 DEBUG b.e.f.c.PointCreator [main] Point: x = 9.0 y = 9.0 is created 

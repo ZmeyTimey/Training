@@ -56,12 +56,13 @@ public class Triangle {
         pointB = p2;
         pointC = p3;
     }
+
     /**
      * @param p1 is transmitted first point for creating a triangle.
      * @param p2 is transmitted second point for creating a triangle.
      * @param p3 is transmitted third point for creating a triangle.
      * @param name is transmitted name of triangle.
-     * @param id is transmetted id of triangle.
+     * @param id is transmitted id of triangle.
      */
     public Triangle(final String name, final int id,
                     final Point2D p1, final Point2D p2, final Point2D p3) {

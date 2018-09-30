@@ -11,6 +11,6 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$
+  <jsp:forward page="/jsp/login.jsp"/>
   </body>
 </html>

@@ -10,7 +10,8 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
 /**
- * The class initializes and destroys the connection pool when application starts and shuts down respectively.
+ * The class initializes and destroys the connection pool
+ * when application starts and shuts down respectively.
  *
  */
 public class ContextListener implements ServletContextListener {
